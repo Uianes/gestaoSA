@@ -12,20 +12,23 @@
 <body>
   
   <nav class="navbar bg-body-secondary fixed-top">
-    <div class="container-fluid d-flex">
+    <div class="container-fluid d-flex justify-content-start">
       <a class="navbar-brand" href="#">GestãoSA</a>
+      <div class="flex-grow-1 ms-1">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
       <div class="d-flex">
-        <form class="d-flex" role="search"></form>
-          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <form role="search"></form>
+          <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
         </form>
       </div>
       
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      
      
-      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div class="offcanvas-header">
           <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegação</h5>
           <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -45,7 +48,7 @@
               <a class="nav-link" href="#">Excluir Patrimônio</a>
             </li>
             <li class="nav-item"></li>
-              <a class="nav-link" href="#">Baixar Patrimônio</a>
+              <a class="nav-link" href="#">Baixa Patrimônio</a>
             </li>
             <li class="nav-item"></li>
               <a class="nav-link" href="#">Leilão Patrimônio</a>
