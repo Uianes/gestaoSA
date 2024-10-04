@@ -38,19 +38,24 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="#">Cadastrar Patrimônio</a>
+              <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                data-bs-target="#ModalCadastrarPatrimonio">Cadastrar Patrimônio</button>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Editar Patrimônio</a>
+              <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                data-bs-target="#ModalCadastrarPatrimonio">Editar Patrimônio</button>
             </li>
-            <li class="nav-item"></li>
-            <a class="nav-link" href="#">Excluir Patrimônio</a>
+            <li class="nav-item">
+            <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                data-bs-target="#ModalCadastrarPatrimonio">Excluir Patrimônio</button>
             </li>
-            <li class="nav-item"></li>
-            <a class="nav-link" href="#">Baixa Patrimônio</a>
+            <li class="nav-item">
+            <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                data-bs-target="#ModalCadastrarPatrimonio">Baixa Patrimônio</button>
             </li>
-            <li class="nav-item"></li>
-            <a class="nav-link" href="#">Leilão Patrimônio</a>
+            <li class="nav-item">
+            <button type="button" class="btn btn-link" data-bs-toggle="modal"
+                data-bs-target="#ModalCadastrarPatrimonio">Leilão Patrimônio</button>
             </li>
           </ul>
         </div>
@@ -59,6 +64,7 @@
   </nav>
 
   <div class="container-fluid">
+    <!-- tabela -->
     <div class="row justify-content-center">
       <div class="col-10">
         <table class="table table-bordered mt-3 table-striped">
@@ -97,6 +103,8 @@
         </table>
       </div>
     </div>
+
+    <!-- Pagination -->
     <div class="row justify-content-center">
       <div class="col-10">
         <nav aria-label="Page navigation"></nav>
@@ -112,7 +120,105 @@
     </div>
 
 
+    <!-- Modal Cadastrar Patrimônio -->
+    <div class="modal fade" id="ModalCadastrarPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
 
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Editar Patrimônio -->
+    <div class="modal fade" id="ModalEditarPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Excluir Patrimônio -->
+    <div class="modal fade" id="ModalExcluirPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Baixa Patrimônio -->
+    <div class="modal fade" id="ModalBaixaPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Baixa Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Leilão Patrimônio -->
+    <div class="modal fade" id="ModalLeilaoPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Leilão Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            <button type="button" class="btn btn-primary">Salvar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 
