@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="utf-8">
@@ -22,47 +22,41 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      <div class="d-flex">
-        <form role="search"></form>
+      <form action="" class="d-flex">
         <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
-        </form>
-      </div>
-
-
-
-      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegação</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <button type="button" class="btn" data-bs-toggle="modal"
-                data-bs-target="#ModalCadastrarPatrimonio">Cadastrar Patrimônio</button>
-            </li>
-            <li class="nav-item">
-              <button type="button" class="btn" data-bs-toggle="modal"
-                data-bs-target="#ModalCadastrarPatrimonio">Editar Patrimônio</button>
-            </li>
-            <li class="nav-item">
-            <button type="button" class="btn" data-bs-toggle="modal"
-                data-bs-target="#ModalCadastrarPatrimonio">Excluir Patrimônio</button>
-            </li>
-            <li class="nav-item">
-            <button type="button" class="btn" data-bs-toggle="modal"
-                data-bs-target="#ModalCadastrarPatrimonio">Baixa Patrimônio</button>
-            </li>
-            <li class="nav-item">
-            <button type="button" class="btn" data-bs-toggle="modal"
-                data-bs-target="#ModalCadastrarPatrimonio">Leilão Patrimônio</button>
-            </li>
-          </ul>
-        </div>
-      </div>
+      </form>
     </div>
   </nav>
+
+
+  <!-- offcanvas navbar -->
+  <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Navegação</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+        <li class="nav-item">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalCadastrarPatrimonio">Cadastrar
+            Patrimônio</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalExcluirPatrimonio">Excluir
+            Patrimônio</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalBaixaPatrimonio">Baixa
+            Patrimônio</button>
+        </li>
+        <li class="nav-item">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalLeilaoPatrimonio">Leilão
+            Patrimônio</button>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <div class="container-fluid">
     <!-- tabela -->
@@ -76,6 +70,7 @@
               <th scope="col">Data Entrada</th>
               <th scope="col">Localização</th>
               <th scope="col">Status</th>
+              <th scope="col">Editar</th>
             </tr>
           </thead>
           <tbody class="table-group-divider">
@@ -85,20 +80,10 @@
               <td></td>
               <td></td>
               <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td class="text-center">
+                <button class="mx-1 btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditarPatrimonio"><i class="bi bi-pencil-fill"></i></button>
+                <button class="mx-1 btn btn-danger"><i class="bi bi-trash-fill"></i></button>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -120,7 +105,6 @@
       </div>
     </div>
 
-
     <!-- Modal Cadastrar Patrimônio -->
     <div class="modal fade" id="ModalCadastrarPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
@@ -131,31 +115,32 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form action="" method="POST">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Nº Patrimônio</span>
+                <input type="text" class="form-control" name="numeroPatrimonio">
+              </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text">Nº Patrimônio</span>
-              <input type="text" class="form-control">
-            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">descrição</span>
+                <textarea class="form-control" name="descricao"></textarea>
+              </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text">descrição</span>
-              <textarea class="form-control"></textarea>
-            </div>
-            
-            <div class="input-group mb-3">
-              <span class="input-group-text">Data Entrada</span>
-              <input type="date" class="form-control">
-            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Data Entrada</span>
+                <input type="date" class="form-control" name="dataEntrada">
+              </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text">localização</span>
-              <input type="text" class="form-control">
-            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">localização</span>
+                <textarea type="text" class="form-control" name="localizacao"></textarea>
+              </div>
 
-            <div class="input-group mb-3">
-              <span class="input-group-text">Status</span>
-              <input type="text" class="form-control">
-            </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Status</span>
+                <input type="text" class="form-control" name="status">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -175,7 +160,32 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form action="" method="POST">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Nº Patrimônio</span>
+                <input type="text" class="form-control" name="numeroPatrimonio">
+              </div>
 
+              <div class="input-group mb-3">
+                <span class="input-group-text">descrição</span>
+                <textarea class="form-control" name="descricao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Data Entrada</span>
+                <input type="date" class="form-control" name="dataEntrada">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">localização</span>
+                <textarea type="text" class="form-control" name="localizacao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Status</span>
+                <input type="text" class="form-control" name="status">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -195,7 +205,32 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form action="" method="POST">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Nº Patrimônio</span>
+                <input type="text" class="form-control" name="numeroPatrimonio">
+              </div>
 
+              <div class="input-group mb-3">
+                <span class="input-group-text">descrição</span>
+                <textarea class="form-control" name="descricao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Data Entrada</span>
+                <input type="date" class="form-control" name="dataEntrada">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">localização</span>
+                <textarea type="text" class="form-control" name="localizacao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Status</span>
+                <input type="text" class="form-control" name="status">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -215,7 +250,33 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form action="" method="POST">
 
+              <div class="input-group mb-3">
+                <span class="input-group-text">Nº Patrimônio</span>
+                <input type="text" class="form-control" name="numeroPatrimonio">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">descrição</span>
+                <textarea class="form-control" name="descricao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Data Entrada</span>
+                <input type="date" class="form-control" name="dataEntrada">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">localização</span>
+                <textarea type="text" class="form-control" name="localizacao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Status</span>
+                <input type="text" class="form-control" name="status">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
@@ -235,7 +296,32 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
+            <form action="" method="POST">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Nº Patrimônio</span>
+                <input type="text" class="form-control" name="numeroPatrimonio">
+              </div>
 
+              <div class="input-group mb-3">
+                <span class="input-group-text">descrição</span>
+                <textarea class="form-control" name="descricao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Data Entrada</span>
+                <input type="date" class="form-control" name="dataEntrada">
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">localização</span>
+                <textarea type="text" class="form-control" name="localizacao"></textarea>
+              </div>
+
+              <div class="input-group mb-3">
+                <span class="input-group-text">Status</span>
+                <input type="text" class="form-control" name="status">
+              </div>
+            </form>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
