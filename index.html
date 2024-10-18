@@ -43,15 +43,14 @@
             Patrimônio</button>
         </li>
         <li class="nav-item">
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalEditarPatrimonio">Editar Patrimonio</button>
+        </li>
+        <li class="nav-item">
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalExcluirPatrimonio">Excluir
             Patrimônio</button>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalBaixaPatrimonio">Baixa
-            Patrimônio</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalLeilaoPatrimonio">Leilão
+          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalDescartePatrimonio">Descarte
             Patrimônio</button>
         </li>
       </ul>
@@ -64,12 +63,13 @@
       <div class="col-10">
         <table class="table table-bordered mt-3 table-striped">
           <thead>
-            <tr>
+            <tr class="text-center">
               <th scope="col">Nº Patrimônio</th>
               <th scope="col">Descrição</th>
               <th scope="col">Data Entrada</th>
               <th scope="col">Localização</th>
               <th scope="col">Status</th>
+              <th scope="col">Memorando</th>
               <th scope="col">Editar</th>
             </tr>
           </thead>
@@ -80,8 +80,10 @@
               <td></td>
               <td></td>
               <td></td>
+              <td></td>
               <td class="text-center">
-                <button class="mx-1 btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditarPatrimonio"><i class="bi bi-pencil-fill"></i></button>
+                <button class="mx-1 btn" type="button" data-bs-toggle="modal" data-bs-target="#ModalEditarPatrimonio"><i
+                    class="bi bi-pencil-fill"></i></button>
                 <button class="mx-1 btn btn-danger"><i class="bi bi-trash-fill"></i></button>
               </td>
             </tr>
@@ -114,38 +116,45 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <form action="" method="POST">
+          <form action="./insert.php" method="POST">
+            <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio">
+                <input type="text" class="form-control" name="numeroPatrimonio" maxlength="20" oninput="verificarLimite(this)" required>
+                <span class="input-group-text" id="contadorNumeroPatrimonio">0/20</span>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
+                <textarea class="form-control" name="descricao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada">
+                <input type="date" class="form-control" name="dataEntrada" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">localização</span>
-                <textarea type="text" class="form-control" name="localizacao"></textarea>
+                <textarea type="text" class="form-control" name="localizacao" maxlength="500" oninput="verificarLimite(this)" required></textarea>
+                <span class="input-group-text" id="contadorLocalizacao">0/500</span>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <input type="text" class="form-control" name="status">
+                <select id="status" name="status" class="form-select" onchange="toggleMemorandoInput()" required>
+                  <option selected disabled value="">Selecione uma Opção</option>
+                  <option value="tombado">Tombado</option>
+                  <option value="descarte">Descarte</option>
+                </select>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Salvar</button>
-          </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Memorando</span>
+                <input id="memorando" type="text" class="form-control" name="memorando" maxlength="30" oninput="verificarLimite(this)" disabled>
+                <span class="input-group-text" id="contadorMemorando">0/30</span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <input type="submit" class="btn btn-success">
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -159,38 +168,39 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Editar Patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <form action="" method="POST">
+          <form action="" method="POST">
+            <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio">
+                <input type="text" class="form-control" name="numeroPatrimonio" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
+                <textarea class="form-control" name="descricao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada">
+                <input type="date" class="form-control" name="dataEntrada" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">localização</span>
-                <textarea type="text" class="form-control" name="localizacao"></textarea>
+                <textarea type="text" class="form-control" name="localizacao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <input type="text" class="form-control" name="status">
+                <select name="status" class="form-select" required>
+                  <option selected disabled value="">Selecione uma Opção</option>
+                  <option value="tombado">Tombado</option>
+                  <option value="descarte">Descarte</option>
+                </select>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Salvar</button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <input type="submit" class="btn btn-success">
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
@@ -204,135 +214,90 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <form action="" method="POST">
+          <form action="" method="POST">
+            <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio">
+                <input type="text" class="form-control" name="numeroPatrimonio" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
+                <textarea class="form-control" name="descricao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada">
+                <input type="date" class="form-control" name="dataEntrada" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">localização</span>
-                <textarea type="text" class="form-control" name="localizacao"></textarea>
+                <textarea type="text" class="form-control" name="localizacao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <input type="text" class="form-control" name="status">
+                <select name="status" class="form-select" required>
+                  <option selected disabled value="">Selecione uma Opção</option>
+                  <option value="tombado">Tombado</option>
+                  <option value="descarte">Descarte</option>
+                </select>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Salvar</button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <input type="submit" class="btn btn-success">
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
 
     <!-- Modal Baixa Patrimônio -->
-    <div class="modal fade" id="ModalBaixaPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
+    <div class="modal fade" id="ModalDescartePatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
       <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Baixa Patrimônio</h1>
+            <h1 class="modal-title fs-5" id="exampleModalLabel">Descarte Patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="modal-body">
-            <form action="" method="POST">
-
+          <form action="./insert.php" method="POST">
+            <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio">
+                <input type="text" class="form-control" name="numeroPatrimonio" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
+                <textarea class="form-control" name="descricao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada">
+                <input type="date" class="form-control" name="dataEntrada" required>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">localização</span>
-                <textarea type="text" class="form-control" name="localizacao"></textarea>
+                <textarea type="text" class="form-control" name="localizacao" required></textarea>
               </div>
-
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <input type="text" class="form-control" name="status">
+                <select name="status" class="form-select" required>
+                  <option selected disabled value="">Selecione uma Opção</option>
+                  <option value="tombado">Tombado</option>
+                  <option value="descarte">Descarte</option>
+                </select>
               </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Salvar</button>
-          </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <input type="submit" class="btn btn-success">
+            </div>
+          </form>
         </div>
       </div>
     </div>
-
-    <!-- Modal Leilão Patrimônio -->
-    <div class="modal fade" id="ModalLeilaoPatrimonio" tabindex="-1" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Leilão Patrimônio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form action="" method="POST">
-              <div class="input-group mb-3">
-                <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio">
-              </div>
-
-              <div class="input-group mb-3">
-                <span class="input-group-text">descrição</span>
-                <textarea class="form-control" name="descricao"></textarea>
-              </div>
-
-              <div class="input-group mb-3">
-                <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada">
-              </div>
-
-              <div class="input-group mb-3">
-                <span class="input-group-text">localização</span>
-                <textarea type="text" class="form-control" name="localizacao"></textarea>
-              </div>
-
-              <div class="input-group mb-3">
-                <span class="input-group-text">Status</span>
-                <input type="text" class="form-control" name="status">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-            <button type="button" class="btn btn-primary">Salvar</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 
+  <script src="script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>
