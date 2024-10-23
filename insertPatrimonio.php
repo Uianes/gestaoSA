@@ -13,9 +13,13 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error()); // Se a conexão falhar, exibe uma mensagem de erro e encerra o script
 }
 
-// Criando a query SQL para inserir um novo registro na tabela 'patrimonio'
-$sql = "INSERT INTO patrimonio (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status, Memorando)
-VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['status'] ."', '".$_POST['memorando']."')";
+if ($_POST['status'] === 'tombado') {
+  $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status)
+  VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['status'] ."')";
+} elseif ($_POST['status'] === 'descarte') {
+  $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status, Memorando)
+  VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['status'] ."', '".$_POST['memorando']."')";
+}
 
 // Executando a query SQL
 if (mysqli_query($conn, $sql)) {

@@ -15,7 +15,7 @@ if (!$conn) {
 
 // Criando a query SQL para deletar um registro da tabela Patrimonio
 // O valor de 'numeroPatrimonio' é obtido do formulário enviado via método POST
-$sql = "DELETE FROM patrimonio WHERE N_Patrimonio=".$_POST['numeroPatrimonio'];
+$sql = "DELETE FROM `patrimonio` WHERE N_Patrimonio='" . $_POST['numeroPatrimonio'] . "'";
 
 // Executando a query SQL
 if (mysqli_query($conn, $sql)) {
@@ -26,4 +26,3 @@ if (mysqli_query($conn, $sql)) {
 
 // Fechando a conexão com o banco de dados
 mysqli_close($conn);
-?>
