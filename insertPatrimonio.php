@@ -14,7 +14,7 @@ if (!$conn) {
 }
 
 // Criando a query SQL para inserir um novo registro na tabela 'patrimonio'
-$sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status, Memorando)
+$sql = "INSERT INTO patrimonio (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status, Memorando)
 VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['status'] ."', '".$_POST['memorando']."')";
 
 // Executando a query SQL
