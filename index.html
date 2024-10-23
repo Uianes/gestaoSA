@@ -214,7 +214,7 @@
             <h1 class="modal-title fs-5" id="exampleModalLabel">Excluir Patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <form action="" method="POST">
+          <form action="./deletePatrimonio.php" method="POST">
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
@@ -222,19 +222,19 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">descrição</span>
-                <textarea class="form-control" name="descricao" required></textarea>
+                <textarea class="form-control" name="descricao"></textarea>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada" required>
+                <input type="date" class="form-control" name="dataEntrada">
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">localização</span>
-                <textarea type="text" class="form-control" name="localizacao" required></textarea>
+                <textarea type="text" class="form-control" name="localizacao"></textarea>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <select name="status" class="form-select" required>
+                <select name="status" class="form-select">
                   <option selected disabled value="">Selecione uma Opção</option>
                   <option value="tombado">Tombado</option>
                   <option value="descarte">Descarte</option>
