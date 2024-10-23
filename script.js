@@ -1,11 +1,11 @@
-function verificarLimite(elemento) {
-  const limite = elemento.maxLength;
-  const caracteresDigitados = elemento.value.length;
-  if (elemento.name === "numeroPatrimonio") {
+function verificarLimite(element) {
+  const limite = element.maxLength;
+  const caracteresDigitados = element.value.length;
+  if (element.name === "numeroPatrimonio") {
     document.getElementById("contadorNumeroPatrimonio").textContent = `${caracteresDigitados}/${limite}`;
-  } else if (elemento.name === "localizacao") {
+  } else if (element.name === "localizacao") {
     document.getElementById("contadorLocalizacao").textContent = `${caracteresDigitados}/${limite}`;
-  } else if (elemento.name === "memorando") {
+  } else if (element.name === "memorando") {
     document.getElementById("contadorMemorando").textContent = `${caracteresDigitados}/${limite}`;
   }
 }
@@ -23,4 +23,16 @@ function toggleMemorandoInput() {
     memorandoInput.value = "";  // Limpa o campo
     document.getElementById("contadorMemorando").textContent = "0/30";  // Reseta o contador
   }
+}
+
+function limparCampos() {
+  document.getElementById("numeroPatrimonio").value = "";
+  document.getElementById("localizacao").value = "";
+  document.getElementById("descricao").value = "";
+  document.getElementById("dataEntrada").value = "";
+  document.getElementById("status").value = "";
+  document.getElementById("memorando").value = "";
+  document.getElementById("contadorNumeroPatrimonio").textContent = "0/20";
+  document.getElementById("contadorLocalizacao").textContent = "0/500";
+  document.getElementById("contadorMemorando").textContent = "0/30";
 }
