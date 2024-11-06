@@ -8,7 +8,6 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -41,12 +40,6 @@
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalCadastrarPatrimonio">Cadastrar Patrimônio</button>
         </li>
         <li class="nav-item">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalEditarPatrimonio">Editar Patrimônio</button>
-        </li>
-        <li class="nav-item">
-          <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalExcluirPatrimonio">Excluir Patrimônio</button>
-        </li>
-        <li class="nav-item">
           <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#ModalDescartePatrimonio">Descarte Patrimônio</button>
         </li>
       </ul>
@@ -63,52 +56,70 @@
         $password = "";
         $dbname = "gestaosa";
 
-        // Create connection
+        // Cria a conexão
         $conn = mysqli_connect($servername, $username, $password, $dbname);
-        // Check connection
+
+        // Verifica a conexão
         if (!$conn) {
           die("Connection failed: " . mysqli_connect_error());
         }
 
+        // Consulta SQL
         $sql = "SELECT * FROM patrimonio";
         $result = mysqli_query($conn, $sql);
 
+        // Array para armazenar os dados (para JSON)
+        $data = [];
+
         if (mysqli_num_rows($result) > 0) {
-          // output data of each row
+          // Cabeçalho da tabela
           echo "
-            <table class='table table-bordered mt-3 table-striped'>
-              <thead>
-                <tr>
-                  <th scope='col'>Nº Patrimônio</th>
-                  <th scope='col'>Descrição</th>
-                  <th scope='col'>Data Entrada</th>
-                  <th scope='col'>Localização</th>
-                  <th scope='col'>Status</th>
-                  <th scope='col'>Memorando</th>
-                  <th scope='col'>Editar</th>
-                </tr>
-              </thead>
-              <tbody class='table-group-divider'>
-                <tr>
+                <table class='table table-bordered mt-3 table-striped'>
+                    <thead>
+                        <tr>
+                            <th scope='col'>Nº Patrimônio</th>
+                            <th scope='col'>Descrição</th>
+                            <th scope='col'>Data Entrada</th>
+                            <th scope='col'>Localização</th>
+                            <th scope='col'>Descrição Localização</th>
+                            <th scope='col'>Status</th>
+                            <th scope='col'>Memorando</th>
+                            <th scope='col'>Editar</th>
+                        </tr>
+                    </thead>
+                    <tbody class='table-group-divider'>
             ";
+
+          // Preenche as linhas da tabela e armazena no array para o JSON
           while ($row = mysqli_fetch_assoc($result)) {
+            // Adiciona cada linha ao array para o JSON
+            $data[] = $row;
+
+            // Exibe a linha na tabela
             echo "
-              <th scope='row'>" . $row["N_Patrimonio"] . "</th>
-                <td>" . $row["Descricao"] . "</td>
-                <td>" . $row["Data_Entrada"] . "</td>
-                <td>" . $row["Localizacao"] . "</td>
-                <td>" . $row["Status"] . "</td>
-                <td>" . $row["Memorando"] . "</td>
-                <td class='text-center'>
-                  <button class='mx-1 btn' type='button' data-bs-toggle='modal' data-bs-target='#ModalEditarPatrimonio' value='" . $row["N_Patrimonio"] . "'><i class='bi bi-pencil-fill'></i></button>
-                  <button class='mx-1 btn btn-danger' value='" . $row["N_Patrimonio"] . "'><i class='bi bi-trash-fill'></i></button>
-                 </td>
-              </tr>
-            ";
+                    <tr>
+                        <th scope='row'>" . $row["N_Patrimonio"] . "</th>
+                        <td>" . $row["Descricao"] . "</td>
+                        <td>" . $row["Data_Entrada"] . "</td>
+                        <td>" . $row["Localizacao"] . "</td>
+                        <td>" . $row["Descricao_Localizacao"] . "</td>
+                        <td>" . $row["Status"] . "</td>
+                        <td>" . $row["Memorando"] . "</td>
+                        <td class='text-center'>
+                            <button class='mx-1 btn' type='button' onclick='carregarDados(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-pencil-fill'></i></button>
+                            <button class='mx-1 btn btn-danger' onclick='excluirDados(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-trash-fill'></i></button>
+                        </td>
+                    </tr>
+                ";
           }
+
           echo "</tbody> </table>";
+
+          // Salva o JSON em um arquivo
+          $jsonData = json_encode($data, JSON_PRETTY_PRINT);
+          file_put_contents('temp_patrimonio.json', $jsonData);
         } else {
-          echo "0 results";
+          echo "Nenhum resultado encontrado";
         }
 
         mysqli_close($conn);
@@ -136,8 +147,8 @@
       <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalCadastrarLabel">Cadastrar Patrimônio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h1 class="modal-title fs-5">Cadastrar Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
           </div>
           <form action="./insertPatrimonio.php" method="POST">
             <div class="modal-body">
@@ -156,7 +167,18 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
-                <textarea class="form-control" name="localizacao" id="localizacaoCadastrar" maxlength="500" required></textarea>
+                <select name="localizacao" id="localizacaoCadastrar" class="form-select" required>
+                  <option selected disabled value="">Selecione uma Opção</option>
+                  <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
+                  <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
+                  <option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
+                  <option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
+                  <option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
+                  <option value="EMEF Antônio João">EMEF Antônio João</option>
+                  <option value="EMEF São João">EMEF São João</option>
+                  <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+                </select>
+                <textarea class="form-control" name="DescricaoLocalizacao" id="DescricaoLocalizacaoCadastrar" maxlength="500" required></textarea>
                 <span class="input-group-text" id="contadorLocalizacaoCadastrar">0/500</span>
               </div>
               <div class="input-group mb-3">
@@ -174,7 +196,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" onclick="limparCamposCadastrar()" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
               <input type="submit" class="btn btn-success">
             </div>
           </form>
@@ -182,45 +204,21 @@
       </div>
     </div>
 
-    <!-- Modal Editar Patrimônio Step 1 -->
-    <div class="modal fade" id="ModalEditarPatrimonio" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
+    <!-- Modal Editar Patrimônio-->
+    <div class="modal fade" id="ModalEditarPatrimonio" tabindex="-1" aria-labelledby="modalEditarStep2Label" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalEditarLabel">Editar Patrimônio - Digite o número do patrimônio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
-          </div>
-          <form action="" method="POST">
-            <div class="modal-body">
-              <div class="input-group mb-3">
-                <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar1" maxlength="20" required>
-                <span class="input-group-text" id="contadorNumeroPatrimonioEditar1">0/20</span>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">Cancelar</button>
-              <input type="submit" class="btn btn-success">
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-
-    <!-- Modal Editar Patrimônio Step 2 -->
-    <div class="modal fade" id="ModalEditarPatrimonioStep2" tabindex="-1" aria-labelledby="modalEditarStep2Label" aria-hidden="true">
-      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalEditarStep2Label">Editar Patrimônio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            <h1 class="modal-title fs-5">Editar Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
           </div>
           <form action="./updatePatrimonio.php" method="POST">
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar2" maxlength="20" required>
-                <span class="input-group-text" id="contadorNumeroPatrimonioEditar2">0/20</span>
+                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar" maxlength="20" required disabled>
+                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioEditar_backup" maxlength="20" hidden>
+                <span class="input-group-text" id="contadornumeroPatrimonioEditar">0/20</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Descrição</span>
@@ -232,16 +230,22 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
-                <textarea class="form-control" name="localizacao" id="localizacaoEditar" maxlength="500" required></textarea>
-                <span class="input-group-text" id="contadorLocalizacaoEditar">0/500</span>
+                <select name="localizacao" id="localizacaoEditar" class="form-select" required>
+                  <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
+                  <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
+                  <option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
+                  <option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
+                  <option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
+                  <option value="EMEF Antônio João">EMEF Antônio João</option>
+                  <option value="EMEF São João">EMEF São João</option>
+                  <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+                </select>
+                <textarea class="form-control" name="DescricaoLocalizacaoEditar" id="DescricaoLocalizacaoEditar" maxlength="500" required></textarea>
+                <span class="input-group-text" id="contadorLocalizacaoCadastrar">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <select id="statusEditar" name="status" class="form-select" required>
-                  <option selected disabled value="">Selecione uma Opção</option>
-                  <option value="tombado">Tombado</option>
-                  <option value="descarte">Descarte</option>
-                </select>
+                <input type="text" class="form-control" name="status" id="statusEditar" required disabled>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Memorando</span>
@@ -250,7 +254,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
               <input type="submit" class="btn btn-success">
             </div>
           </form>
@@ -259,43 +263,93 @@
     </div>
 
     <!-- Modal Excluir Patrimônio -->
-    <div class="modal fade" id="ModalExcluirPatrimonio" tabindex="-1" aria-labelledby="modalExcluirLabel" aria-hidden="true">
+    <div class="modal fade" id="ModalExcluirPatrimonio" tabindex="-1" aria-labelledby="modalEditarStep2Label" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalExcluirLabel">Excluir Patrimônio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            <h1 class="modal-title fs-5">Excluir Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
           </div>
           <form action="./deletePatrimonio.php" method="POST">
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioExcluir" maxlength="20" required>
-                <span class="input-group-text" id="contadorNumeroPatrimonioExcluir">0/20</span>
+                <input type="text" class="form-control" id="numeroPatrimonioExcluir" maxlength="20" required disabled>
+                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioExcluir_backup" maxlength="20" hidden>
+                <span class="input-group-text" id="contadornumeroPatrimonioEditar" disabled>0/20</span>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Descrição</span>
+                <textarea class="form-control" id="descricaoExcluir" required disabled></textarea>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Data Entrada</span>
+                <input type="date" class="form-control" id="dataEntradaExcluir" required disabled>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Localização</span>
+                <input type="text" class="form-control" id="localizacaoExcluir">
+                <textarea class="form-control" id="descricaoLocalizacaoExcluir" maxlength="500" required disabled></textarea>
+                <span class="input-group-text" id="contadorLocalizacaoEditar">0/500</span>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Status</span>
+                <input type="text" class="form-control" id="statusExcluir" required disabled>
+              </div>
+              <div class="input-group mb-3">
+                <span class="input-group-text">Memorando</span>
+                <input id="memorandoExcluir" type="text" class="form-control" maxlength="30" disabled>
+                <span class="input-group-text" id="contadorMemorandoEditar">0/30</span>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger"  data-bs-dismiss="modal">Cancelar</button>
-              <input type="submit" class="btn btn-success">
+              <h1 class="text-center">Deseja Realmente Excluir?</h1>
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="limparCampos()">Não</button>
+              <input type="submit" class="btn btn-danger" value="Sim">
             </div>
           </form>
         </div>
       </div>
     </div>
 
-    <!-- Modal Descarte Patrimônio -->
-    <div class="modal fade" id="ModalDescartePatrimonio" tabindex="-1" aria-labelledby="modalDescarteLabel" aria-hidden="true">
+    <!-- Modal Descarte Patrimônio Step 1 -->
+    <div class="modal fade" id="ModalDescartePatrimonio" tabindex="-1" aria-labelledby="modalEditarLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalDescarteLabel">Descarte Patrimônio</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+            <h1 class="modal-title fs-5">Editar Patrimônio - Digite o número do patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
+          </div>
+          <form action="" method="POST">
+            <div class="modal-body">
+              <div class="input-group mb-3">
+                <span class="input-group-text">Nº Patrimônio</span>
+                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte" maxlength="20" required>
+                <span class="input-group-text" id="contadorNumeroPatrimonioDescarte1">0/20</span>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
+              <input type="submit" class="btn btn-success" value="Confirmar exclusão">
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal Descarte Patrimônio Step 2-->
+    <div class="modal fade" id="ModalDescartePatrimonioStep2" tabindex="-1" aria-labelledby="modalDescarteLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5">Descarte Patrimônio</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
           </div>
           <form action="./insertPatrimonio.php" method="POST">
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte" maxlength="20" required>
+                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte" maxlength="20" disabled required>
                 <span class="input-group-text" id="contadorNumeroPatrimonioDescarte">0/20</span>
               </div>
               <div class="input-group mb-3">
@@ -326,7 +380,7 @@
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
               <input type="submit" class="btn btn-success">
             </div>
           </form>
@@ -335,7 +389,115 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script>
+    async function carregarDados(patrimonio) {
+      try {
+        // Carrega o arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        const data = await response.json();
+
+        // Encontra o objeto correspondente ao patrimônio selecionado
+        const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
+        if (!patrimonioData) {
+          console.error('Patrimônio não encontrado no JSON');
+          return;
+        }
+
+        // Preenche os campos do modal com os dados do patrimônio
+        document.getElementById("numeroPatrimonioEditar").value = patrimonioData.N_Patrimonio;
+        document.getElementById("numeroPatrimonioEditar_backup").value = patrimonioData.N_Patrimonio;
+        document.getElementById("descricaoEditar").value = patrimonioData.Descricao;
+        document.getElementById("dataEntradaEditar").value = patrimonioData.Data_Entrada;
+        document.getElementById("localizacaoEditar").value = patrimonioData.Localizacao;
+        document.getElementById("DescricaoLocalizacaoEditar").value = patrimonioData.Descricao_Localizacao;
+        document.getElementById("statusEditar").value = patrimonioData.Status;
+        document.getElementById("memorandoEditar").value = patrimonioData.Memorando;
+
+        // Exibe o modal
+        var modal = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
+        modal.show();
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+    }
+
+    async function excluirDados(patrimonio) {
+      try {
+        // Carrega o arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        const data = await response.json();
+
+        // Encontra o objeto correspondente ao patrimônio selecionado
+        const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
+        if (!patrimonioData) {
+          console.error('Patrimônio não encontrado no JSON');
+          return;
+        }
+
+        // Preenche os campos do modal com os dados do patrimônio
+        document.getElementById("numeroPatrimonioExcluir").value = patrimonioData.N_Patrimonio;
+        document.getElementById("numeroPatrimonioExcluir_backup").value = patrimonioData.N_Patrimonio;
+        document.getElementById("descricaoExcluir").value = patrimonioData.Descricao;
+        document.getElementById("dataEntradaExcluir").value = patrimonioData.Data_Entrada;
+        document.getElementById("localizacaoExcluir").value = patrimonioData.Localizacao;
+        document.getElementById("statusExcluir").value = patrimonioData.Status;
+        document.getElementById("memorandoExcluir").value = patrimonioData.Memorando;
+
+        // Exibe o modal
+        var modal = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
+        modal.show();
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+    }
+
+    function limparCampos() {
+      // modal cadastrar
+      document.getElementById("numeroPatrimonioCadastrar").value = "";
+      document.getElementById("descricaoCadastrar").value = "";
+      document.getElementById("dataEntradaCadastrar").value = "";
+      document.getElementById("localizacaoCadastrar").value = "";
+      document.getElementById("statusCadastrar").value = "";
+      document.getElementById("memorandoCadastrar").value = "";
+
+      // modal editar
+      document.getElementById("numeroPatrimonioEditar").value = "";
+      document.getElementById("numeroPatrimonioEditar_backup").value = "";
+      document.getElementById("descricaoEditar").value = "";
+      document.getElementById("dataEntradaEditar").value = "";
+      document.getElementById("localizacaoEditar").value = "";
+      document.getElementById("statusEditar").value = "";
+      document.getElementById("memorandoEditar").value = "";
+
+      // modal excluir
+      document.getElementById("numeroPatrimonioExcluir").value = "";
+      document.getElementById("numeroPatrimonioExcluir_backup").value = "";
+      document.getElementById("descricaoExcluir").value = "";
+      document.getElementById("dataEntradaExcluir").value = "";
+      document.getElementById("localizacaoExcluir").value = "";
+      document.getElementById("statusExcluir").value = "";
+      document.getElementById("memorandoExcluir").value = "";
+
+      // modal descarte
+
+
+      // contador
+      document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
+      document.getElementById("contadorLocalizacaoCadastrar").innerText = "0/500";
+      document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
+      document.getElementById("contadornumeroPatrimonioEditar").innerText = "0/20";
+      document.getElementById("contadorLocalizacaoEditar").innerText = "0/500";
+      document.getElementById("contadorMemorandoEditar").innerText = "0/30";
+    }
+  </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
     crossorigin="anonymous"></script>

@@ -14,16 +14,16 @@ if (!$conn) {
 }
 
 if ($_POST['status'] === 'tombado') {
-  $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status)
-  VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['status'] ."')";
+  $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Descricao_Localizacao, Status)
+  VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['DescricaoLocalizacao'] ."', '". $_POST['status'] ."')";
 } elseif ($_POST['status'] === 'descarte') {
   $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status, Memorando)
-  VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['status'] ."', '".$_POST['memorando']."')";
+  VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['DescricaoLocalizacao'] ."','". $_POST['status'] ."', '".$_POST['memorando']."')";
 }
 
 // Executando a query SQL
 if (mysqli_query($conn, $sql)) {
-  echo "New record created successfully"; // Se a inserção for bem-sucedida, exibe uma mensagem de sucesso
+  header('Location: index.php'); // Se a query for executada com sucesso, redireciona o usuário para a página inicial
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($conn); // Se houver um erro, exibe a query SQL e a mensagem de erro
 }

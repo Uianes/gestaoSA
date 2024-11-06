@@ -15,14 +15,15 @@ if (!$conn) {
 
 // Criando a query SQL para deletar um registro da tabela Patrimonio
 // O valor de 'numeroPatrimonio' é obtido do formulário enviado via método POST
-$sql = "DELETE FROM `patrimonio` WHERE N_Patrimonio='" . $_POST['numeroPatrimonio'] . "'";
+$sql = "DELETE FROM `patrimonio` WHERE N_Patrimonio='" . $_POST['numeroPatrimonio_backup'] . "'";
 
 // Executando a query SQL
 if (mysqli_query($conn, $sql)) {
-  echo "Record deleted successfully"; // Se a query for bem-sucedida, exibe uma mensagem de sucesso
+  header('Location: index.php'); // Se a query for executada com sucesso, redireciona o usuário para a página inicial
 } else {
   echo "Error deleting record: " . mysqli_error($conn); // Se a query falhar, exibe uma mensagem de erro
 }
 
 // Fechando a conexão com o banco de dados
 mysqli_close($conn);
+?>
