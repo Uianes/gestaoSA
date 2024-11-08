@@ -13,11 +13,11 @@ if (!$conn) {
   die("Connection failed: " . mysqli_connect_error()); // Se a conexão falhar, exibe uma mensagem de erro e encerra o script
 }
 
-if ($_POST['status'] === 'tombado') {
+if ($_POST['status'] === 'Tombado') {
   $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Descricao_Localizacao, Status)
   VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['DescricaoLocalizacao'] ."', '". $_POST['status'] ."')";
-} elseif ($_POST['status'] === 'descarte') {
-  $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Status, Memorando)
+} elseif ($_POST['status'] === 'Descarte') {
+  $sql = "INSERT INTO `patrimonio` (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Descricao_Localizacao, Status, Memorando)
   VALUES ('". $_POST['numeroPatrimonio'] ."','". $_POST['descricao'] ."', '". $_POST['dataEntrada'] ."', '". $_POST['localizacao'] ."', '". $_POST['DescricaoLocalizacao'] ."','". $_POST['status'] ."', '".$_POST['memorando']."')";
 }
 

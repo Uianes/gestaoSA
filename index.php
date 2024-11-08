@@ -74,43 +74,47 @@
         if (mysqli_num_rows($result) > 0) {
           // Cabeçalho da tabela
           echo "
-                <table class='table table-bordered mt-3 table-striped'>
-                    <thead>
-                        <tr>
-                            <th scope='col'>Nº Patrimônio</th>
-                            <th scope='col'>Descrição</th>
-                            <th scope='col'>Data Entrada</th>
-                            <th scope='col'>Localização</th>
-                            <th scope='col'>Descrição Localização</th>
-                            <th scope='col'>Status</th>
-                            <th scope='col'>Memorando</th>
-                            <th scope='col'>Editar</th>
-                        </tr>
-                    </thead>
-                    <tbody class='table-group-divider'>
-            ";
+        <table class='table table-bordered mt-3 table-striped'>
+            <thead>
+                <tr>
+                    <th scope='col'>Nº Patrimônio</th>
+                    <th scope='col'>Descrição</th>
+                    <th scope='col'>Data Entrada</th>
+                    <th scope='col'>Localização</th>
+                    <th scope='col'>Descrição Localização</th>
+                    <th scope='col'>Status</th>
+                    <th scope='col'>Memorando</th>
+                    <th scope='col'>Editar</th>
+                </tr>
+            </thead>
+            <tbody class='table-group-divider'>
+    ";
 
           // Preenche as linhas da tabela e armazena no array para o JSON
           while ($row = mysqli_fetch_assoc($result)) {
+            // Formata a data para o padrão brasileiro (dd/mm/yyyy)
+            $dataEntrada = DateTime::createFromFormat('Y-m-d', $row["Data_Entrada"]);
+            $dataFormatada = $dataEntrada ? $dataEntrada->format('d/m/Y') : '';
+
             // Adiciona cada linha ao array para o JSON
             $data[] = $row;
 
             // Exibe a linha na tabela
             echo "
-                    <tr>
-                        <th scope='row'>" . $row["N_Patrimonio"] . "</th>
-                        <td>" . $row["Descricao"] . "</td>
-                        <td>" . $row["Data_Entrada"] . "</td>
-                        <td>" . $row["Localizacao"] . "</td>
-                        <td>" . $row["Descricao_Localizacao"] . "</td>
-                        <td>" . $row["Status"] . "</td>
-                        <td>" . $row["Memorando"] . "</td>
-                        <td class='text-center'>
-                            <button class='mx-1 btn' type='button' onclick='carregarDados(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-pencil-fill'></i></button>
-                            <button class='mx-1 btn btn-danger' onclick='excluirDados(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-trash-fill'></i></button>
-                        </td>
-                    </tr>
-                ";
+            <tr>
+                <th scope='row'>" . $row["N_Patrimonio"] . "</th>
+                <td>" . $row["Descricao"] . "</td>
+                <td>" . $dataFormatada . "</td>
+                <td>" . $row["Localizacao"] . "</td>
+                <td>" . $row["Descricao_Localizacao"] . "</td>
+                <td>" . $row["Status"] . "</td>
+                <td>" . $row["Memorando"] . "</td>
+                <td class='text-center'>
+                    <button class='mx-1 btn' type='button' onclick='carregarDadosEditar(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-pencil-fill'></i></button>
+                    <button class='mx-1 btn btn-danger' onclick='carregarDadosExcluir(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-trash-fill'></i></button>
+                </td>
+            </tr>
+        ";
           }
 
           echo "</tbody> </table>";
@@ -124,6 +128,7 @@
 
         mysqli_close($conn);
         ?>
+
       </div>
     </div>
 
@@ -183,10 +188,10 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <select id="statusCadastrar" name="status" class="form-select" required>
+                <select id="statusCadastrar" name="status" class="form-select" onchange="toggleMemorando('statusCadastrar', 'memorandoCadastrar', 'contadorMemorandoCadastrar')" required>
                   <option selected disabled value="">Selecione uma Opção</option>
-                  <option value="tombado">Tombado</option>
-                  <option value="descarte">Descarte</option>
+                  <option value="Tombado">Tombado</option>
+                  <option value="Descarte">Descarte</option>
                 </select>
               </div>
               <div class="input-group mb-3">
@@ -217,8 +222,7 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
                 <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar" maxlength="20" required disabled>
-                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioEditar_backup"  maxlength="20" hidden>
-                <span class="input-group-text" id="contadornumeroPatrimonioEditar">0/20</span>
+                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioEditar_backup" maxlength="20" hidden>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Descrição</span>
@@ -241,7 +245,6 @@
                   <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
                 </select>
                 <textarea class="form-control" name="DescricaoLocalizacaoEditar" id="DescricaoLocalizacaoEditar" maxlength="500" required></textarea>
-                <span class="input-group-text" id="contadorDescricaoLocalizacaoEditar">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
@@ -250,7 +253,6 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Memorando</span>
                 <input id="memorandoEditar" type="text" class="form-control" name="memorando" maxlength="30" disabled>
-                <span class="input-group-text" id="contadorMemorandoEditar">0/30</span>
               </div>
             </div>
             <div class="modal-footer">
@@ -276,7 +278,6 @@
                 <span class="input-group-text">Nº Patrimônio</span>
                 <input type="text" class="form-control" id="numeroPatrimonioExcluir" maxlength="20" required disabled>
                 <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioExcluir_backup" maxlength="20" hidden>
-                <span class="input-group-text" id="contadornumeroPatrimonioExcluir" disabled>0/20</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Descrição</span>
@@ -290,7 +291,6 @@
                 <span class="input-group-text">Localização</span>
                 <input type="text" class="form-control" id="localizacaoExcluir" disabled>
                 <textarea class="form-control" id="descricaoLocalizacaoExcluir" maxlength="500" required disabled></textarea>
-                <span class="input-group-text" id="contadorDescricaoLocalizacaoExcluir">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
@@ -299,7 +299,6 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Memorando</span>
                 <input id="memorandoExcluir" type="text" class="form-control" maxlength="30" disabled>
-                <span class="input-group-text" id="contadorMemorandoExcluir">0/30</span>
               </div>
             </div>
             <div class="modal-footer">
@@ -319,18 +318,17 @@
             <h1 class="modal-title fs-5">Editar Patrimônio - Digite o número do patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
           </div>
-          <form action="" method="POST">
-            <div class="modal-body">
-              <div class="input-group mb-3">
-                <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte" maxlength="20" required>
-                <span class="input-group-text" id="contadorNumeroPatrimonioDescarte1">0/20</span>
-              </div>
+          <div class="modal-body">
+            <div class="input-group mb-3">
+              <span class="input-group-text">Nº Patrimônio</span>
+              <input type="text" class="form-control" id="numeroPatrimonioDescarte" oninput="atualizarContador(this,'contadorNumeroPatrimonioDescarte1')" maxlength="20" required>
+              <span class="input-group-text" id="contadorNumeroPatrimonioDescarte1">0/20</span>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
-              <input type="submit" class="btn btn-success" value="Confirmar exclusão">
-            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
+            <button type="button" class="btn btn-success" data-bs-dismiss="modal" onclick="carregarDadosDescarte(document.getElementById('numeroPatrimonioDescarte').value), limparCampos()">Prosseguir</button>
+          </div>
           </form>
         </div>
       </div>
@@ -344,37 +342,42 @@
             <h1 class="modal-title fs-5">Descarte Patrimônio</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
           </div>
-          <form action="./insertPatrimonio.php" method="POST">
+          <form action="./descartePatrimonio.php" method="POST">
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte" maxlength="20" disabled required>
-                <span class="input-group-text" id="contadorNumeroPatrimonioDescarte">0/20</span>
+                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte2" maxlength="20" disabled>
+                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioDescarte_backup" maxlength="20" hidden>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Descrição</span>
-                <textarea class="form-control" name="descricao" id="descricaoDescarte" required></textarea>
+                <textarea class="form-control" name="descricao" id="descricaoDescarte" disabled></textarea>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Data Entrada</span>
-                <input type="date" class="form-control" name="dataEntrada" id="dataEntradaDescarte" required>
+                <input type="date" class="form-control" name="dataEntrada" id="dataEntradaDescarte" disabled>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
-                <textarea class="form-control" name="localizacao" id="localizacaoDescarte" maxlength="500" required></textarea>
-                <span class="input-group-text" id="contadorDescricaoLocalizacaoDescarte">0/500</span>
+                <select name="localizacao" id="localizacaoDescarte" class="form-select" required>
+                  <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
+                  <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
+                  <option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
+                  <option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
+                  <option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
+                  <option value="EMEF Antônio João">EMEF Antônio João</option>
+                  <option value="EMEF São João">EMEF São João</option>
+                  <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+                </select>
+                <textarea class="form-control" name="localizacao" id="DescricaoLocalizacaoDescarte" maxlength="500" required></textarea>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
-                <select id="statusDescarte" name="status" class="form-select" required>
-                  <option selected disabled value="">Selecione uma Opção</option>
-                  <option value="tombado">Tombado</option>
-                  <option value="descarte">Descarte</option>
-                </select>
+                <input type="text" id="statusDescarte" value="Descarte" class="form-control" disabled>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Memorando</span>
-                <input id="memorandoDescarte" type="text" class="form-control" name="memorando" maxlength="30" disabled>
+                <input id="memorandoDescarte" type="text" class="form-control" name="memorando" oninput="atualizarContador(this, 'contadorMemorandoDescarte')" maxlength="30" required>
                 <span class="input-group-text" id="contadorMemorandoDescarte">0/30</span>
               </div>
             </div>
@@ -389,7 +392,7 @@
   </div>
 
   <script>
-    async function carregarDados(patrimonio) {
+    async function carregarDadosEditar(patrimonio) {
       try {
         // Carrega o arquivo JSON
         const response = await fetch('temp_patrimonio.json');
@@ -414,12 +417,6 @@
         document.getElementById("DescricaoLocalizacaoEditar").value = patrimonioData.Descricao_Localizacao;
         document.getElementById("statusEditar").value = patrimonioData.Status;
         document.getElementById("memorandoEditar").value = patrimonioData.Memorando;
-        
-        // Atualiza contador
-        atualizarContador(patrimonioData.N_Patrimonio, "contadorNumeroPatrimonioEditar");
-        atualizarContador(patrimonioData.Descricao_Localizacao, "contadorDescricaoLocalizacaoEditar");
-        atualizarContador(patrimonioData.Memorando, "contadorMemorandoEditar");
-
 
         // Exibe o modal
         var modal = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
@@ -430,7 +427,7 @@
       }
     }
 
-    async function excluirDados(patrimonio) {
+    async function carregarDadosExcluir(patrimonio) {
       try {
         // Carrega o arquivo JSON
         const response = await fetch('temp_patrimonio.json');
@@ -455,14 +452,47 @@
         document.getElementById("statusExcluir").value = patrimonioData.Status;
         document.getElementById("memorandoExcluir").value = patrimonioData.Memorando;
 
-        // Atualiza contador
-        atualizarContador(patrimonioData.N_Patrimonio, "contadorNumeroPatrimonioExcluir");
-        atualizarContador(patrimonioData.Descricao_Localizacao, "contadorDescricaoLocalizacaoExcluir");
-        atualizarContador(patrimonioData.Memorando, "contadorMemorandoExcluir");
-
         // Exibe o modal
         var modal = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
         modal.show();
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+    }
+
+    async function carregarDadosDescarte(patrimonio) {
+      try {
+        // Carrega o arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        const data = await response.json();
+
+        // Encontra o objeto correspondente ao patrimônio selecionado
+        const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
+        if (!patrimonioData) {
+          alert('Patrimônio não encontrado');
+          return;
+        }
+        if (patrimonioData.Status == "Descarte") {
+          alert('Patrimônio já descartado');
+          return;
+        }
+
+        // Preenche os campos do modal com os dados do patrimônio
+        document.getElementById("numeroPatrimonioDescarte2").value = patrimonioData.N_Patrimonio;
+        document.getElementById("numeroPatrimonioDescarte_backup").value = patrimonioData.N_Patrimonio;
+        document.getElementById("descricaoDescarte").value = patrimonioData.Descricao;
+        document.getElementById("dataEntradaDescarte").value = patrimonioData.Data_Entrada;
+        document.getElementById("localizacaoDescarte").value = patrimonioData.Localizacao;
+        document.getElementById("DescricaoLocalizacaoDescarte").value = patrimonioData.Descricao_Localizacao;
+
+        // Exibe o modal
+        var modal = new bootstrap.Modal(document.getElementById('ModalDescartePatrimonioStep2'));
+        modal.show();
+
 
       } catch (error) {
         console.error('Erro:', error);
@@ -473,25 +503,17 @@
       // Limpar campos dos modais
       const inputs = document.querySelectorAll('input, select, textarea');
       inputs.forEach(input => {
-        if (input.type === 'submit') {
-          return; // Ignora inputs do tipo 'submit'
+        if (input.type === 'submit' || input.value === 'Descarte') {
+          return;
         }
-        input.value = ''; // Limpa os demais inputs
+        input.value = '';
       });
 
       // contador
       document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
       document.getElementById("contadorDescricaoLocalizacaoCadastrar").innerText = "0/500";
       document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
-      document.getElementById("contadornumeroPatrimonioEditar").innerText = "0/20";
-      document.getElementById("contadorDescricaoLocalizacaoEditar").innerText = "0/500";
-      document.getElementById("contadorMemorandoEditar").innerText = "0/30";
-      document.getElementById("contadornumeroPatrimonioExcluir").innerText = "0/20";
-      document.getElementById("contadorDescricaoLocalizacaoExcluir").innerText = "0/500";
-      document.getElementById("contadorMemorandoExcluir").innerText = "0/30";
       document.getElementById("contadorNumeroPatrimonioDescarte1").innerText = "0/20";
-      document.getElementById("contadorNumeroPatrimonioDescarte").innerText = "0/20";
-      document.getElementById("contadorDescricaoLocalizacaoDescarte").innerText = "0/500";
       document.getElementById("contadorMemorandoDescarte").innerText = "0/30";
     }
 
@@ -502,19 +524,19 @@
     }
 
     function toggleMemorando(selectId, memorandoId, contadorMemorandoID) {
-            const status = document.getElementById(selectId);
-            const memorando = document.getElementById(memorandoId);
+      const status = document.getElementById(selectId);
+      const memorando = document.getElementById(memorandoId);
 
-            if (status.value === "descarte") {
-                memorando.disabled = false;
-                memorando.required = true;
-            } else if (status.value === "tombado") {
-                memorando.disabled = true;
-                memorando.required = false;
-                memorando.value = '';
-                atualizarContador(memorando, contadorMemorandoID);
-            }
-        }
+      if (status.value == "Descarte") {
+        memorando.disabled = false;
+        memorando.required = true;
+      } else if (status.value == "Tombado") {
+        memorando.disabled = true;
+        memorando.required = false;
+        memorando.value = '';
+        atualizarContador(memorando, contadorMemorandoID);
+      }
+    }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
