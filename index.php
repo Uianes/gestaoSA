@@ -21,9 +21,12 @@
           <span class="navbar-toggler-icon"></span>
         </button>
       </div>
-      <form action="" class="d-flex">
-        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit"><i class="bi bi-search"></i></button>
+      <form class="d-flex">
+        <div class="input-group mx-1">
+          <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="button" onclick="searchTabela(document.getElementById('search').value)"><i class="bi bi-search"></i></button>
+        </div>
+        <button class="btn btn-outline-primary" type="button" onclick="location.reload(true)"><i class="bi bi-arrow-clockwise"></i></button>
       </form>
     </div>
   </nav>
@@ -50,57 +53,54 @@
     <!-- tabela -->
     <div class="row justify-content-center">
       <div class="col-10">
-        <?php
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "gestaosa";
+        <table class='table table-bordered mt-3 table-striped' id="table">
+          <thead class="text-center">
+            <tr>
+              <th scope='col'>Nº Patrimônio</th>
+              <th scope='col'>Descrição</th>
+              <th scope='col'>Data Entrada</th>
+              <th scope='col'>Localização</th>
+              <th scope='col'>Descrição Localização</th>
+              <th scope='col'>Status</th>
+              <th scope='col'>Memorando</th>
+              <th scope='col'>Editar</th>
+            </tr>
+          </thead>
+          <tbody class='table-group-divider'>
+            <?php
+            $servername = "localhost";
+            $username = "root";
+            $password = "";
+            $dbname = "gestaosa";
 
-        // Cria a conexão
-        $conn = mysqli_connect($servername, $username, $password, $dbname);
+            // Cria a conexão
+            $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-        // Verifica a conexão
-        if (!$conn) {
-          die("Connection failed: " . mysqli_connect_error());
-        }
+            // Verifica a conexão
+            if (!$conn) {
+              die("Connection failed: " . mysqli_connect_error());
+            }
 
-        // Consulta SQL
-        $sql = "SELECT * FROM patrimonio";
-        $result = mysqli_query($conn, $sql);
+            // Consulta SQL
+            $sql = "SELECT * FROM patrimonio";
+            $result = mysqli_query($conn, $sql);
 
-        // Array para armazenar os dados (para JSON)
-        $data = [];
+            // Array para armazenar os dados (para JSON)
+            $data = [];
 
-        if (mysqli_num_rows($result) > 0) {
-          // Cabeçalho da tabela
-          echo "
-        <table class='table table-bordered mt-3 table-striped'>
-            <thead>
-                <tr>
-                    <th scope='col'>Nº Patrimônio</th>
-                    <th scope='col'>Descrição</th>
-                    <th scope='col'>Data Entrada</th>
-                    <th scope='col'>Localização</th>
-                    <th scope='col'>Descrição Localização</th>
-                    <th scope='col'>Status</th>
-                    <th scope='col'>Memorando</th>
-                    <th scope='col'>Editar</th>
-                </tr>
-            </thead>
-            <tbody class='table-group-divider'>
-    ";
+            if (mysqli_num_rows($result) > 0) {
 
-          // Preenche as linhas da tabela e armazena no array para o JSON
-          while ($row = mysqli_fetch_assoc($result)) {
-            // Formata a data para o padrão brasileiro (dd/mm/yyyy)
-            $dataEntrada = DateTime::createFromFormat('Y-m-d', $row["Data_Entrada"]);
-            $dataFormatada = $dataEntrada ? $dataEntrada->format('d/m/Y') : '';
+              // Preenche as linhas da tabela e armazena no array para o JSON
+              while ($row = mysqli_fetch_assoc($result)) {
+                // Formata a data para o padrão brasileiro (dd/mm/yyyy)
+                $dataEntrada = DateTime::createFromFormat('Y-m-d', $row["Data_Entrada"]);
+                $dataFormatada = $dataEntrada ? $dataEntrada->format('d/m/Y') : '';
 
-            // Adiciona cada linha ao array para o JSON
-            $data[] = $row;
+                // Adiciona cada linha ao array para o JSON
+                $data[] = $row;
 
-            // Exibe a linha na tabela
-            echo "
+                // Exibe a linha na tabela
+                echo "
             <tr>
                 <th scope='row'>" . $row["N_Patrimonio"] . "</th>
                 <td>" . $row["Descricao"] . "</td>
@@ -115,19 +115,19 @@
                 </td>
             </tr>
         ";
-          }
+              }
 
-          echo "</tbody> </table>";
+              echo "</tbody> </table>";
 
-          // Salva o JSON em um arquivo
-          $jsonData = json_encode($data, JSON_PRETTY_PRINT);
-          file_put_contents('temp_patrimonio.json', $jsonData);
-        } else {
-          echo "Nenhum resultado encontrado";
-        }
+              // Salva o JSON em um arquivo
+              $jsonData = json_encode($data, JSON_PRETTY_PRINT);
+              file_put_contents('temp_patrimonio.json', $jsonData);
+            } else {
+              echo "Nenhum resultado encontrado";
+            }
 
-        mysqli_close($conn);
-        ?>
+            mysqli_close($conn);
+            ?>
 
       </div>
     </div>
@@ -182,6 +182,7 @@
                   <option value="EMEF Antônio João">EMEF Antônio João</option>
                   <option value="EMEF São João">EMEF São João</option>
                   <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+                  <option value="SME">SME</option>
                 </select>
                 <textarea class="form-control" name="DescricaoLocalizacao" id="DescricaoLocalizacaoCadastrar" oninput="atualizarContador(this, 'contadorDescricaoLocalizacaoCadastrar')" maxlength="500" required></textarea>
                 <span class="input-group-text" id="contadorDescricaoLocalizacaoCadastrar">0/500</span>
@@ -243,6 +244,7 @@
                   <option value="EMEF Antônio João">EMEF Antônio João</option>
                   <option value="EMEF São João">EMEF São João</option>
                   <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+                  <option value="SME">SME</option>
                 </select>
                 <textarea class="form-control" name="DescricaoLocalizacaoEditar" id="DescricaoLocalizacaoEditar" maxlength="500" required></textarea>
               </div>
@@ -368,6 +370,7 @@
                   <option value="EMEF Antônio João">EMEF Antônio João</option>
                   <option value="EMEF São João">EMEF São João</option>
                   <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+                  <option value="SME">SME</option>
                 </select>
                 <textarea class="form-control" name="localizacao" id="DescricaoLocalizacaoDescarte" maxlength="500" required></textarea>
               </div>
@@ -392,6 +395,53 @@
   </div>
 
   <script>
+    async function searchTabela(valor) {
+      try {
+        const tableBody = document.querySelector('#table tbody');
+
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        const data = await response.json();
+
+        // Encontra o objeto cujo N_Patrimonio contém o valor selecionado
+        const patrimonioData = data.find(item => item.N_Patrimonio.includes(valor));
+        if (!patrimonioData) {
+          console.error('Patrimônio não encontrado no JSON');
+          tableBody.innerHTML = ''
+          return;
+        }
+
+
+
+        tableBody.innerHTML = ''
+
+        // Cria uma nova linha
+        const row = document.createElement('tr');
+
+        // Adiciona as células para cada campo do objeto JSON
+        row.innerHTML = `
+    <td>${patrimonioData.N_Patrimonio}</td>
+    <td>${patrimonioData.Descricao}</td>
+    <td>${patrimonioData.Data_Entrada}</td>
+    <td>${patrimonioData.Localizacao}</td>
+    <td>${patrimonioData.Descricao_Localizacao}</td>
+    <td>${patrimonioData.Status}</td>
+    <td>${patrimonioData.Memorando}</td>
+    <td class='text-center'><button class="btn" type='button' onclick="carregarDadosEditar('${patrimonioData.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
+    <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
+    </td>
+  `;
+        // Adiciona a linha criada ao corpo da tabela
+        tableBody.appendChild(row);
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+
+    }
+
     async function carregarDadosEditar(patrimonio) {
       try {
         // Carrega o arquivo JSON
