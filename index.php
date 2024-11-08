@@ -154,7 +154,7 @@
             <div class="modal-body">
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
-                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioCadastrar" maxlength="20" required>
+                <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioCadastrar" oninput="atualizarContador(this, 'contadorNumeroPatrimonioCadastrar')" maxlength="20" required>
                 <span class="input-group-text" id="contadorNumeroPatrimonioCadastrar">0/20</span>
               </div>
               <div class="input-group mb-3">
@@ -178,8 +178,8 @@
                   <option value="EMEF São João">EMEF São João</option>
                   <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
                 </select>
-                <textarea class="form-control" name="DescricaoLocalizacao" id="DescricaoLocalizacaoCadastrar" maxlength="500" required></textarea>
-                <span class="input-group-text" id="contadorLocalizacaoCadastrar">0/500</span>
+                <textarea class="form-control" name="DescricaoLocalizacao" id="DescricaoLocalizacaoCadastrar" oninput="atualizarContador(this, 'contadorDescricaoLocalizacaoCadastrar')" maxlength="500" required></textarea>
+                <span class="input-group-text" id="contadorDescricaoLocalizacaoCadastrar">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
@@ -191,13 +191,13 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Memorando</span>
-                <input id="memorandoCadastrar" type="text" class="form-control" name="memorando" maxlength="30" disabled>
+                <input id="memorandoCadastrar" type="text" class="form-control" name="memorando" oninput="atualizarContador(this, 'contadorMemorandoCadastrar')" maxlength="30" disabled>
                 <span class="input-group-text" id="contadorMemorandoCadastrar">0/30</span>
               </div>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
-              <input type="submit" class="btn btn-success">
+              <input type="submit" class="btn btn-success" value="Cadastrar">
             </div>
           </form>
         </div>
@@ -217,7 +217,7 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Nº Patrimônio</span>
                 <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar" maxlength="20" required disabled>
-                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioEditar_backup" maxlength="20" hidden>
+                <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioEditar_backup"  maxlength="20" hidden>
                 <span class="input-group-text" id="contadornumeroPatrimonioEditar">0/20</span>
               </div>
               <div class="input-group mb-3">
@@ -241,7 +241,7 @@
                   <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
                 </select>
                 <textarea class="form-control" name="DescricaoLocalizacaoEditar" id="DescricaoLocalizacaoEditar" maxlength="500" required></textarea>
-                <span class="input-group-text" id="contadorLocalizacaoCadastrar">0/500</span>
+                <span class="input-group-text" id="contadorDescricaoLocalizacaoEditar">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
@@ -255,7 +255,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
-              <input type="submit" class="btn btn-success">
+              <input type="submit" class="btn btn-success" value="Editar">
             </div>
           </form>
         </div>
@@ -276,7 +276,7 @@
                 <span class="input-group-text">Nº Patrimônio</span>
                 <input type="text" class="form-control" id="numeroPatrimonioExcluir" maxlength="20" required disabled>
                 <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioExcluir_backup" maxlength="20" hidden>
-                <span class="input-group-text" id="contadornumeroPatrimonioEditar" disabled>0/20</span>
+                <span class="input-group-text" id="contadornumeroPatrimonioExcluir" disabled>0/20</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Descrição</span>
@@ -288,9 +288,9 @@
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
-                <input type="text" class="form-control" id="localizacaoExcluir">
+                <input type="text" class="form-control" id="localizacaoExcluir" disabled>
                 <textarea class="form-control" id="descricaoLocalizacaoExcluir" maxlength="500" required disabled></textarea>
-                <span class="input-group-text" id="contadorLocalizacaoEditar">0/500</span>
+                <span class="input-group-text" id="contadorDescricaoLocalizacaoExcluir">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
@@ -299,13 +299,12 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Memorando</span>
                 <input id="memorandoExcluir" type="text" class="form-control" maxlength="30" disabled>
-                <span class="input-group-text" id="contadorMemorandoEditar">0/30</span>
+                <span class="input-group-text" id="contadorMemorandoExcluir">0/30</span>
               </div>
             </div>
             <div class="modal-footer">
-              <h1 class="text-center">Deseja Realmente Excluir?</h1>
-              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="limparCampos()">Não</button>
-              <input type="submit" class="btn btn-danger" value="Sim">
+              <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="limparCampos()">Cancelar</button>
+              <input type="submit" class="btn btn-danger" value="Excluir">
             </div>
           </form>
         </div>
@@ -363,7 +362,7 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
                 <textarea class="form-control" name="localizacao" id="localizacaoDescarte" maxlength="500" required></textarea>
-                <span class="input-group-text" id="contadorLocalizacaoDescarte">0/500</span>
+                <span class="input-group-text" id="contadorDescricaoLocalizacaoDescarte">0/500</span>
               </div>
               <div class="input-group mb-3">
                 <span class="input-group-text">Status</span>
@@ -415,6 +414,12 @@
         document.getElementById("DescricaoLocalizacaoEditar").value = patrimonioData.Descricao_Localizacao;
         document.getElementById("statusEditar").value = patrimonioData.Status;
         document.getElementById("memorandoEditar").value = patrimonioData.Memorando;
+        
+        // Atualiza contador
+        atualizarContador(patrimonioData.N_Patrimonio, "contadorNumeroPatrimonioEditar");
+        atualizarContador(patrimonioData.Descricao_Localizacao, "contadorDescricaoLocalizacaoEditar");
+        atualizarContador(patrimonioData.Memorando, "contadorMemorandoEditar");
+
 
         // Exibe o modal
         var modal = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
@@ -450,6 +455,11 @@
         document.getElementById("statusExcluir").value = patrimonioData.Status;
         document.getElementById("memorandoExcluir").value = patrimonioData.Memorando;
 
+        // Atualiza contador
+        atualizarContador(patrimonioData.N_Patrimonio, "contadorNumeroPatrimonioExcluir");
+        atualizarContador(patrimonioData.Descricao_Localizacao, "contadorDescricaoLocalizacaoExcluir");
+        atualizarContador(patrimonioData.Memorando, "contadorMemorandoExcluir");
+
         // Exibe o modal
         var modal = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
         modal.show();
@@ -460,43 +470,51 @@
     }
 
     function limparCampos() {
-      // modal cadastrar
-      document.getElementById("numeroPatrimonioCadastrar").value = "";
-      document.getElementById("descricaoCadastrar").value = "";
-      document.getElementById("dataEntradaCadastrar").value = "";
-      document.getElementById("localizacaoCadastrar").value = "";
-      document.getElementById("statusCadastrar").value = "";
-      document.getElementById("memorandoCadastrar").value = "";
-
-      // modal editar
-      document.getElementById("numeroPatrimonioEditar").value = "";
-      document.getElementById("numeroPatrimonioEditar_backup").value = "";
-      document.getElementById("descricaoEditar").value = "";
-      document.getElementById("dataEntradaEditar").value = "";
-      document.getElementById("localizacaoEditar").value = "";
-      document.getElementById("statusEditar").value = "";
-      document.getElementById("memorandoEditar").value = "";
-
-      // modal excluir
-      document.getElementById("numeroPatrimonioExcluir").value = "";
-      document.getElementById("numeroPatrimonioExcluir_backup").value = "";
-      document.getElementById("descricaoExcluir").value = "";
-      document.getElementById("dataEntradaExcluir").value = "";
-      document.getElementById("localizacaoExcluir").value = "";
-      document.getElementById("statusExcluir").value = "";
-      document.getElementById("memorandoExcluir").value = "";
-
-      // modal descarte
-
+      // Limpar campos dos modais
+      const inputs = document.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => {
+        if (input.type === 'submit') {
+          return; // Ignora inputs do tipo 'submit'
+        }
+        input.value = ''; // Limpa os demais inputs
+      });
 
       // contador
       document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
-      document.getElementById("contadorLocalizacaoCadastrar").innerText = "0/500";
+      document.getElementById("contadorDescricaoLocalizacaoCadastrar").innerText = "0/500";
       document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
       document.getElementById("contadornumeroPatrimonioEditar").innerText = "0/20";
-      document.getElementById("contadorLocalizacaoEditar").innerText = "0/500";
+      document.getElementById("contadorDescricaoLocalizacaoEditar").innerText = "0/500";
       document.getElementById("contadorMemorandoEditar").innerText = "0/30";
+      document.getElementById("contadornumeroPatrimonioExcluir").innerText = "0/20";
+      document.getElementById("contadorDescricaoLocalizacaoExcluir").innerText = "0/500";
+      document.getElementById("contadorMemorandoExcluir").innerText = "0/30";
+      document.getElementById("contadorNumeroPatrimonioDescarte1").innerText = "0/20";
+      document.getElementById("contadorNumeroPatrimonioDescarte").innerText = "0/20";
+      document.getElementById("contadorDescricaoLocalizacaoDescarte").innerText = "0/500";
+      document.getElementById("contadorMemorandoDescarte").innerText = "0/30";
     }
+
+    function atualizarContador(input, contadorId) {
+      const contador = document.getElementById(contadorId);
+      const maxLength = input.maxLength;
+      contador.innerText = `${input.value.length}/${maxLength}`;
+    }
+
+    function toggleMemorando(selectId, memorandoId, contadorMemorandoID) {
+            const status = document.getElementById(selectId);
+            const memorando = document.getElementById(memorandoId);
+
+            if (status.value === "descarte") {
+                memorando.disabled = false;
+                memorando.required = true;
+            } else if (status.value === "tombado") {
+                memorando.disabled = true;
+                memorando.required = false;
+                memorando.value = '';
+                atualizarContador(memorando, contadorMemorandoID);
+            }
+        }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
