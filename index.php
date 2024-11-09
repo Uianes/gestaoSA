@@ -553,7 +553,7 @@
       // Limpar campos dos modais
       const inputs = document.querySelectorAll('input, select, textarea');
       inputs.forEach(input => {
-        if (input.type === 'submit' || input.value === 'Descarte') {
+        if (input.type === 'submit' || input.id === 'statusDescarte') {
           return;
         }
         input.value = '';

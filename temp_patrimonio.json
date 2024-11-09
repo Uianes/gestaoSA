@@ -9,6 +9,15 @@
         "Memorando": "34"
     },
     {
+        "N_Patrimonio": "22",
+        "Descricao": "aaaaaaaaaa",
+        "Data_Entrada": "2024-11-04",
+        "Localizacao": "EMEI Vaga-Lume",
+        "Descricao_Localizacao": "dasdasd",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
         "N_Patrimonio": "asd",
         "Descricao": "43",
         "Data_Entrada": "2024-11-22",
