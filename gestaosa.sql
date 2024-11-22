@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08/11/2024 às 20:43
+-- Tempo de geração: 22/11/2024 às 19:32
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.0.30
 
@@ -43,6 +43,7 @@ CREATE TABLE `patrimonio` (
 
 INSERT INTO `patrimonio` (`N_Patrimonio`, `Descricao`, `Data_Entrada`, `Localizacao`, `Descricao_Localizacao`, `Status`, `Memorando`) VALUES
 ('13', 'aaaaaaaaaaaa', '2024-11-27', 'EMEI Pequeno Paraíso', 'ffffffffffff', 'Descarte', '34'),
+('22', 'aaaaaaaaaa', '2024-11-04', 'EMEI Vaga-Lume', 'dasdasd', 'Tombado', NULL),
 ('asd', '43', '2024-11-22', 'EMEI Vaga-Lume', '23', 'Descarte', '12');
 
 --

@@ -147,19 +147,19 @@
     </div>
 
     <!-- Modal Cadastrar Patrimônio -->
-    <?php include './modais/modalCadastrar.php'; ?>
+    <?php include './modals/modalCadastrar.php'; ?>
 
     <!-- Modal Editar Patrimônio-->
-    <?php include './modais/modalEditar.php'; ?>
+    <?php include './modals/modalEditar.php'; ?>
 
     <!-- Modal Excluir Patrimônio -->
-    <?php include './modais/modalExcluir.php'; ?>
+    <?php include './modals/modalExcluir.php'; ?>
 
-    <!-- Modal Descarte Patrimônio Step 1 -->
-    <?php include './modais/modalDescarte.php'; ?>
+    <!-- Modal Descarte Patrimônio 1 -->
+    <?php include './modals/modalDescarte.php'; ?>
 
-    <!-- Modal Descarte Patrimônio Step 2-->
-    <?php include './modais/modalDescarte2.php'; ?>
+    <!-- Modal Descarte Patrimônio 2-->
+    <?php include './modals/modalDescarte2.php'; ?>
   </div>
 
   <script>
