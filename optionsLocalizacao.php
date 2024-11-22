@@ -1,0 +1,9 @@
+<option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
+<option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
+<option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
+<option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
+<option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
+<option value="EMEF Antônio João">EMEF Antônio João</option>
+<option value="EMEF São João">EMEF São João</option>
+<option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
+<option value="SME">SME</option>

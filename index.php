@@ -11,7 +11,6 @@
 </head>
 
 <body>
-
   <nav class="navbar bg-body-secondary border-bottom">
     <div class="container-fluid d-flex justify-content-start">
       <a class="navbar-brand" href="#">GestãoSA</a>
@@ -114,7 +113,7 @@
                     <button class='mx-1 btn btn-danger' onclick='carregarDadosExcluir(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-trash-fill'></i></button>
                 </td>
             </tr>
-        ";
+            ";
               }
 
               echo "</tbody> </table>";
@@ -174,15 +173,7 @@
                 <span class="input-group-text">Localização</span>
                 <select name="localizacao" id="localizacaoCadastrar" class="form-select" required>
                   <option selected disabled value="">Selecione uma Opção</option>
-                  <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
-                  <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
-                  <option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
-                  <option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
-                  <option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
-                  <option value="EMEF Antônio João">EMEF Antônio João</option>
-                  <option value="EMEF São João">EMEF São João</option>
-                  <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
-                  <option value="SME">SME</option>
+                  <?php include 'optionsLocalizacao.php'; ?>
                 </select>
                 <textarea class="form-control" name="DescricaoLocalizacao" id="DescricaoLocalizacaoCadastrar" oninput="atualizarContador(this, 'contadorDescricaoLocalizacaoCadastrar')" maxlength="500" required></textarea>
                 <span class="input-group-text" id="contadorDescricaoLocalizacaoCadastrar">0/500</span>
@@ -236,15 +227,7 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
                 <select name="localizacao" id="localizacaoEditar" class="form-select" required>
-                  <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
-                  <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
-                  <option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
-                  <option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
-                  <option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
-                  <option value="EMEF Antônio João">EMEF Antônio João</option>
-                  <option value="EMEF São João">EMEF São João</option>
-                  <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
-                  <option value="SME">SME</option>
+                  <?php include 'optionsLocalizacao.php'; ?>
                 </select>
                 <textarea class="form-control" name="DescricaoLocalizacaoEditar" id="DescricaoLocalizacaoEditar" maxlength="500" required></textarea>
               </div>
@@ -362,15 +345,7 @@
               <div class="input-group mb-3">
                 <span class="input-group-text">Localização</span>
                 <select name="localizacao" id="localizacaoDescarte" class="form-select" required>
-                  <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
-                  <option value="EMEI Vaga-Lume">EMEI Vaga-Lume</option>
-                  <option value="EMEI Vovó Amália">EMEI Vovó Amália</option>
-                  <option value="EMEF Sol Nascente">EMEF Sol Nascente</option>
-                  <option value="EMEF Rui Barbosa">EMEF Rui Barbosa</option>
-                  <option value="EMEF Antônio João">EMEF Antônio João</option>
-                  <option value="EMEF São João">EMEF São João</option>
-                  <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
-                  <option value="SME">SME</option>
+                  <?php include 'optionsLocalizacao.php'; ?>
                 </select>
                 <textarea class="form-control" name="localizacao" id="DescricaoLocalizacaoDescarte" maxlength="500" required></textarea>
               </div>
@@ -422,17 +397,17 @@
 
         // Adiciona as células para cada campo do objeto JSON
         row.innerHTML = `
-    <td>${patrimonioData.N_Patrimonio}</td>
-    <td>${patrimonioData.Descricao}</td>
-    <td>${patrimonioData.Data_Entrada}</td>
-    <td>${patrimonioData.Localizacao}</td>
-    <td>${patrimonioData.Descricao_Localizacao}</td>
-    <td>${patrimonioData.Status}</td>
-    <td>${patrimonioData.Memorando}</td>
-    <td class='text-center'><button class="btn" type='button' onclick="carregarDadosEditar('${patrimonioData.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
-    <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
-    </td>
-  `;
+      <td>${patrimonioData.N_Patrimonio}</td>
+      <td>${patrimonioData.Descricao}</td>
+      <td>${patrimonioData.Data_Entrada}</td>
+      <td>${patrimonioData.Localizacao}</td>
+      <td>${patrimonioData.Descricao_Localizacao}</td>
+      <td>${patrimonioData.Status}</td>
+      <td>${patrimonioData.Memorando}</td>
+      <td class='text-center'><button class="btn" type='button' onclick="carregarDadosEditar('${patrimonioData.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
+      <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
+      </td>
+      `;
         // Adiciona a linha criada ao corpo da tabela
         tableBody.appendChild(row);
 
