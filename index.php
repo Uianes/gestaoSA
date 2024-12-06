@@ -92,8 +92,7 @@
               // Preenche as linhas da tabela e armazena no array para o JSON
               while ($row = mysqli_fetch_assoc($result)) {
                 // Formata a data para o padrão brasileiro (dd/mm/yyyy)
-                $dataEntrada = DateTime::createFromFormat('Y-m-d', $row["Data_Entrada"]);
-                $dataFormatada = $dataEntrada ? $dataEntrada->format('d/m/Y') : '';
+                $dataFormatada = date('d/m/Y', strtotime($row["Data_Entrada"]));
 
                 // Adiciona cada linha ao array para o JSON
                 $data[] = $row;
@@ -181,8 +180,6 @@
           return;
         }
 
-
-
         tableBody.innerHTML = ''
 
         // Cria uma nova linha
@@ -190,17 +187,17 @@
 
         // Adiciona as células para cada campo do objeto JSON
         row.innerHTML = `
-      <td>${patrimonioData.N_Patrimonio}</td>
-      <td>${patrimonioData.Descricao}</td>
-      <td>${patrimonioData.Data_Entrada}</td>
-      <td>${patrimonioData.Localizacao}</td>
-      <td>${patrimonioData.Descricao_Localizacao}</td>
-      <td>${patrimonioData.Status}</td>
-      <td>${patrimonioData.Memorando}</td>
-      <td class='text-center'><button class="btn" type='button' onclick="carregarDadosEditar('${patrimonioData.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
-      <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
-      </td>
-      `;
+          <td>${patrimonioData.N_Patrimonio}</td>
+          <td>${patrimonioData.Descricao}</td>
+          <td>${patrimonioData.Data_Entrada}</td>
+          <td>${patrimonioData.Localizacao}</td>
+          <td>${patrimonioData.Descricao_Localizacao}</td>
+          <td>${patrimonioData.Status}</td>
+          <td>${patrimonioData.Memorando}</td>
+          <td class='text-center'><button class="btn" type='button' onclick="carregarDadosEditar('${patrimonioData.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
+          <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
+          </td>
+          `;
         // Adiciona a linha criada ao corpo da tabela
         tableBody.appendChild(row);
 
