@@ -1,3 +1,43 @@
+<?php
+$servername = "localhost";
+$username = "root";
+$password = "";
+$dbname = "gestaosa";
+
+// Cria a conexão
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+
+// Verifica a conexão
+if (!$conn) {
+  die("Connection failed: " . mysqli_connect_error());
+}
+
+// Consulta SQL
+$sql = "SELECT * FROM patrimonio";
+$result = mysqli_query($conn, $sql);
+
+// Array para armazenar os dados (para JSON)
+$data = [];
+
+if (mysqli_num_rows($result) > 0) {
+  // armazena no array para o JSON
+  while ($row = mysqli_fetch_assoc($result)) {
+    // Formata a data para o padrão brasileiro (dd/mm/yyyy)
+    $row["Data_Entrada"] = date('d/m/Y', strtotime($row["Data_Entrada"]));
+    // Adiciona cada linha ao array para o JSON
+    $data[] = $row;
+  }
+
+  // Salva o JSON em um arquivo
+  $jsonData = json_encode($data, JSON_PRETTY_PRINT);
+  file_put_contents('temp_patrimonio.json', $jsonData);
+} else {
+  echo "Nenhum resultado encontrado";
+}
+
+mysqli_close($conn);
+?>
+
 <!doctype html>
 <html lang="pt-BR">
 
@@ -66,64 +106,7 @@
             </tr>
           </thead>
           <tbody class='table-group-divider'>
-            <?php
-            $servername = "localhost";
-            $username = "root";
-            $password = "";
-            $dbname = "gestaosa";
 
-            // Cria a conexão
-            $conn = mysqli_connect($servername, $username, $password, $dbname);
-
-            // Verifica a conexão
-            if (!$conn) {
-              die("Connection failed: " . mysqli_connect_error());
-            }
-
-            // Consulta SQL
-            $sql = "SELECT * FROM patrimonio";
-            $result = mysqli_query($conn, $sql);
-
-            // Array para armazenar os dados (para JSON)
-            $data = [];
-
-            if (mysqli_num_rows($result) > 0) {
-
-              // Preenche as linhas da tabela e armazena no array para o JSON
-              while ($row = mysqli_fetch_assoc($result)) {
-                // Formata a data para o padrão brasileiro (dd/mm/yyyy)
-                $dataFormatada = date('d/m/Y', strtotime($row["Data_Entrada"]));
-
-                // Adiciona cada linha ao array para o JSON
-                $data[] = $row;
-
-                // Exibe a linha na tabela
-                echo "
-            <tr>
-                <th scope='row'>" . $row["N_Patrimonio"] . "</th>
-                <td>" . $row["Descricao"] . "</td>
-                <td>" . $dataFormatada . "</td>
-                <td>" . $row["Localizacao"] . "</td>
-                <td>" . $row["Descricao_Localizacao"] . "</td>
-                <td>" . $row["Status"] . "</td>
-                <td>" . $row["Memorando"] . "</td>
-                <td class='text-center'>
-                    <button class='mx-1 btn' type='button' onclick='carregarDadosEditar(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-pencil-fill'></i></button>
-                    <button class='mx-1 btn btn-danger' onclick='carregarDadosExcluir(\"" . $row["N_Patrimonio"] . "\")'><i class='bi bi-trash-fill'></i></button>
-                </td>
-            </tr>
-            ";
-              }
-
-              // Salva o JSON em um arquivo
-              $jsonData = json_encode($data, JSON_PRETTY_PRINT);
-              file_put_contents('temp_patrimonio.json', $jsonData);
-            } else {
-              echo "Nenhum resultado encontrado";
-            }
-
-            mysqli_close($conn);
-            ?>
           </tbody>
         </table>
       </div>
