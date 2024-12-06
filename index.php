@@ -115,8 +115,6 @@
             ";
               }
 
-              echo "</tbody> </table>";
-
               // Salva o JSON em um arquivo
               $jsonData = json_encode($data, JSON_PRETTY_PRINT);
               file_put_contents('temp_patrimonio.json', $jsonData);
@@ -126,7 +124,8 @@
 
             mysqli_close($conn);
             ?>
-
+          </tbody>
+        </table>
       </div>
     </div>
 
@@ -187,7 +186,7 @@
 
         // Adiciona as células para cada campo do objeto JSON
         row.innerHTML = `
-          <td>${patrimonioData.N_Patrimonio}</td>
+          <th scope='row'>${patrimonioData.N_Patrimonio}</th>
           <td>${patrimonioData.Descricao}</td>
           <td>${patrimonioData.Data_Entrada}</td>
           <td>${patrimonioData.Localizacao}</td>

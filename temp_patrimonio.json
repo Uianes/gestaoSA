@@ -1,5 +1,275 @@
 [
     {
+        "N_Patrimonio": "100",
+        "Descricao": "Item 100",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 100",
+        "Status": "Tombado",
+        "Memorando": "185"
+    },
+    {
+        "N_Patrimonio": "101",
+        "Descricao": "Item 101",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 101",
+        "Status": "Tombado",
+        "Memorando": "186"
+    },
+    {
+        "N_Patrimonio": "102",
+        "Descricao": "Item 102",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 102",
+        "Status": "Tombado",
+        "Memorando": "187"
+    },
+    {
+        "N_Patrimonio": "103",
+        "Descricao": "Item 103",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 103",
+        "Status": "Tombado",
+        "Memorando": "188"
+    },
+    {
+        "N_Patrimonio": "104",
+        "Descricao": "Item 104",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 104",
+        "Status": "Tombado",
+        "Memorando": "189"
+    },
+    {
+        "N_Patrimonio": "105",
+        "Descricao": "Item 105",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 105",
+        "Status": "Tombado",
+        "Memorando": "190"
+    },
+    {
+        "N_Patrimonio": "106",
+        "Descricao": "Item 106",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 106",
+        "Status": "Tombado",
+        "Memorando": "191"
+    },
+    {
+        "N_Patrimonio": "107",
+        "Descricao": "Item 107",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 107",
+        "Status": "Tombado",
+        "Memorando": "192"
+    },
+    {
+        "N_Patrimonio": "108",
+        "Descricao": "Item 108",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 108",
+        "Status": "Tombado",
+        "Memorando": "193"
+    },
+    {
+        "N_Patrimonio": "109",
+        "Descricao": "Item 109",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 109",
+        "Status": "Tombado",
+        "Memorando": "194"
+    },
+    {
+        "N_Patrimonio": "110",
+        "Descricao": "Item 110",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 110",
+        "Status": "Tombado",
+        "Memorando": "195"
+    },
+    {
+        "N_Patrimonio": "111",
+        "Descricao": "Item 111",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 111",
+        "Status": "Tombado",
+        "Memorando": "196"
+    },
+    {
+        "N_Patrimonio": "112",
+        "Descricao": "Item 112",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 112",
+        "Status": "Tombado",
+        "Memorando": "197"
+    },
+    {
+        "N_Patrimonio": "113",
+        "Descricao": "Item 113",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 113",
+        "Status": "Tombado",
+        "Memorando": "198"
+    },
+    {
+        "N_Patrimonio": "114",
+        "Descricao": "Item 114",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 114",
+        "Status": "Tombado",
+        "Memorando": "199"
+    },
+    {
+        "N_Patrimonio": "115",
+        "Descricao": "Item 115",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 115",
+        "Status": "Tombado",
+        "Memorando": "200"
+    },
+    {
+        "N_Patrimonio": "116",
+        "Descricao": "Item 116",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 116",
+        "Status": "Tombado",
+        "Memorando": "201"
+    },
+    {
+        "N_Patrimonio": "117",
+        "Descricao": "Item 117",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 117",
+        "Status": "Tombado",
+        "Memorando": "202"
+    },
+    {
+        "N_Patrimonio": "118",
+        "Descricao": "Item 118",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 118",
+        "Status": "Tombado",
+        "Memorando": "203"
+    },
+    {
+        "N_Patrimonio": "119",
+        "Descricao": "Item 119",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 119",
+        "Status": "Tombado",
+        "Memorando": "204"
+    },
+    {
+        "N_Patrimonio": "120",
+        "Descricao": "Item 120",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 120",
+        "Status": "Tombado",
+        "Memorando": "205"
+    },
+    {
+        "N_Patrimonio": "121",
+        "Descricao": "Item 121",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 121",
+        "Status": "Tombado",
+        "Memorando": "206"
+    },
+    {
+        "N_Patrimonio": "122",
+        "Descricao": "Item 122",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 122",
+        "Status": "Tombado",
+        "Memorando": "207"
+    },
+    {
+        "N_Patrimonio": "123",
+        "Descricao": "Item 123",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 123",
+        "Status": "Tombado",
+        "Memorando": "208"
+    },
+    {
+        "N_Patrimonio": "124",
+        "Descricao": "Item 124",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 124",
+        "Status": "Tombado",
+        "Memorando": "209"
+    },
+    {
+        "N_Patrimonio": "125",
+        "Descricao": "Item 125",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 125",
+        "Status": "Tombado",
+        "Memorando": "210"
+    },
+    {
+        "N_Patrimonio": "126",
+        "Descricao": "Item 126",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 126",
+        "Status": "Tombado",
+        "Memorando": "211"
+    },
+    {
+        "N_Patrimonio": "127",
+        "Descricao": "Item 127",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 127",
+        "Status": "Tombado",
+        "Memorando": "212"
+    },
+    {
+        "N_Patrimonio": "128",
+        "Descricao": "Item 128",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 128",
+        "Status": "Tombado",
+        "Memorando": "213"
+    },
+    {
+        "N_Patrimonio": "129",
+        "Descricao": "Item 129",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 129",
+        "Status": "Tombado",
+        "Memorando": "214"
+    },
+    {
         "N_Patrimonio": "13",
         "Descricao": "aaaaaaaaaaaa",
         "Data_Entrada": "2024-11-27",
@@ -7,6 +277,888 @@
         "Descricao_Localizacao": "ffffffffffff",
         "Status": "Descarte",
         "Memorando": "34"
+    },
+    {
+        "N_Patrimonio": "130",
+        "Descricao": "Item 130",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 130",
+        "Status": "Tombado",
+        "Memorando": "215"
+    },
+    {
+        "N_Patrimonio": "131",
+        "Descricao": "Item 131",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 131",
+        "Status": "Tombado",
+        "Memorando": "216"
+    },
+    {
+        "N_Patrimonio": "132",
+        "Descricao": "Item 132",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 132",
+        "Status": "Tombado",
+        "Memorando": "217"
+    },
+    {
+        "N_Patrimonio": "133",
+        "Descricao": "Item 133",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 133",
+        "Status": "Tombado",
+        "Memorando": "218"
+    },
+    {
+        "N_Patrimonio": "134",
+        "Descricao": "Item 134",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 134",
+        "Status": "Tombado",
+        "Memorando": "219"
+    },
+    {
+        "N_Patrimonio": "135",
+        "Descricao": "Item 135",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 135",
+        "Status": "Tombado",
+        "Memorando": "220"
+    },
+    {
+        "N_Patrimonio": "136",
+        "Descricao": "Item 136",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 136",
+        "Status": "Tombado",
+        "Memorando": "221"
+    },
+    {
+        "N_Patrimonio": "137",
+        "Descricao": "Item 137",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 137",
+        "Status": "Tombado",
+        "Memorando": "222"
+    },
+    {
+        "N_Patrimonio": "138",
+        "Descricao": "Item 138",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 138",
+        "Status": "Tombado",
+        "Memorando": "223"
+    },
+    {
+        "N_Patrimonio": "139",
+        "Descricao": "Item 139",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 139",
+        "Status": "Tombado",
+        "Memorando": "224"
+    },
+    {
+        "N_Patrimonio": "14",
+        "Descricao": "Mesa de escrit\u00f3rio",
+        "Data_Entrada": "2024-12-01",
+        "Localizacao": "EMEF Rui Barbosa",
+        "Descricao_Localizacao": "Sala de professores",
+        "Status": "Tombado",
+        "Memorando": "45"
+    },
+    {
+        "N_Patrimonio": "140",
+        "Descricao": "Item 140",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 140",
+        "Status": "Tombado",
+        "Memorando": "225"
+    },
+    {
+        "N_Patrimonio": "141",
+        "Descricao": "Item 141",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 141",
+        "Status": "Tombado",
+        "Memorando": "226"
+    },
+    {
+        "N_Patrimonio": "142",
+        "Descricao": "Item 142",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 142",
+        "Status": "Tombado",
+        "Memorando": "227"
+    },
+    {
+        "N_Patrimonio": "143",
+        "Descricao": "Item 143",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 143",
+        "Status": "Tombado",
+        "Memorando": "228"
+    },
+    {
+        "N_Patrimonio": "144",
+        "Descricao": "Item 144",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 144",
+        "Status": "Tombado",
+        "Memorando": "229"
+    },
+    {
+        "N_Patrimonio": "145",
+        "Descricao": "Item 145",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 145",
+        "Status": "Tombado",
+        "Memorando": "230"
+    },
+    {
+        "N_Patrimonio": "146",
+        "Descricao": "Item 146",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 146",
+        "Status": "Tombado",
+        "Memorando": "231"
+    },
+    {
+        "N_Patrimonio": "147",
+        "Descricao": "Item 147",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 147",
+        "Status": "Tombado",
+        "Memorando": "232"
+    },
+    {
+        "N_Patrimonio": "148",
+        "Descricao": "Item 148",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 148",
+        "Status": "Tombado",
+        "Memorando": "233"
+    },
+    {
+        "N_Patrimonio": "149",
+        "Descricao": "Item 149",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 149",
+        "Status": "Tombado",
+        "Memorando": "234"
+    },
+    {
+        "N_Patrimonio": "15",
+        "Descricao": "Cadeira girat\u00f3ria",
+        "Data_Entrada": "2024-11-30",
+        "Localizacao": "EMEF Ant\u00f4nio Jo\u00e3o",
+        "Descricao_Localizacao": "Secretaria",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "150",
+        "Descricao": "Item 150",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 150",
+        "Status": "Tombado",
+        "Memorando": "235"
+    },
+    {
+        "N_Patrimonio": "151",
+        "Descricao": "Item 151",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 151",
+        "Status": "Tombado",
+        "Memorando": "236"
+    },
+    {
+        "N_Patrimonio": "152",
+        "Descricao": "Item 152",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 152",
+        "Status": "Tombado",
+        "Memorando": "237"
+    },
+    {
+        "N_Patrimonio": "153",
+        "Descricao": "Item 153",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 153",
+        "Status": "Tombado",
+        "Memorando": "238"
+    },
+    {
+        "N_Patrimonio": "154",
+        "Descricao": "Item 154",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 154",
+        "Status": "Tombado",
+        "Memorando": "239"
+    },
+    {
+        "N_Patrimonio": "155",
+        "Descricao": "Item 155",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 155",
+        "Status": "Tombado",
+        "Memorando": "240"
+    },
+    {
+        "N_Patrimonio": "156",
+        "Descricao": "Item 156",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 156",
+        "Status": "Tombado",
+        "Memorando": "241"
+    },
+    {
+        "N_Patrimonio": "157",
+        "Descricao": "Item 157",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 157",
+        "Status": "Tombado",
+        "Memorando": "242"
+    },
+    {
+        "N_Patrimonio": "158",
+        "Descricao": "Item 158",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 158",
+        "Status": "Tombado",
+        "Memorando": "243"
+    },
+    {
+        "N_Patrimonio": "159",
+        "Descricao": "Item 159",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 159",
+        "Status": "Tombado",
+        "Memorando": "244"
+    },
+    {
+        "N_Patrimonio": "16",
+        "Descricao": "Notebook Dell Inspiron",
+        "Data_Entrada": "2024-11-29",
+        "Localizacao": "SME",
+        "Descricao_Localizacao": "Gabinete principal",
+        "Status": "Tombado",
+        "Memorando": "89"
+    },
+    {
+        "N_Patrimonio": "160",
+        "Descricao": "Item 160",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 160",
+        "Status": "Tombado",
+        "Memorando": "245"
+    },
+    {
+        "N_Patrimonio": "161",
+        "Descricao": "Item 161",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 161",
+        "Status": "Tombado",
+        "Memorando": "246"
+    },
+    {
+        "N_Patrimonio": "162",
+        "Descricao": "Item 162",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 162",
+        "Status": "Tombado",
+        "Memorando": "247"
+    },
+    {
+        "N_Patrimonio": "163",
+        "Descricao": "Item 163",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 163",
+        "Status": "Tombado",
+        "Memorando": "248"
+    },
+    {
+        "N_Patrimonio": "164",
+        "Descricao": "Item 164",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 164",
+        "Status": "Tombado",
+        "Memorando": "249"
+    },
+    {
+        "N_Patrimonio": "165",
+        "Descricao": "Item 165",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 165",
+        "Status": "Tombado",
+        "Memorando": "250"
+    },
+    {
+        "N_Patrimonio": "166",
+        "Descricao": "Item 166",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 166",
+        "Status": "Tombado",
+        "Memorando": "251"
+    },
+    {
+        "N_Patrimonio": "167",
+        "Descricao": "Item 167",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 167",
+        "Status": "Tombado",
+        "Memorando": "252"
+    },
+    {
+        "N_Patrimonio": "168",
+        "Descricao": "Item 168",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 168",
+        "Status": "Tombado",
+        "Memorando": "253"
+    },
+    {
+        "N_Patrimonio": "169",
+        "Descricao": "Item 169",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 169",
+        "Status": "Tombado",
+        "Memorando": "254"
+    },
+    {
+        "N_Patrimonio": "17",
+        "Descricao": "Projetor Epson X200",
+        "Data_Entrada": "2024-11-28",
+        "Localizacao": "EMEF Sol Nascente",
+        "Descricao_Localizacao": "Audit\u00f3rio",
+        "Status": "Descarte",
+        "Memorando": "56"
+    },
+    {
+        "N_Patrimonio": "170",
+        "Descricao": "Item 170",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 170",
+        "Status": "Tombado",
+        "Memorando": "255"
+    },
+    {
+        "N_Patrimonio": "171",
+        "Descricao": "Item 171",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 171",
+        "Status": "Tombado",
+        "Memorando": "256"
+    },
+    {
+        "N_Patrimonio": "172",
+        "Descricao": "Item 172",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 172",
+        "Status": "Tombado",
+        "Memorando": "257"
+    },
+    {
+        "N_Patrimonio": "173",
+        "Descricao": "Item 173",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 173",
+        "Status": "Tombado",
+        "Memorando": "258"
+    },
+    {
+        "N_Patrimonio": "174",
+        "Descricao": "Item 174",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 174",
+        "Status": "Tombado",
+        "Memorando": "259"
+    },
+    {
+        "N_Patrimonio": "175",
+        "Descricao": "Item 175",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 175",
+        "Status": "Tombado",
+        "Memorando": "260"
+    },
+    {
+        "N_Patrimonio": "176",
+        "Descricao": "Item 176",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 176",
+        "Status": "Tombado",
+        "Memorando": "261"
+    },
+    {
+        "N_Patrimonio": "177",
+        "Descricao": "Item 177",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 177",
+        "Status": "Tombado",
+        "Memorando": "262"
+    },
+    {
+        "N_Patrimonio": "178",
+        "Descricao": "Item 178",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 178",
+        "Status": "Tombado",
+        "Memorando": "263"
+    },
+    {
+        "N_Patrimonio": "179",
+        "Descricao": "Item 179",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 179",
+        "Status": "Tombado",
+        "Memorando": "264"
+    },
+    {
+        "N_Patrimonio": "18",
+        "Descricao": "Arm\u00e1rio de madeira",
+        "Data_Entrada": "2024-12-02",
+        "Localizacao": "EMEI Vov\u00f3 Am\u00e1lia",
+        "Descricao_Localizacao": "Dep\u00f3sito",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "180",
+        "Descricao": "Item 180",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 180",
+        "Status": "Tombado",
+        "Memorando": "265"
+    },
+    {
+        "N_Patrimonio": "181",
+        "Descricao": "Item 181",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 181",
+        "Status": "Tombado",
+        "Memorando": "266"
+    },
+    {
+        "N_Patrimonio": "182",
+        "Descricao": "Item 182",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 182",
+        "Status": "Tombado",
+        "Memorando": "267"
+    },
+    {
+        "N_Patrimonio": "183",
+        "Descricao": "Item 183",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 183",
+        "Status": "Tombado",
+        "Memorando": "268"
+    },
+    {
+        "N_Patrimonio": "184",
+        "Descricao": "Item 184",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 184",
+        "Status": "Tombado",
+        "Memorando": "269"
+    },
+    {
+        "N_Patrimonio": "185",
+        "Descricao": "Item 185",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 185",
+        "Status": "Tombado",
+        "Memorando": "270"
+    },
+    {
+        "N_Patrimonio": "186",
+        "Descricao": "Item 186",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 186",
+        "Status": "Tombado",
+        "Memorando": "271"
+    },
+    {
+        "N_Patrimonio": "187",
+        "Descricao": "Item 187",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 187",
+        "Status": "Tombado",
+        "Memorando": "272"
+    },
+    {
+        "N_Patrimonio": "188",
+        "Descricao": "Item 188",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 188",
+        "Status": "Tombado",
+        "Memorando": "273"
+    },
+    {
+        "N_Patrimonio": "189",
+        "Descricao": "Item 189",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 189",
+        "Status": "Tombado",
+        "Memorando": "274"
+    },
+    {
+        "N_Patrimonio": "19",
+        "Descricao": "Kit de rob\u00f3tica educacional",
+        "Data_Entrada": "2024-11-25",
+        "Localizacao": "EMEF Ant\u00f4nio Liberato",
+        "Descricao_Localizacao": "Laborat\u00f3rio de inform\u00e1tica",
+        "Status": "Tombado",
+        "Memorando": "78"
+    },
+    {
+        "N_Patrimonio": "190",
+        "Descricao": "Item 190",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 190",
+        "Status": "Tombado",
+        "Memorando": "275"
+    },
+    {
+        "N_Patrimonio": "191",
+        "Descricao": "Item 191",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 191",
+        "Status": "Tombado",
+        "Memorando": "276"
+    },
+    {
+        "N_Patrimonio": "192",
+        "Descricao": "Item 192",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 192",
+        "Status": "Tombado",
+        "Memorando": "277"
+    },
+    {
+        "N_Patrimonio": "193",
+        "Descricao": "Item 193",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 193",
+        "Status": "Tombado",
+        "Memorando": "278"
+    },
+    {
+        "N_Patrimonio": "194",
+        "Descricao": "Item 194",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 194",
+        "Status": "Tombado",
+        "Memorando": "279"
+    },
+    {
+        "N_Patrimonio": "195",
+        "Descricao": "Item 195",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 195",
+        "Status": "Tombado",
+        "Memorando": "280"
+    },
+    {
+        "N_Patrimonio": "196",
+        "Descricao": "Item 196",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 196",
+        "Status": "Tombado",
+        "Memorando": "281"
+    },
+    {
+        "N_Patrimonio": "197",
+        "Descricao": "Item 197",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 197",
+        "Status": "Tombado",
+        "Memorando": "282"
+    },
+    {
+        "N_Patrimonio": "198",
+        "Descricao": "Item 198",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 198",
+        "Status": "Tombado",
+        "Memorando": "283"
+    },
+    {
+        "N_Patrimonio": "199",
+        "Descricao": "Item 199",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 199",
+        "Status": "Tombado",
+        "Memorando": "284"
+    },
+    {
+        "N_Patrimonio": "20",
+        "Descricao": "Quadro branco 1.5x2m",
+        "Data_Entrada": "2024-11-21",
+        "Localizacao": "EMEI Vaga-Lume",
+        "Descricao_Localizacao": "Sala de aula 2",
+        "Status": "Descarte",
+        "Memorando": "92"
+    },
+    {
+        "N_Patrimonio": "200",
+        "Descricao": "Item 200",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 200",
+        "Status": "Tombado",
+        "Memorando": "285"
+    },
+    {
+        "N_Patrimonio": "201",
+        "Descricao": "Item 201",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 201",
+        "Status": "Tombado",
+        "Memorando": "286"
+    },
+    {
+        "N_Patrimonio": "202",
+        "Descricao": "Item 202",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 202",
+        "Status": "Tombado",
+        "Memorando": "287"
+    },
+    {
+        "N_Patrimonio": "203",
+        "Descricao": "Item 203",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 203",
+        "Status": "Tombado",
+        "Memorando": "288"
+    },
+    {
+        "N_Patrimonio": "204",
+        "Descricao": "Item 204",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 204",
+        "Status": "Tombado",
+        "Memorando": "289"
+    },
+    {
+        "N_Patrimonio": "205",
+        "Descricao": "Item 205",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 205",
+        "Status": "Tombado",
+        "Memorando": "290"
+    },
+    {
+        "N_Patrimonio": "206",
+        "Descricao": "Item 206",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 206",
+        "Status": "Tombado",
+        "Memorando": "291"
+    },
+    {
+        "N_Patrimonio": "207",
+        "Descricao": "Item 207",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 207",
+        "Status": "Tombado",
+        "Memorando": "292"
+    },
+    {
+        "N_Patrimonio": "208",
+        "Descricao": "Item 208",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 208",
+        "Status": "Tombado",
+        "Memorando": "293"
+    },
+    {
+        "N_Patrimonio": "209",
+        "Descricao": "Item 209",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 209",
+        "Status": "Tombado",
+        "Memorando": "294"
+    },
+    {
+        "N_Patrimonio": "21",
+        "Descricao": "Impressora HP LaserJet",
+        "Data_Entrada": "2024-11-18",
+        "Localizacao": "SME",
+        "Descricao_Localizacao": "Sala de TI",
+        "Status": "Tombado",
+        "Memorando": "66"
+    },
+    {
+        "N_Patrimonio": "210",
+        "Descricao": "Item 210",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 210",
+        "Status": "Tombado",
+        "Memorando": "295"
+    },
+    {
+        "N_Patrimonio": "211",
+        "Descricao": "Item 211",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 211",
+        "Status": "Tombado",
+        "Memorando": "296"
+    },
+    {
+        "N_Patrimonio": "212",
+        "Descricao": "Item 212",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 212",
+        "Status": "Tombado",
+        "Memorando": "297"
+    },
+    {
+        "N_Patrimonio": "213",
+        "Descricao": "Item 213",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 213",
+        "Status": "Tombado",
+        "Memorando": "298"
+    },
+    {
+        "N_Patrimonio": "214",
+        "Descricao": "Item 214",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 214",
+        "Status": "Tombado",
+        "Memorando": "299"
+    },
+    {
+        "N_Patrimonio": "215",
+        "Descricao": "Item 215",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 215",
+        "Status": "Tombado",
+        "Memorando": "300"
+    },
+    {
+        "N_Patrimonio": "216",
+        "Descricao": "Item 216",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 216",
+        "Status": "Tombado",
+        "Memorando": "301"
+    },
+    {
+        "N_Patrimonio": "217",
+        "Descricao": "Item 217",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 217",
+        "Status": "Tombado",
+        "Memorando": "302"
+    },
+    {
+        "N_Patrimonio": "218",
+        "Descricao": "Item 218",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 218",
+        "Status": "Tombado",
+        "Memorando": "303"
+    },
+    {
+        "N_Patrimonio": "219",
+        "Descricao": "Item 219",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 219",
+        "Status": "Tombado",
+        "Memorando": "304"
     },
     {
         "N_Patrimonio": "22",
@@ -18,12 +1170,1812 @@
         "Memorando": null
     },
     {
-        "N_Patrimonio": "asd",
-        "Descricao": "43",
-        "Data_Entrada": "2024-11-22",
-        "Localizacao": "EMEI Vaga-Lume",
-        "Descricao_Localizacao": "23",
+        "N_Patrimonio": "220",
+        "Descricao": "Item 220",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 220",
+        "Status": "Tombado",
+        "Memorando": "305"
+    },
+    {
+        "N_Patrimonio": "221",
+        "Descricao": "Item 221",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 221",
+        "Status": "Tombado",
+        "Memorando": "306"
+    },
+    {
+        "N_Patrimonio": "222",
+        "Descricao": "Item 222",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 222",
+        "Status": "Tombado",
+        "Memorando": "307"
+    },
+    {
+        "N_Patrimonio": "223",
+        "Descricao": "Item 223",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 223",
+        "Status": "Tombado",
+        "Memorando": "308"
+    },
+    {
+        "N_Patrimonio": "224",
+        "Descricao": "Item 224",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 224",
+        "Status": "Tombado",
+        "Memorando": "309"
+    },
+    {
+        "N_Patrimonio": "225",
+        "Descricao": "Item 225",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 225",
+        "Status": "Tombado",
+        "Memorando": "310"
+    },
+    {
+        "N_Patrimonio": "226",
+        "Descricao": "Item 226",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 226",
+        "Status": "Tombado",
+        "Memorando": "311"
+    },
+    {
+        "N_Patrimonio": "227",
+        "Descricao": "Item 227",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 227",
+        "Status": "Tombado",
+        "Memorando": "312"
+    },
+    {
+        "N_Patrimonio": "228",
+        "Descricao": "Item 228",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 228",
+        "Status": "Tombado",
+        "Memorando": "313"
+    },
+    {
+        "N_Patrimonio": "229",
+        "Descricao": "Item 229",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 229",
+        "Status": "Tombado",
+        "Memorando": "314"
+    },
+    {
+        "N_Patrimonio": "23",
+        "Descricao": "Conjunto de livros did\u00e1ticos",
+        "Data_Entrada": "2024-11-15",
+        "Localizacao": "EMEF S\u00e3o Jo\u00e3o",
+        "Descricao_Localizacao": "Biblioteca",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "230",
+        "Descricao": "Item 230",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 230",
+        "Status": "Tombado",
+        "Memorando": "315"
+    },
+    {
+        "N_Patrimonio": "231",
+        "Descricao": "Item 231",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 231",
+        "Status": "Tombado",
+        "Memorando": "316"
+    },
+    {
+        "N_Patrimonio": "232",
+        "Descricao": "Item 232",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 232",
+        "Status": "Tombado",
+        "Memorando": "317"
+    },
+    {
+        "N_Patrimonio": "233",
+        "Descricao": "Item 233",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 233",
+        "Status": "Tombado",
+        "Memorando": "318"
+    },
+    {
+        "N_Patrimonio": "234",
+        "Descricao": "Item 234",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 234",
+        "Status": "Tombado",
+        "Memorando": "319"
+    },
+    {
+        "N_Patrimonio": "235",
+        "Descricao": "Item 235",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 235",
+        "Status": "Tombado",
+        "Memorando": "320"
+    },
+    {
+        "N_Patrimonio": "236",
+        "Descricao": "Item 236",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 236",
+        "Status": "Tombado",
+        "Memorando": "321"
+    },
+    {
+        "N_Patrimonio": "237",
+        "Descricao": "Item 237",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 237",
+        "Status": "Tombado",
+        "Memorando": "322"
+    },
+    {
+        "N_Patrimonio": "238",
+        "Descricao": "Item 238",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 238",
+        "Status": "Tombado",
+        "Memorando": "323"
+    },
+    {
+        "N_Patrimonio": "239",
+        "Descricao": "Item 239",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 239",
+        "Status": "Tombado",
+        "Memorando": "324"
+    },
+    {
+        "N_Patrimonio": "24",
+        "Descricao": "Telefone sem fio Panasonic",
+        "Data_Entrada": "2024-12-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Recep\u00e7\u00e3o",
+        "Status": "Tombado",
+        "Memorando": "101"
+    },
+    {
+        "N_Patrimonio": "240",
+        "Descricao": "Item 240",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 240",
+        "Status": "Tombado",
+        "Memorando": "325"
+    },
+    {
+        "N_Patrimonio": "241",
+        "Descricao": "Item 241",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 241",
+        "Status": "Tombado",
+        "Memorando": "326"
+    },
+    {
+        "N_Patrimonio": "242",
+        "Descricao": "Item 242",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 242",
+        "Status": "Tombado",
+        "Memorando": "327"
+    },
+    {
+        "N_Patrimonio": "243",
+        "Descricao": "Item 243",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 243",
+        "Status": "Tombado",
+        "Memorando": "328"
+    },
+    {
+        "N_Patrimonio": "244",
+        "Descricao": "Item 244",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 244",
+        "Status": "Tombado",
+        "Memorando": "329"
+    },
+    {
+        "N_Patrimonio": "245",
+        "Descricao": "Item 245",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 245",
+        "Status": "Tombado",
+        "Memorando": "330"
+    },
+    {
+        "N_Patrimonio": "246",
+        "Descricao": "Item 246",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 246",
+        "Status": "Tombado",
+        "Memorando": "331"
+    },
+    {
+        "N_Patrimonio": "247",
+        "Descricao": "Item 247",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 247",
+        "Status": "Tombado",
+        "Memorando": "332"
+    },
+    {
+        "N_Patrimonio": "248",
+        "Descricao": "Item 248",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 248",
+        "Status": "Tombado",
+        "Memorando": "333"
+    },
+    {
+        "N_Patrimonio": "249",
+        "Descricao": "Item 249",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 249",
+        "Status": "Tombado",
+        "Memorando": "334"
+    },
+    {
+        "N_Patrimonio": "25",
+        "Descricao": "Smart TV Samsung 50\"",
+        "Data_Entrada": "2024-11-27",
+        "Localizacao": "EMEF Ant\u00f4nio Jo\u00e3o",
+        "Descricao_Localizacao": "Sala de reuni\u00f5es",
+        "Status": "Tombado",
+        "Memorando": "103"
+    },
+    {
+        "N_Patrimonio": "250",
+        "Descricao": "Item 250",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 250",
+        "Status": "Tombado",
+        "Memorando": "335"
+    },
+    {
+        "N_Patrimonio": "251",
+        "Descricao": "Item 251",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 251",
+        "Status": "Tombado",
+        "Memorando": "336"
+    },
+    {
+        "N_Patrimonio": "252",
+        "Descricao": "Item 252",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 252",
+        "Status": "Tombado",
+        "Memorando": "337"
+    },
+    {
+        "N_Patrimonio": "253",
+        "Descricao": "Item 253",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 253",
+        "Status": "Tombado",
+        "Memorando": "338"
+    },
+    {
+        "N_Patrimonio": "254",
+        "Descricao": "Item 254",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 254",
+        "Status": "Tombado",
+        "Memorando": "339"
+    },
+    {
+        "N_Patrimonio": "255",
+        "Descricao": "Item 255",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 255",
+        "Status": "Tombado",
+        "Memorando": "340"
+    },
+    {
+        "N_Patrimonio": "256",
+        "Descricao": "Item 256",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 256",
+        "Status": "Tombado",
+        "Memorando": "341"
+    },
+    {
+        "N_Patrimonio": "257",
+        "Descricao": "Item 257",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 257",
+        "Status": "Tombado",
+        "Memorando": "342"
+    },
+    {
+        "N_Patrimonio": "258",
+        "Descricao": "Item 258",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 258",
+        "Status": "Tombado",
+        "Memorando": "343"
+    },
+    {
+        "N_Patrimonio": "259",
+        "Descricao": "Item 259",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 259",
+        "Status": "Tombado",
+        "Memorando": "344"
+    },
+    {
+        "N_Patrimonio": "26",
+        "Descricao": "Sistema de som port\u00e1til",
+        "Data_Entrada": "2024-11-26",
+        "Localizacao": "EMEF Rui Barbosa",
+        "Descricao_Localizacao": "Audit\u00f3rio",
         "Status": "Descarte",
-        "Memorando": "12"
+        "Memorando": "104"
+    },
+    {
+        "N_Patrimonio": "260",
+        "Descricao": "Item 260",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 260",
+        "Status": "Tombado",
+        "Memorando": "345"
+    },
+    {
+        "N_Patrimonio": "261",
+        "Descricao": "Item 261",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 261",
+        "Status": "Tombado",
+        "Memorando": "346"
+    },
+    {
+        "N_Patrimonio": "262",
+        "Descricao": "Item 262",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 262",
+        "Status": "Tombado",
+        "Memorando": "347"
+    },
+    {
+        "N_Patrimonio": "263",
+        "Descricao": "Item 263",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 263",
+        "Status": "Tombado",
+        "Memorando": "348"
+    },
+    {
+        "N_Patrimonio": "264",
+        "Descricao": "Item 264",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 264",
+        "Status": "Tombado",
+        "Memorando": "349"
+    },
+    {
+        "N_Patrimonio": "265",
+        "Descricao": "Item 265",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 265",
+        "Status": "Tombado",
+        "Memorando": "350"
+    },
+    {
+        "N_Patrimonio": "266",
+        "Descricao": "Item 266",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 266",
+        "Status": "Tombado",
+        "Memorando": "351"
+    },
+    {
+        "N_Patrimonio": "267",
+        "Descricao": "Item 267",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 267",
+        "Status": "Tombado",
+        "Memorando": "352"
+    },
+    {
+        "N_Patrimonio": "268",
+        "Descricao": "Item 268",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 268",
+        "Status": "Tombado",
+        "Memorando": "353"
+    },
+    {
+        "N_Patrimonio": "269",
+        "Descricao": "Item 269",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 269",
+        "Status": "Tombado",
+        "Memorando": "354"
+    },
+    {
+        "N_Patrimonio": "27",
+        "Descricao": "Mesa infantil de pl\u00e1stico",
+        "Data_Entrada": "2024-12-01",
+        "Localizacao": "EMEI Vov\u00f3 Am\u00e1lia",
+        "Descricao_Localizacao": "Sala de leitura",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "270",
+        "Descricao": "Item 270",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 270",
+        "Status": "Tombado",
+        "Memorando": "355"
+    },
+    {
+        "N_Patrimonio": "271",
+        "Descricao": "Item 271",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 271",
+        "Status": "Tombado",
+        "Memorando": "356"
+    },
+    {
+        "N_Patrimonio": "272",
+        "Descricao": "Item 272",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 272",
+        "Status": "Tombado",
+        "Memorando": "357"
+    },
+    {
+        "N_Patrimonio": "273",
+        "Descricao": "Item 273",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 273",
+        "Status": "Tombado",
+        "Memorando": "358"
+    },
+    {
+        "N_Patrimonio": "274",
+        "Descricao": "Item 274",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 274",
+        "Status": "Tombado",
+        "Memorando": "359"
+    },
+    {
+        "N_Patrimonio": "275",
+        "Descricao": "Item 275",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 275",
+        "Status": "Tombado",
+        "Memorando": "360"
+    },
+    {
+        "N_Patrimonio": "276",
+        "Descricao": "Item 276",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 276",
+        "Status": "Tombado",
+        "Memorando": "361"
+    },
+    {
+        "N_Patrimonio": "277",
+        "Descricao": "Item 277",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 277",
+        "Status": "Tombado",
+        "Memorando": "362"
+    },
+    {
+        "N_Patrimonio": "278",
+        "Descricao": "Item 278",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 278",
+        "Status": "Tombado",
+        "Memorando": "363"
+    },
+    {
+        "N_Patrimonio": "279",
+        "Descricao": "Item 279",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 279",
+        "Status": "Tombado",
+        "Memorando": "364"
+    },
+    {
+        "N_Patrimonio": "28",
+        "Descricao": "Ventilador de parede",
+        "Data_Entrada": "2024-12-02",
+        "Localizacao": "EMEF Sol Nascente",
+        "Descricao_Localizacao": "Sala de aula 3",
+        "Status": "Descarte",
+        "Memorando": "107"
+    },
+    {
+        "N_Patrimonio": "280",
+        "Descricao": "Item 280",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 280",
+        "Status": "Tombado",
+        "Memorando": "365"
+    },
+    {
+        "N_Patrimonio": "281",
+        "Descricao": "Item 281",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 281",
+        "Status": "Tombado",
+        "Memorando": "366"
+    },
+    {
+        "N_Patrimonio": "282",
+        "Descricao": "Item 282",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 282",
+        "Status": "Tombado",
+        "Memorando": "367"
+    },
+    {
+        "N_Patrimonio": "283",
+        "Descricao": "Item 283",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 283",
+        "Status": "Tombado",
+        "Memorando": "368"
+    },
+    {
+        "N_Patrimonio": "284",
+        "Descricao": "Item 284",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 284",
+        "Status": "Tombado",
+        "Memorando": "369"
+    },
+    {
+        "N_Patrimonio": "285",
+        "Descricao": "Item 285",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 285",
+        "Status": "Tombado",
+        "Memorando": "370"
+    },
+    {
+        "N_Patrimonio": "286",
+        "Descricao": "Item 286",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 286",
+        "Status": "Tombado",
+        "Memorando": "371"
+    },
+    {
+        "N_Patrimonio": "287",
+        "Descricao": "Item 287",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 287",
+        "Status": "Tombado",
+        "Memorando": "372"
+    },
+    {
+        "N_Patrimonio": "288",
+        "Descricao": "Item 288",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 288",
+        "Status": "Tombado",
+        "Memorando": "373"
+    },
+    {
+        "N_Patrimonio": "289",
+        "Descricao": "Item 289",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 289",
+        "Status": "Tombado",
+        "Memorando": "374"
+    },
+    {
+        "N_Patrimonio": "29",
+        "Descricao": "Cadeiras empilh\u00e1veis",
+        "Data_Entrada": "2024-11-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Dep\u00f3sito",
+        "Status": "Tombado",
+        "Memorando": "108"
+    },
+    {
+        "N_Patrimonio": "290",
+        "Descricao": "Item 290",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 290",
+        "Status": "Tombado",
+        "Memorando": "375"
+    },
+    {
+        "N_Patrimonio": "291",
+        "Descricao": "Item 291",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 291",
+        "Status": "Tombado",
+        "Memorando": "376"
+    },
+    {
+        "N_Patrimonio": "292",
+        "Descricao": "Item 292",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 292",
+        "Status": "Tombado",
+        "Memorando": "377"
+    },
+    {
+        "N_Patrimonio": "293",
+        "Descricao": "Item 293",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 293",
+        "Status": "Tombado",
+        "Memorando": "378"
+    },
+    {
+        "N_Patrimonio": "294",
+        "Descricao": "Item 294",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 294",
+        "Status": "Tombado",
+        "Memorando": "379"
+    },
+    {
+        "N_Patrimonio": "295",
+        "Descricao": "Item 295",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 295",
+        "Status": "Tombado",
+        "Memorando": "380"
+    },
+    {
+        "N_Patrimonio": "296",
+        "Descricao": "Item 296",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 296",
+        "Status": "Tombado",
+        "Memorando": "381"
+    },
+    {
+        "N_Patrimonio": "297",
+        "Descricao": "Item 297",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 297",
+        "Status": "Tombado",
+        "Memorando": "382"
+    },
+    {
+        "N_Patrimonio": "298",
+        "Descricao": "Item 298",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 298",
+        "Status": "Tombado",
+        "Memorando": "383"
+    },
+    {
+        "N_Patrimonio": "299",
+        "Descricao": "Item 299",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 299",
+        "Status": "Tombado",
+        "Memorando": "384"
+    },
+    {
+        "N_Patrimonio": "30",
+        "Descricao": "Lumin\u00e1ria de mesa",
+        "Data_Entrada": "2024-11-17",
+        "Localizacao": "EMEF Ant\u00f4nio Liberato",
+        "Descricao_Localizacao": "Sala de estudo",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "300",
+        "Descricao": "Item 300",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 300",
+        "Status": "Tombado",
+        "Memorando": "385"
+    },
+    {
+        "N_Patrimonio": "301",
+        "Descricao": "Item 301",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 301",
+        "Status": "Tombado",
+        "Memorando": "386"
+    },
+    {
+        "N_Patrimonio": "302",
+        "Descricao": "Item 302",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 302",
+        "Status": "Tombado",
+        "Memorando": "387"
+    },
+    {
+        "N_Patrimonio": "303",
+        "Descricao": "Item 303",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 303",
+        "Status": "Tombado",
+        "Memorando": "388"
+    },
+    {
+        "N_Patrimonio": "304",
+        "Descricao": "Item 304",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 304",
+        "Status": "Tombado",
+        "Memorando": "389"
+    },
+    {
+        "N_Patrimonio": "305",
+        "Descricao": "Item 305",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 305",
+        "Status": "Tombado",
+        "Memorando": "390"
+    },
+    {
+        "N_Patrimonio": "306",
+        "Descricao": "Item 306",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 306",
+        "Status": "Tombado",
+        "Memorando": "391"
+    },
+    {
+        "N_Patrimonio": "307",
+        "Descricao": "Item 307",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 307",
+        "Status": "Tombado",
+        "Memorando": "392"
+    },
+    {
+        "N_Patrimonio": "308",
+        "Descricao": "Item 308",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 308",
+        "Status": "Tombado",
+        "Memorando": "393"
+    },
+    {
+        "N_Patrimonio": "309",
+        "Descricao": "Item 309",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 309",
+        "Status": "Tombado",
+        "Memorando": "394"
+    },
+    {
+        "N_Patrimonio": "31",
+        "Descricao": "Teclado mec\u00e2nico",
+        "Data_Entrada": "2024-11-10",
+        "Localizacao": "SME",
+        "Descricao_Localizacao": "Sala de TI",
+        "Status": "Tombado",
+        "Memorando": "112"
+    },
+    {
+        "N_Patrimonio": "310",
+        "Descricao": "Item 310",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 310",
+        "Status": "Tombado",
+        "Memorando": "395"
+    },
+    {
+        "N_Patrimonio": "311",
+        "Descricao": "Item 311",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 311",
+        "Status": "Tombado",
+        "Memorando": "396"
+    },
+    {
+        "N_Patrimonio": "312",
+        "Descricao": "Item 312",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 312",
+        "Status": "Tombado",
+        "Memorando": "397"
+    },
+    {
+        "N_Patrimonio": "313",
+        "Descricao": "Item 313",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 313",
+        "Status": "Tombado",
+        "Memorando": "398"
+    },
+    {
+        "N_Patrimonio": "314",
+        "Descricao": "Item 314",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 314",
+        "Status": "Tombado",
+        "Memorando": "399"
+    },
+    {
+        "N_Patrimonio": "315",
+        "Descricao": "Item 315",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 315",
+        "Status": "Tombado",
+        "Memorando": "400"
+    },
+    {
+        "N_Patrimonio": "316",
+        "Descricao": "Item 316",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 316",
+        "Status": "Tombado",
+        "Memorando": "401"
+    },
+    {
+        "N_Patrimonio": "317",
+        "Descricao": "Item 317",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 317",
+        "Status": "Tombado",
+        "Memorando": "402"
+    },
+    {
+        "N_Patrimonio": "318",
+        "Descricao": "Item 318",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 318",
+        "Status": "Tombado",
+        "Memorando": "403"
+    },
+    {
+        "N_Patrimonio": "319",
+        "Descricao": "Item 319",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 319",
+        "Status": "Tombado",
+        "Memorando": "404"
+    },
+    {
+        "N_Patrimonio": "32",
+        "Descricao": "C\u00e2mera de seguran\u00e7a Hikvision",
+        "Data_Entrada": "2024-12-03",
+        "Localizacao": "EMEI Vaga-Lume",
+        "Descricao_Localizacao": "Entrada principal",
+        "Status": "Tombado",
+        "Memorando": "113"
+    },
+    {
+        "N_Patrimonio": "320",
+        "Descricao": "Item 320",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 320",
+        "Status": "Tombado",
+        "Memorando": "405"
+    },
+    {
+        "N_Patrimonio": "321",
+        "Descricao": "Item 321",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 321",
+        "Status": "Tombado",
+        "Memorando": "406"
+    },
+    {
+        "N_Patrimonio": "322",
+        "Descricao": "Item 322",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 322",
+        "Status": "Tombado",
+        "Memorando": "407"
+    },
+    {
+        "N_Patrimonio": "323",
+        "Descricao": "Item 323",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 323",
+        "Status": "Tombado",
+        "Memorando": "408"
+    },
+    {
+        "N_Patrimonio": "324",
+        "Descricao": "Item 324",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 324",
+        "Status": "Tombado",
+        "Memorando": "409"
+    },
+    {
+        "N_Patrimonio": "325",
+        "Descricao": "Item 325",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 325",
+        "Status": "Tombado",
+        "Memorando": "410"
+    },
+    {
+        "N_Patrimonio": "326",
+        "Descricao": "Item 326",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 326",
+        "Status": "Tombado",
+        "Memorando": "411"
+    },
+    {
+        "N_Patrimonio": "327",
+        "Descricao": "Item 327",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 327",
+        "Status": "Tombado",
+        "Memorando": "412"
+    },
+    {
+        "N_Patrimonio": "328",
+        "Descricao": "Item 328",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 328",
+        "Status": "Tombado",
+        "Memorando": "413"
+    },
+    {
+        "N_Patrimonio": "329",
+        "Descricao": "Item 329",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 329",
+        "Status": "Tombado",
+        "Memorando": "414"
+    },
+    {
+        "N_Patrimonio": "33",
+        "Descricao": "Garrafa t\u00e9rmica 2L",
+        "Data_Entrada": "2024-11-12",
+        "Localizacao": "EMEF S\u00e3o Jo\u00e3o",
+        "Descricao_Localizacao": "Refeit\u00f3rio",
+        "Status": "Descarte",
+        "Memorando": "114"
+    },
+    {
+        "N_Patrimonio": "330",
+        "Descricao": "Item 330",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 330",
+        "Status": "Tombado",
+        "Memorando": "415"
+    },
+    {
+        "N_Patrimonio": "331",
+        "Descricao": "Item 331",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 331",
+        "Status": "Tombado",
+        "Memorando": "416"
+    },
+    {
+        "N_Patrimonio": "332",
+        "Descricao": "Item 332",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 332",
+        "Status": "Tombado",
+        "Memorando": "417"
+    },
+    {
+        "N_Patrimonio": "333",
+        "Descricao": "Item 333",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 333",
+        "Status": "Tombado",
+        "Memorando": "418"
+    },
+    {
+        "N_Patrimonio": "334",
+        "Descricao": "Item 334",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 334",
+        "Status": "Tombado",
+        "Memorando": "419"
+    },
+    {
+        "N_Patrimonio": "335",
+        "Descricao": "Item 335",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 335",
+        "Status": "Tombado",
+        "Memorando": "420"
+    },
+    {
+        "N_Patrimonio": "336",
+        "Descricao": "Item 336",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 336",
+        "Status": "Tombado",
+        "Memorando": "421"
+    },
+    {
+        "N_Patrimonio": "337",
+        "Descricao": "Item 337",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 337",
+        "Status": "Tombado",
+        "Memorando": "422"
+    },
+    {
+        "N_Patrimonio": "338",
+        "Descricao": "Item 338",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 338",
+        "Status": "Tombado",
+        "Memorando": "423"
+    },
+    {
+        "N_Patrimonio": "339",
+        "Descricao": "Item 339",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 339",
+        "Status": "Tombado",
+        "Memorando": "424"
+    },
+    {
+        "N_Patrimonio": "34",
+        "Descricao": "Microfone sem fio",
+        "Data_Entrada": "2024-11-08",
+        "Localizacao": "EMEF Rui Barbosa",
+        "Descricao_Localizacao": "Audit\u00f3rio",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "340",
+        "Descricao": "Item 340",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 340",
+        "Status": "Tombado",
+        "Memorando": "425"
+    },
+    {
+        "N_Patrimonio": "341",
+        "Descricao": "Item 341",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 341",
+        "Status": "Tombado",
+        "Memorando": "426"
+    },
+    {
+        "N_Patrimonio": "342",
+        "Descricao": "Item 342",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 342",
+        "Status": "Tombado",
+        "Memorando": "427"
+    },
+    {
+        "N_Patrimonio": "343",
+        "Descricao": "Item 343",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 343",
+        "Status": "Tombado",
+        "Memorando": "428"
+    },
+    {
+        "N_Patrimonio": "344",
+        "Descricao": "Item 344",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 344",
+        "Status": "Tombado",
+        "Memorando": "429"
+    },
+    {
+        "N_Patrimonio": "35",
+        "Descricao": "Cozinha pedag\u00f3gica infantil",
+        "Data_Entrada": "2024-11-15",
+        "Localizacao": "EMEI Vaga-Lume",
+        "Descricao_Localizacao": "Sala de brinquedos",
+        "Status": "Tombado",
+        "Memorando": "115"
+    },
+    {
+        "N_Patrimonio": "36",
+        "Descricao": "Bebedouro industrial",
+        "Data_Entrada": "2024-12-04",
+        "Localizacao": "EMEF Sol Nascente",
+        "Descricao_Localizacao": "\u00c1rea comum",
+        "Status": "Tombado",
+        "Memorando": "117"
+    },
+    {
+        "N_Patrimonio": "37",
+        "Descricao": "Ar-condicionado Split 12000 BTUs",
+        "Data_Entrada": "2024-12-02",
+        "Localizacao": "EMEI Vov\u00f3 Am\u00e1lia",
+        "Descricao_Localizacao": "Sala de aula 1",
+        "Status": "Descarte",
+        "Memorando": "119"
+    },
+    {
+        "N_Patrimonio": "38",
+        "Descricao": "Notebook Lenovo ThinkPad",
+        "Data_Entrada": "2024-11-24",
+        "Localizacao": "SME",
+        "Descricao_Localizacao": "Diretoria",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "39",
+        "Descricao": "Mesa de reuni\u00e3o 8 lugares",
+        "Data_Entrada": "2024-12-01",
+        "Localizacao": "EMEF Ant\u00f4nio Jo\u00e3o",
+        "Descricao_Localizacao": "Sala de reuni\u00f5es",
+        "Status": "Tombado",
+        "Memorando": "120"
+    },
+    {
+        "N_Patrimonio": "40",
+        "Descricao": "Kit de laborat\u00f3rio de ci\u00eancias",
+        "Data_Entrada": "2024-11-13",
+        "Localizacao": "EMEF Ant\u00f4nio Liberato",
+        "Descricao_Localizacao": "Laborat\u00f3rio",
+        "Status": "Tombado",
+        "Memorando": "121"
+    },
+    {
+        "N_Patrimonio": "41",
+        "Descricao": "Cadeira de rodas",
+        "Data_Entrada": "2024-12-05",
+        "Localizacao": "EMEF S\u00e3o Jo\u00e3o",
+        "Descricao_Localizacao": "Enfermaria",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
+        "N_Patrimonio": "42",
+        "Descricao": "Cofre eletr\u00f4nico",
+        "Data_Entrada": "2024-11-20",
+        "Localizacao": "SME",
+        "Descricao_Localizacao": "Tesouraria",
+        "Status": "Descarte",
+        "Memorando": "123"
+    },
+    {
+        "N_Patrimonio": "43",
+        "Descricao": "Mesa de pingue-pongue",
+        "Data_Entrada": "2024-11-30",
+        "Localizacao": "EMEF Rui Barbosa",
+        "Descricao_Localizacao": "Quadra",
+        "Status": "Tombado",
+        "Memorando": "124"
+    },
+    {
+        "N_Patrimonio": "44",
+        "Descricao": "Impressora 3D",
+        "Data_Entrada": "2024-11-26",
+        "Localizacao": "EMEF Ant\u00f4nio Liberato",
+        "Descricao_Localizacao": "Laborat\u00f3rio de rob\u00f3tica",
+        "Status": "Tombado",
+        "Memorando": "125"
+    },
+    {
+        "N_Patrimonio": "45",
+        "Descricao": "Item 45",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 45",
+        "Status": "Tombado",
+        "Memorando": "130"
+    },
+    {
+        "N_Patrimonio": "46",
+        "Descricao": "Item 46",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 46",
+        "Status": "Tombado",
+        "Memorando": "131"
+    },
+    {
+        "N_Patrimonio": "47",
+        "Descricao": "Item 47",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 47",
+        "Status": "Tombado",
+        "Memorando": "132"
+    },
+    {
+        "N_Patrimonio": "48",
+        "Descricao": "Item 48",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 48",
+        "Status": "Tombado",
+        "Memorando": "133"
+    },
+    {
+        "N_Patrimonio": "49",
+        "Descricao": "Item 49",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 49",
+        "Status": "Tombado",
+        "Memorando": "134"
+    },
+    {
+        "N_Patrimonio": "50",
+        "Descricao": "Item 50",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 50",
+        "Status": "Tombado",
+        "Memorando": "135"
+    },
+    {
+        "N_Patrimonio": "51",
+        "Descricao": "Item 51",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 51",
+        "Status": "Tombado",
+        "Memorando": "136"
+    },
+    {
+        "N_Patrimonio": "52",
+        "Descricao": "Item 52",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 52",
+        "Status": "Tombado",
+        "Memorando": "137"
+    },
+    {
+        "N_Patrimonio": "53",
+        "Descricao": "Item 53",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 53",
+        "Status": "Tombado",
+        "Memorando": "138"
+    },
+    {
+        "N_Patrimonio": "54",
+        "Descricao": "Item 54",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 54",
+        "Status": "Tombado",
+        "Memorando": "139"
+    },
+    {
+        "N_Patrimonio": "55",
+        "Descricao": "Item 55",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 55",
+        "Status": "Tombado",
+        "Memorando": "140"
+    },
+    {
+        "N_Patrimonio": "56",
+        "Descricao": "Item 56",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 56",
+        "Status": "Tombado",
+        "Memorando": "141"
+    },
+    {
+        "N_Patrimonio": "57",
+        "Descricao": "Item 57",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 57",
+        "Status": "Tombado",
+        "Memorando": "142"
+    },
+    {
+        "N_Patrimonio": "58",
+        "Descricao": "Item 58",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 58",
+        "Status": "Tombado",
+        "Memorando": "143"
+    },
+    {
+        "N_Patrimonio": "59",
+        "Descricao": "Item 59",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 59",
+        "Status": "Tombado",
+        "Memorando": "144"
+    },
+    {
+        "N_Patrimonio": "60",
+        "Descricao": "Item 60",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 60",
+        "Status": "Tombado",
+        "Memorando": "145"
+    },
+    {
+        "N_Patrimonio": "61",
+        "Descricao": "Item 61",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 61",
+        "Status": "Tombado",
+        "Memorando": "146"
+    },
+    {
+        "N_Patrimonio": "62",
+        "Descricao": "Item 62",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 62",
+        "Status": "Tombado",
+        "Memorando": "147"
+    },
+    {
+        "N_Patrimonio": "63",
+        "Descricao": "Item 63",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 63",
+        "Status": "Tombado",
+        "Memorando": "148"
+    },
+    {
+        "N_Patrimonio": "64",
+        "Descricao": "Item 64",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 64",
+        "Status": "Tombado",
+        "Memorando": "149"
+    },
+    {
+        "N_Patrimonio": "65",
+        "Descricao": "Item 65",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 65",
+        "Status": "Tombado",
+        "Memorando": "150"
+    },
+    {
+        "N_Patrimonio": "66",
+        "Descricao": "Item 66",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 66",
+        "Status": "Tombado",
+        "Memorando": "151"
+    },
+    {
+        "N_Patrimonio": "67",
+        "Descricao": "Item 67",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 67",
+        "Status": "Tombado",
+        "Memorando": "152"
+    },
+    {
+        "N_Patrimonio": "68",
+        "Descricao": "Item 68",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 68",
+        "Status": "Tombado",
+        "Memorando": "153"
+    },
+    {
+        "N_Patrimonio": "69",
+        "Descricao": "Item 69",
+        "Data_Entrada": "2025-06-10",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 69",
+        "Status": "Tombado",
+        "Memorando": "154"
+    },
+    {
+        "N_Patrimonio": "70",
+        "Descricao": "Item 70",
+        "Data_Entrada": "2025-06-11",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 70",
+        "Status": "Tombado",
+        "Memorando": "155"
+    },
+    {
+        "N_Patrimonio": "71",
+        "Descricao": "Item 71",
+        "Data_Entrada": "2025-06-12",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 71",
+        "Status": "Tombado",
+        "Memorando": "156"
+    },
+    {
+        "N_Patrimonio": "72",
+        "Descricao": "Item 72",
+        "Data_Entrada": "2025-06-13",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 72",
+        "Status": "Tombado",
+        "Memorando": "157"
+    },
+    {
+        "N_Patrimonio": "73",
+        "Descricao": "Item 73",
+        "Data_Entrada": "2025-06-14",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 73",
+        "Status": "Tombado",
+        "Memorando": "158"
+    },
+    {
+        "N_Patrimonio": "74",
+        "Descricao": "Item 74",
+        "Data_Entrada": "2025-06-15",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 74",
+        "Status": "Tombado",
+        "Memorando": "159"
+    },
+    {
+        "N_Patrimonio": "75",
+        "Descricao": "Item 75",
+        "Data_Entrada": "2025-06-16",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 75",
+        "Status": "Tombado",
+        "Memorando": "160"
+    },
+    {
+        "N_Patrimonio": "76",
+        "Descricao": "Item 76",
+        "Data_Entrada": "2025-06-17",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 76",
+        "Status": "Tombado",
+        "Memorando": "161"
+    },
+    {
+        "N_Patrimonio": "77",
+        "Descricao": "Item 77",
+        "Data_Entrada": "2025-06-18",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 77",
+        "Status": "Tombado",
+        "Memorando": "162"
+    },
+    {
+        "N_Patrimonio": "78",
+        "Descricao": "Item 78",
+        "Data_Entrada": "2025-06-19",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 78",
+        "Status": "Tombado",
+        "Memorando": "163"
+    },
+    {
+        "N_Patrimonio": "79",
+        "Descricao": "Item 79",
+        "Data_Entrada": "2025-06-20",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 79",
+        "Status": "Tombado",
+        "Memorando": "164"
+    },
+    {
+        "N_Patrimonio": "80",
+        "Descricao": "Item 80",
+        "Data_Entrada": "2025-06-21",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 80",
+        "Status": "Tombado",
+        "Memorando": "165"
+    },
+    {
+        "N_Patrimonio": "81",
+        "Descricao": "Item 81",
+        "Data_Entrada": "2025-06-22",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 81",
+        "Status": "Tombado",
+        "Memorando": "166"
+    },
+    {
+        "N_Patrimonio": "82",
+        "Descricao": "Item 82",
+        "Data_Entrada": "2025-06-23",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 82",
+        "Status": "Tombado",
+        "Memorando": "167"
+    },
+    {
+        "N_Patrimonio": "83",
+        "Descricao": "Item 83",
+        "Data_Entrada": "2025-06-24",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 83",
+        "Status": "Tombado",
+        "Memorando": "168"
+    },
+    {
+        "N_Patrimonio": "84",
+        "Descricao": "Item 84",
+        "Data_Entrada": "2025-06-25",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 84",
+        "Status": "Tombado",
+        "Memorando": "169"
+    },
+    {
+        "N_Patrimonio": "85",
+        "Descricao": "Item 85",
+        "Data_Entrada": "2025-06-26",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 85",
+        "Status": "Tombado",
+        "Memorando": "170"
+    },
+    {
+        "N_Patrimonio": "86",
+        "Descricao": "Item 86",
+        "Data_Entrada": "2025-06-27",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 86",
+        "Status": "Tombado",
+        "Memorando": "171"
+    },
+    {
+        "N_Patrimonio": "87",
+        "Descricao": "Item 87",
+        "Data_Entrada": "2025-06-28",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 87",
+        "Status": "Tombado",
+        "Memorando": "172"
+    },
+    {
+        "N_Patrimonio": "88",
+        "Descricao": "Item 88",
+        "Data_Entrada": "2025-06-29",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 88",
+        "Status": "Tombado",
+        "Memorando": "173"
+    },
+    {
+        "N_Patrimonio": "89",
+        "Descricao": "Item 89",
+        "Data_Entrada": "2025-06-30",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 89",
+        "Status": "Tombado",
+        "Memorando": "174"
+    },
+    {
+        "N_Patrimonio": "90",
+        "Descricao": "Item 90",
+        "Data_Entrada": "2025-06-01",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 90",
+        "Status": "Tombado",
+        "Memorando": "175"
+    },
+    {
+        "N_Patrimonio": "91",
+        "Descricao": "Item 91",
+        "Data_Entrada": "2025-06-02",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 91",
+        "Status": "Tombado",
+        "Memorando": "176"
+    },
+    {
+        "N_Patrimonio": "92",
+        "Descricao": "Item 92",
+        "Data_Entrada": "2025-06-03",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 92",
+        "Status": "Tombado",
+        "Memorando": "177"
+    },
+    {
+        "N_Patrimonio": "93",
+        "Descricao": "Item 93",
+        "Data_Entrada": "2025-06-04",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 93",
+        "Status": "Tombado",
+        "Memorando": "178"
+    },
+    {
+        "N_Patrimonio": "94",
+        "Descricao": "Item 94",
+        "Data_Entrada": "2025-06-05",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 94",
+        "Status": "Tombado",
+        "Memorando": "179"
+    },
+    {
+        "N_Patrimonio": "95",
+        "Descricao": "Item 95",
+        "Data_Entrada": "2025-06-06",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 95",
+        "Status": "Tombado",
+        "Memorando": "180"
+    },
+    {
+        "N_Patrimonio": "96",
+        "Descricao": "Item 96",
+        "Data_Entrada": "2025-06-07",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 96",
+        "Status": "Tombado",
+        "Memorando": "181"
+    },
+    {
+        "N_Patrimonio": "97",
+        "Descricao": "Item 97",
+        "Data_Entrada": "2025-06-08",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 97",
+        "Status": "Tombado",
+        "Memorando": "182"
+    },
+    {
+        "N_Patrimonio": "98",
+        "Descricao": "Item 98",
+        "Data_Entrada": "2025-06-09",
+        "Localizacao": "EMEI Pequeno Para\u00edso",
+        "Descricao_Localizacao": "Localiza\u00e7\u00e3o 98",
+        "Status": "Tombado",
+        "Memorando": "183"
     }
 ]
