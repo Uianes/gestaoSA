@@ -144,6 +144,96 @@ mysqli_close($conn);
   </div>
 
   <script>
+    let currentPage = 1;
+    const recordsPerPage = 10;
+    let patrimonioData = [];
+
+    async function fetchData() {
+      try {
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        patrimonioData = await response.json();
+        renderTabela(currentPage);
+        renderPagination();
+      } catch (error) {
+        console.error('Erro:', error);
+      }
+    }
+
+    function renderTabela(page) {
+      const tableBody = document.querySelector('#table tbody');
+      tableBody.innerHTML = '';
+
+      const start = (page - 1) * recordsPerPage;
+      const end = start + recordsPerPage;
+      const pageData = patrimonioData.slice(start, end);
+
+      pageData.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+        <th scope='row'>${item.N_Patrimonio}</th>
+        <td>${item.Descricao}</td>
+        <td>${item.Data_Entrada}</td>
+        <td>${item.Localizacao}</td>
+        <td>${item.Descricao_Localizacao}</td>
+        <td>${item.Status}</td>
+        <td>${item.Memorando}</td>
+        <td class='text-center'>
+          <button class="btn" type='button' onclick="carregarDadosEditar('${item.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
+          <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${item.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
+        </td>
+      `;
+        tableBody.appendChild(row);
+      });
+    }
+
+    function renderPagination() {
+      const pagination = document.querySelector('.pagination');
+      pagination.innerHTML = '';
+
+      const totalPages = Math.ceil(patrimonioData.length / recordsPerPage);
+
+      const createPageItem = (page, text = page) => {
+        const li = document.createElement('li');
+        li.className = `page-item ${page === currentPage ? 'active' : ''}`;
+        li.innerHTML = `<a class="page-link" href="#">${text}</a>`;
+        li.addEventListener('click', () => {
+          currentPage = page;
+          renderTabela(currentPage);
+          renderPagination();
+        });
+        return li;
+      };
+
+      if (currentPage > 1) {
+        pagination.appendChild(createPageItem(currentPage - 1, '<i class="bi bi-caret-left"></i>'));
+      }
+
+      pagination.appendChild(createPageItem(1));
+
+      if (currentPage > 3) {
+        pagination.appendChild(createPageItem(null, '...'));
+      }
+
+      for (let i = Math.max(2, currentPage - 2); i <= Math.min(totalPages - 1, currentPage + 2); i++) {
+        pagination.appendChild(createPageItem(i));
+      }
+
+      if (currentPage < totalPages - 2) {
+        pagination.appendChild(createPageItem(null, '...'));
+      }
+
+      pagination.appendChild(createPageItem(totalPages));
+
+      if (currentPage < totalPages) {
+        pagination.appendChild(createPageItem(currentPage + 1, '<i class="bi bi-caret-right"></i>'));
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', fetchData);
+
     async function searchTabela(valor) {
       try {
         const tableBody = document.querySelector('#table tbody');

@@ -2637,6 +2637,15 @@
         "Memorando": "145"
     },
     {
+        "N_Patrimonio": "600",
+        "Descricao": "6546",
+        "Data_Entrada": "02\/01\/2025",
+        "Localizacao": "EMEI Vov\u00f3 Am\u00e1lia",
+        "Descricao_Localizacao": "asdasdawdasdwadws",
+        "Status": "Tombado",
+        "Memorando": null
+    },
+    {
         "N_Patrimonio": "61",
         "Descricao": "Item 61",
         "Data_Entrada": "02\/06\/2025",
