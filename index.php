@@ -180,6 +180,9 @@ mysqli_close($conn);
       // Iterar sobre os dados da página e criar linhas na tabela
       pageData.forEach(item => {
         const row = document.createElement('tr');
+        if (item.Status == "Tombado") {
+          item.Memorando = "";  
+        }
         row.innerHTML = `
             <th scope='row'>${item.N_Patrimonio}</th>
             <td>${item.Descricao}</td>
