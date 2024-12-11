@@ -32,6 +32,7 @@ if (mysqli_num_rows($result) > 0) {
   $jsonData = json_encode($data, JSON_PRETTY_PRINT);
   file_put_contents('temp_patrimonio.json', $jsonData);
 } else {
+  file_put_contents('temp_patrimonio.json', '');
   echo "Nenhum resultado encontrado";
 }
 
@@ -117,11 +118,6 @@ mysqli_close($conn);
       <div class="col-10">
         <nav aria-label="Page navigation"></nav>
         <ul class="pagination justify-content-end">
-          <li class="page-item"><a class="page-link" href="#"><i class="bi bi-caret-left"></i></a></li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item"><a class="page-link" href="#">2</a></li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item"><a class="page-link" href="#"><i class="bi bi-caret-right"></i></a></li>
         </ul>
         </nav>
       </div>
@@ -145,43 +141,46 @@ mysqli_close($conn);
 
   <script>
     // Inicializar variáveis para paginação
-    let currentPage = 1;                // Página atual
-    const recordsPerPage = 10;          // Número de registros por página
-    let patrimonioData = [];            // Array para armazenar os dados buscados
+    let currentPage = 1; // Página atual
+    const recordsPerPage = 10; // Número de registros por página
+    let patrimonioData = []; // Array para armazenar os dados buscados
+    fetchData(); 
 
     // Função assíncrona para buscar dados do arquivo JSON
     async function fetchData() {
-        try {
-            // Buscar dados do 'temp_patrimonio.json'
-            const response = await fetch('temp_patrimonio.json');
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON');
-            }
-            // Analisar e armazenar os dados JSON
-            patrimonioData = await response.json();
-            // Renderizar a tabela e a paginação
-            renderTabela(currentPage);
-            renderPagination();
-        } catch (error) {
-            console.error('Erro:', error);
+      try {
+        // Fetch the JSON file with no-cache option
+        const response = await fetch('temp_patrimonio.json', {
+          cache: 'no-cache'
+        });
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
         }
+        // Analisar e armazenar os dados JSON
+        patrimonioData = await response.json();
+        // Renderizar a tabela e a paginação
+        renderTabela(currentPage);
+        renderPagination();
+      } catch (error) {
+        console.error('Erro:', error);
+      }
     }
 
     // Função para renderizar a tabela na página atual
     function renderTabela(page) {
-        const tableBody = document.querySelector('#table tbody');
-        // Limpar o conteúdo atual da tabela
-        tableBody.innerHTML = '';
+      const tableBody = document.querySelector('#table tbody');
+      // Limpar o conteúdo atual da tabela
+      tableBody.innerHTML = '';
 
-        // Calcular índices de início e fim para a página atual
-        const start = (page - 1) * recordsPerPage;
-        const end = start + recordsPerPage;
-        const pageData = patrimonioData.slice(start, end);
+      // Calcular índices de início e fim para a página atual
+      const start = (page - 1) * recordsPerPage;
+      const end = start + recordsPerPage;
+      const pageData = patrimonioData.slice(start, end);
 
-        // Iterar sobre os dados da página e criar linhas na tabela
-        pageData.forEach(item => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
+      // Iterar sobre os dados da página e criar linhas na tabela
+      pageData.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
             <th scope='row'>${item.N_Patrimonio}</th>
             <td>${item.Descricao}</td>
             <td>${item.Data_Entrada}</td>
@@ -194,95 +193,100 @@ mysqli_close($conn);
               <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${item.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
             </td>
           `;
-            // Adicionar a linha à tabela
-            tableBody.appendChild(row);
-        });
+        // Adicionar a linha à tabela
+        tableBody.appendChild(row);
+      });
     }
 
     // Função para renderizar a paginação
     function renderPagination() {
-        const pagination = document.querySelector('.pagination');
-        // Limpar a paginação atual
-        pagination.innerHTML = '';
+      const pagination = document.querySelector('.pagination');
+      // Limpar a paginação atual
+      pagination.innerHTML = '';
 
-        // Calcular o número total de páginas
-        const totalPages = Math.ceil(patrimonioData.length / recordsPerPage);
+      // Calcular o número total de páginas
+      const totalPages = Math.ceil(patrimonioData.length / recordsPerPage);
 
-        // Função auxiliar para criar um item de paginação
-        const createPageItem = (page, text = page) => {
-            const li = document.createElement('li');
-            li.className = `page-item ${page === currentPage ? 'active' : ''}`;
-            li.innerHTML = `<a class="page-link" href="#">${text}</a>`;
-            // Evento para mudar de página ao clicar
-            li.addEventListener('click', () => {
-                currentPage = page;
-                renderTabela(currentPage);
-                renderPagination();
-            });
-            return li;
-        };
-
-        // Adicionar botão "anterior" se não estiver na primeira página
-        if (currentPage > 1) {
-            pagination.appendChild(createPageItem(currentPage - 1, '<i class="bi bi-caret-left"></i>'));
+      // Função auxiliar para criar um item de paginação
+      const createPageItem = (page, text = page) => {
+        const li = document.createElement('li');
+        if (page === null) {
+          // Item desabilitado para as reticências
+          li.className = 'page-item disabled';
+          li.innerHTML = `<span class="page-link">${text}</span>`;
+        } else {
+          li.className = `page-item ${page === currentPage ? 'active' : ''}`;
+          li.innerHTML = `<a class="page-link" href="#">${text}</a>`;
+          // Evento para mudar de página ao clicar
+          li.addEventListener('click', () => {
+            currentPage = page;
+            renderTabela(currentPage);
+            renderPagination();
+          });
         }
+        return li;
+      };
 
-        // Sempre mostrar a primeira página
-        pagination.appendChild(createPageItem(1));
+      // Adicionar botão "anterior" se não estiver na primeira página
+      if (currentPage > 1) {
+        pagination.appendChild(createPageItem(currentPage - 1, '<span aria-hidden="true">&laquo;</span>'));
+      }
 
-        // Adicionar reticências se estiver além da terceira página
-        if (currentPage > 3) {
-            pagination.appendChild(createPageItem(null, '...'));
-        }
+      // Sempre mostrar a primeira página
+      pagination.appendChild(createPageItem(1));
 
-        // Mostrar números de páginas próximos à página atual
-        for (let i = Math.max(2, currentPage - 2); i <= Math.min(totalPages - 1, currentPage + 2); i++) {
-            pagination.appendChild(createPageItem(i));
-        }
+      // Adicionar reticências se estiver além da terceira página
+      if (currentPage > 3) {
+        pagination.appendChild(createPageItem(null, '...'));
+      }
 
-        // Adicionar reticências se não estiver próximo ao final
-        if (currentPage < totalPages - 2) {
-            pagination.appendChild(createPageItem(null, '...'));
-        }
+      // Mostrar números de páginas próximos à página atual
+      for (let i = Math.max(2, currentPage - 2); i <= Math.min(totalPages - 1, currentPage + 2); i++) {
+        pagination.appendChild(createPageItem(i));
+      }
 
-        // Sempre mostrar a última página
+      // Adicionar reticências se não estiver próximo ao final
+      if (currentPage < totalPages - 2) {
+        pagination.appendChild(createPageItem(null, '...'));
+      }
+
+      // Sempre mostrar a última página, se houver mais de uma página
+      if (totalPages > 1) {
         pagination.appendChild(createPageItem(totalPages));
+      }
 
-        // Adicionar botão "próximo" se não estiver na última página
-        if (currentPage < totalPages) {
-            pagination.appendChild(createPageItem(currentPage + 1, '<i class="bi bi-caret-right"></i>'));
-        }
+      // Adicionar botão "próximo" se não estiver na última página
+      if (currentPage < totalPages) {
+        pagination.appendChild(createPageItem(currentPage + 1, '<span aria-hidden="true">&raquo;</span>'));
+      }
     }
-
-    // Carregar os dados quando o documento estiver pronto
-    document.addEventListener('DOMContentLoaded', fetchData);
 
     // Função para pesquisar na tabela com base em um valor
     async function searchTabela(valor) {
-        try {
-            const tableBody = document.querySelector('#table tbody');
+      try {
+        const tableBody = document.querySelector('#table tbody');
 
-            // Buscar dados do arquivo JSON
-            const response = await fetch('temp_patrimonio.json');
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON');
-            }
-            const data = await response.json();
+        // Buscar dados do arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
+        }
+        const data = await response.json();
 
-            // Encontrar o item cujo N_Patrimonio inclui o valor
-            const patrimonioData = data.find(item => item.N_Patrimonio.includes(valor));
-            if (!patrimonioData) {
-                console.error('Patrimônio não encontrado no JSON');
-                tableBody.innerHTML = '';
-                return;
-            }
+        // Encontrar o item cujo N_Patrimonio inclui o valor
+        const patrimonioData = data.find(item => item.N_Patrimonio.includes(valor));
+        if (!patrimonioData) {
+          console.error('Patrimônio não encontrado no JSON');
+          tableBody.innerHTML = '';
+          return;
+        }
 
-            // Limpar o conteúdo atual da tabela
-            tableBody.innerHTML = '';
+        // Limpar o conteúdo atual da tabela
+        tableBody.innerHTML = '';
 
-            // Criar uma nova linha com os dados encontrados
-            const row = document.createElement('tr');
-            row.innerHTML = `
+        // Criar uma nova linha com os dados encontrados
+        const row = document.createElement('tr');
+        row.innerHTML = `
               <th scope='row'>${patrimonioData.N_Patrimonio}</th>
               <td>${patrimonioData.Descricao}</td>
               <td>${patrimonioData.Data_Entrada}</td>
@@ -292,170 +296,170 @@ mysqli_close($conn);
               <td>${patrimonioData.Memorando}</td>
               <td class='text-center'>
                 <button class="btn" type='button' onclick="carregarDadosEditar('${patrimonioData.N_Patrimonio}')"><i class='bi bi-pencil-fill'></i></button>
-                <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi.bi-trash-fill'></i></button>
+                <button class="btn btn-danger" type='button' onclick="carregarDadosExcluir('${patrimonioData.N_Patrimonio}')"><i class='bi bi-trash-fill'></i></button>
               </td>
             `;
-            // Adicionar a linha à tabela
-            tableBody.appendChild(row);
+        // Adicionar a linha à tabela
+        tableBody.appendChild(row);
 
-        } catch (error) {
-            console.error('Erro:', error);
-        }
+      } catch (error) {
+        console.error('Erro:', error);
+      }
     }
 
     // Função para carregar dados no modal de edição
     async function carregarDadosEditar(patrimonio) {
-        try {
-            // Carrega o arquivo JSON
-            const response = await fetch('temp_patrimonio.json');
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON');
-            }
-            const data = await response.json();
-
-            // Encontrar o item correspondente ao patrimônio
-            const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
-            if (!patrimonioData) {
-                console.error('Patrimônio não encontrado no JSON');
-                return;
-            }
-
-            // Preencher os campos do modal com os dados do item
-            document.getElementById("numeroPatrimonioEditar").value = patrimonioData.N_Patrimonio;
-            document.getElementById("numeroPatrimonioEditar_backup").value = patrimonioData.N_Patrimonio;
-            document.getElementById("descricaoEditar").value = patrimonioData.Descricao;
-            document.getElementById("dataEntradaEditar").value = patrimonioData.Data_Entrada;
-            document.getElementById("localizacaoEditar").value = patrimonioData.Localizacao;
-            document.getElementById("DescricaoLocalizacaoEditar").value = patrimonioData.Descricao_Localizacao;
-            document.getElementById("statusEditar").value = patrimonioData.Status;
-            document.getElementById("memorandoEditar").value = patrimonioData.Memorando;
-
-            // Exibir o modal de edição
-            var modal = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
-            modal.show();
-
-        } catch (error) {
-            console.error('Erro:', error);
+      try {
+        // Carrega o arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
         }
+        const data = await response.json();
+
+        // Encontrar o item correspondente ao patrimônio
+        const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
+        if (!patrimonioData) {
+          console.error('Patrimônio não encontrado no JSON');
+          return;
+        }
+
+        // Preencher os campos do modal com os dados do item
+        document.getElementById("numeroPatrimonioEditar").value = patrimonioData.N_Patrimonio;
+        document.getElementById("numeroPatrimonioEditar_backup").value = patrimonioData.N_Patrimonio;
+        document.getElementById("descricaoEditar").value = patrimonioData.Descricao;
+        document.getElementById("dataEntradaEditar").value = patrimonioData.Data_Entrada;
+        document.getElementById("localizacaoEditar").value = patrimonioData.Localizacao;
+        document.getElementById("DescricaoLocalizacaoEditar").value = patrimonioData.Descricao_Localizacao;
+        document.getElementById("statusEditar").value = patrimonioData.Status;
+        document.getElementById("memorandoEditar").value = patrimonioData.Memorando;
+
+        // Exibir o modal de edição
+        var modal = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
+        modal.show();
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
     }
 
     // Função para carregar dados no modal de exclusão
     async function carregarDadosExcluir(patrimonio) {
-        try {
-            // Buscar dados do arquivo JSON
-            const response = await fetch('temp_patrimonio.json');
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON');
-            }
-            const data = await response.json();
-
-            // Encontrar o item correspondente ao patrimônio
-            const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
-            if (!patrimonioData) {
-                console.error('Patrimônio não encontrado no JSON');
-                return;
-            }
-
-            // Preencher os campos do modal com os dados do item
-            document.getElementById("numeroPatrimonioExcluir").value = patrimonioData.N_Patrimonio;
-            document.getElementById("numeroPatrimonioExcluir_backup").value = patrimonioData.N_Patrimonio;
-            document.getElementById("descricaoExcluir").value = patrimonioData.Descricao;
-            document.getElementById("dataEntradaExcluir").value = patrimonioData.Data_Entrada;
-            document.getElementById("localizacaoExcluir").value = patrimonioData.Localizacao;
-            document.getElementById("statusExcluir").value = patrimonioData.Status;
-            document.getElementById("memorandoExcluir").value = patrimonioData.Memorando;
-
-            // Exibir o modal de exclusão
-            var modal = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
-            modal.show();
-
-        } catch (error) {
-            console.error('Erro:', error);
+      try {
+        // Buscar dados do arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
         }
+        const data = await response.json();
+
+        // Encontrar o item correspondente ao patrimônio
+        const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
+        if (!patrimonioData) {
+          console.error('Patrimônio não encontrado no JSON');
+          return;
+        }
+
+        // Preencher os campos do modal com os dados do item
+        document.getElementById("numeroPatrimonioExcluir").value = patrimonioData.N_Patrimonio;
+        document.getElementById("numeroPatrimonioExcluir_backup").value = patrimonioData.N_Patrimonio;
+        document.getElementById("descricaoExcluir").value = patrimonioData.Descricao;
+        document.getElementById("dataEntradaExcluir").value = patrimonioData.Data_Entrada;
+        document.getElementById("localizacaoExcluir").value = patrimonioData.Localizacao;
+        document.getElementById("statusExcluir").value = patrimonioData.Status;
+        document.getElementById("memorandoExcluir").value = patrimonioData.Memorando;
+
+        // Exibir o modal de exclusão
+        var modal = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
+        modal.show();
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
     }
 
     // Função para carregar dados no modal de descarte
     async function carregarDadosDescarte(patrimonio) {
-        try {
-            // Buscar dados do arquivo JSON
-            const response = await fetch('temp_patrimonio.json');
-            if (!response.ok) {
-                throw new Error('Erro ao carregar o arquivo JSON');
-            }
-            const data = await response.json();
-
-            // Encontrar o item correspondente ao patrimônio
-            const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
-            if (!patrimonioData) {
-                alert('Patrimônio não encontrado');
-                return;
-            }
-            // Verificar se o item já está descartado
-            if (patrimonioData.Status == "Descarte") {
-                alert('Patrimônio já descartado');
-                return;
-            }
-
-            // Preencher os campos do modal com os dados do item
-            document.getElementById("numeroPatrimonioDescarte2").value = patrimonioData.N_Patrimonio;
-            document.getElementById("numeroPatrimonioDescarte_backup").value = patrimonioData.N_Patrimonio;
-            document.getElementById("descricaoDescarte").value = patrimonioData.Descricao;
-            document.getElementById("dataEntradaDescarte").value = patrimonioData.Data_Entrada;
-            document.getElementById("localizacaoDescarte").value = patrimonioData.Localizacao;
-            document.getElementById("DescricaoLocalizacaoDescarte").value = patrimonioData.Descricao_Localizacao;
-
-            // Exibir o modal de descarte
-            var modal = new bootstrap.Modal(document.getElementById('ModalDescartePatrimonioStep2'));
-            modal.show();
-
-        } catch (error) {
-            console.error('Erro:', error);
+      try {
+        // Buscar dados do arquivo JSON
+        const response = await fetch('temp_patrimonio.json');
+        if (!response.ok) {
+          throw new Error('Erro ao carregar o arquivo JSON');
         }
+        const data = await response.json();
+
+        // Encontrar o item correspondente ao patrimônio
+        const patrimonioData = data.find(item => item.N_Patrimonio == patrimonio);
+        if (!patrimonioData) {
+          alert('Patrimônio não encontrado');
+          return;
+        }
+        // Verificar se o item já está descartado
+        if (patrimonioData.Status == "Descarte") {
+          alert('Patrimônio já descartado');
+          return;
+        }
+
+        // Preencher os campos do modal com os dados do item
+        document.getElementById("numeroPatrimonioDescarte2").value = patrimonioData.N_Patrimonio;
+        document.getElementById("numeroPatrimonioDescarte_backup").value = patrimonioData.N_Patrimonio;
+        document.getElementById("descricaoDescarte").value = patrimonioData.Descricao;
+        document.getElementById("dataEntradaDescarte").value = patrimonioData.Data_Entrada;
+        document.getElementById("localizacaoDescarte").value = patrimonioData.Localizacao;
+        document.getElementById("DescricaoLocalizacaoDescarte").value = patrimonioData.Descricao_Localizacao;
+
+        // Exibir o modal de descarte
+        var modal = new bootstrap.Modal(document.getElementById('ModalDescartePatrimonioStep2'));
+        modal.show();
+
+      } catch (error) {
+        console.error('Erro:', error);
+      }
     }
 
     // Função para limpar campos de entrada nos modais
     function limparCampos() {
-        // Selecionar todos os elementos de entrada
-        const inputs = document.querySelectorAll('input, select, textarea');
-        inputs.forEach(input => {
-            // Ignorar botões de submit e campos específicos
-            if (input.type === 'submit' || input.id === 'statusDescarte') {
-                return;
-            }
-            // Limpar o valor do campo
-            input.value = '';
-        });
+      // Selecionar todos os elementos de entrada
+      const inputs = document.querySelectorAll('input, select, textarea');
+      inputs.forEach(input => {
+        // Ignorar botões de submit e campos específicos
+        if (input.type === 'submit' || input.id === 'statusDescarte') {
+          return;
+        }
+        // Limpar o valor do campo
+        input.value = '';
+      });
 
-        // Resetar contadores de caracteres
-        document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
-        document.getElementById("contadorDescricaoLocalizacaoCadastrar").innerText = "0/500";
-        document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
-        document.getElementById("contadorNumeroPatrimonioDescarte1").innerText = "0/20";
-        document.getElementById("contadorMemorandoDescarte").innerText = "0/30";
+      // Resetar contadores de caracteres
+      document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
+      document.getElementById("contadorDescricaoLocalizacaoCadastrar").innerText = "0/500";
+      document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
+      document.getElementById("contadorNumeroPatrimonioDescarte1").innerText = "0/20";
+      document.getElementById("contadorMemorandoDescarte").innerText = "0/30";
     }
 
     // Função para atualizar o contador de caracteres de um campo
     function atualizarContador(input, contadorId) {
-        const contador = document.getElementById(contadorId);
-        const maxLength = input.maxLength;
-        contador.innerText = `${input.value.length}/${maxLength}`;
+      const contador = document.getElementById(contadorId);
+      const maxLength = input.maxLength;
+      contador.innerText = `${input.value.length}/${maxLength}`;
     }
 
     // Função para habilitar ou desabilitar o campo 'memorando' com base no 'status'
     function toggleMemorando(selectId, memorandoId, contadorMemorandoID) {
-        const status = document.getElementById(selectId);
-        const memorando = document.getElementById(memorandoId);
+      const status = document.getElementById(selectId);
+      const memorando = document.getElementById(memorandoId);
 
-        if (status.value == "Descarte") {
-            memorando.disabled = false;
-            memorando.required = true;
-        } else if (status.value == "Tombado") {
-            memorando.disabled = true;
-            memorando.required = false;
-            memorando.value = '';
-            // Atualizar o contador de caracteres do memorando
-            atualizarContador(memorando, contadorMemorandoID);
-        }
+      if (status.value == "Descarte") {
+        memorando.disabled = false;
+        memorando.required = true;
+      } else if (status.value == "Tombado") {
+        memorando.disabled = true;
+        memorando.required = false;
+        memorando.value = '';
+        // Atualizar o contador de caracteres do memorando
+        atualizarContador(memorando, contadorMemorandoID);
+      }
     }
   </script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

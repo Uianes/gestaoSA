@@ -38,15 +38,6 @@ CREATE TABLE `patrimonio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `patrimonio`
---
-
-INSERT INTO `patrimonio` (`N_Patrimonio`, `Descricao`, `Data_Entrada`, `Localizacao`, `Descricao_Localizacao`, `Status`, `Memorando`) VALUES
-('13', 'aaaaaaaaaaaa', '2024-11-27', 'EMEI Pequeno Paraíso', 'ffffffffffff', 'Descarte', '34'),
-('22', 'aaaaaaaaaa', '2024-11-04', 'EMEI Vaga-Lume', 'dasdasd', 'Tombado', NULL),
-('asd', '43', '2024-11-22', 'EMEI Vaga-Lume', '23', 'Descarte', '12');
-
---
 -- Índices para tabelas despejadas
 --
 
