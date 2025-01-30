@@ -1,18 +1,22 @@
 <?php
+function open_connection() {
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "gestaosa";
 
-function open_connection()
-{
-    $server_name = 'localhost';
-    $username = 'root';
-    $password = '';
-    $dbname = 'gestaosa';
-    $conn = mysqli_connect($server_name, $username, $password, $dbname) or die("Connect failed: %s\n". mysqli_error($conn));
+    $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
+    }
+
+    mysqli_set_charset($conn, "utf8");
+
     return $conn;
 }
 
-function close_connection($conn)
-{
+function close_connection($conn) {
     mysqli_close($conn);
 }
-
 ?>
