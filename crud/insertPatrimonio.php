@@ -39,20 +39,23 @@ if ($row['total'] > 0) {
   exit;
 }
 
-$sql = "INSERT INTO patrimonio (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Descricao_Localizacao, Status, Memorando)
-        VALUES (?, ?, ?, ?, ?, ?, ?)";
+try {
+  $sql = "INSERT INTO patrimonio (N_Patrimonio, Descricao, Data_Entrada, Localizacao, Descricao_Localizacao, Status, Memorando)
+          VALUES (?, ?, ?, ?, ?, ?, ?)";
+  mysqli_execute_query($conn, $sql, [
+    $numeroPatrimonio,
+    $descricao,
+    $dataEntrada,
+    $localizacao,
+    $descricaoLocalizacao,
+    $status,
+    $memorando
+  ]);
+  echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' foi cadastrado com sucesso!");</script>';
+} catch (Exception $e) {
+  echo '<script>alert("Erro ao cadastrar patrimônio: ' . $e->getMessage() . '");</script>';
+}
 
-mysqli_execute_query($conn, $sql, [
-  $numeroPatrimonio,
-  $descricao,
-  $dataEntrada,
-  $localizacao,
-  $descricaoLocalizacao,
-  $status,
-  $memorando
-]);
-
-echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' foi cadastrado com sucesso!");</script>';
 close_connection($conn);
 header('Refresh: 0.5; URL=../index.php');
 ?>
