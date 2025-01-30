@@ -9,7 +9,7 @@
         <div class="modal-body">
           <div class="input-group mb-3">
             <span class="input-group-text">Nº Patrimônio</span>
-            <input type="text" class="form-control" id="numeroPatrimonioExcluir" maxlength="20" readonly>
+            <input type="text" class="form-control" id="numeroPatrimonioExcluir" name="idPatrimonioExcluir" maxlength="20" readonly>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Descrição</span>
