@@ -66,7 +66,35 @@
             </tr>
           </thead>
           <tbody class='table-group-divider'>
+            <?php
+            include 'db_connection.php';
+            $conn = open_connection();
+            $sql = "SELECT * FROM patrimonio";
+            $result = mysqli_query($conn, $sql);
 
+            if (mysqli_num_rows($result) > 0) {
+              while ($row = mysqli_fetch_assoc($result)) {
+                $dataEntrada = date('d/m/Y', strtotime($row['Data_Entrada']));
+                echo "<tr>";
+                echo "<td>" . $row['N_Patrimonio'] . "</td>";
+                echo "<td>" . $row['Descricao'] . "</td>";
+                echo "<td>" . $dataEntrada . "</td>";
+                echo "<td>" . $row['Localizacao'] . "</td>";
+                echo "<td>" . $row['Descricao_Localizacao'] . "</td>";
+                echo "<td>" . $row['Status'] . "</td>";
+                echo "<td>" . $row['Memorando'] . "</td>";
+                echo "<td class='text-center'>
+                        <button class='btn btn-primary btn-sm'><i class='bi bi-pencil'></i></button>
+                        <button class='btn btn-danger btn-sm'><i class='bi bi-trash'></i></button>
+                      </td>";
+                echo "</tr>";
+              }
+            } else {
+              echo "<tr><td colspan='8' class='text-center'>Nenhum patrimônio encontrado</td></tr>";
+            }
+
+            close_connection($conn);
+            ?>
           </tbody>
         </table>
       </div>
