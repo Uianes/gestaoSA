@@ -9,8 +9,7 @@
         <div class="modal-body">
           <div class="input-group mb-3">
             <span class="input-group-text">Nº Patrimônio</span>
-            <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte2" maxlength="20" disabled>
-            <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioDescarte_backup" maxlength="20" hidden>
+            <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioDescarte2" maxlength="20" readonly>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Descrição</span>

@@ -9,8 +9,7 @@
         <div class="modal-body">
           <div class="input-group mb-3">
             <span class="input-group-text">Nº Patrimônio</span>
-            <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar" maxlength="20" required disabled>
-            <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioEditar_backup" maxlength="20" hidden>
+            <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioEditar" maxlength="20" readonly>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Descrição</span>
@@ -37,11 +36,11 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Status</span>
-            <input type="text" class="form-control" name="status" id="statusEditar" required disabled>
+            <input type="text" class="form-control" name="status" id="statusEditar" readonly>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Memorando</span>
-            <input id="memorandoEditar" type="text" class="form-control" name="memorando" maxlength="30" disabled>
+            <input id="memorandoEditar" type="text" class="form-control" name="memorando" maxlength="30" readonly>
           </div>
         </div>
         <div class="modal-footer">

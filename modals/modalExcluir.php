@@ -10,7 +10,6 @@
           <div class="input-group mb-3">
             <span class="input-group-text">Nº Patrimônio</span>
             <input type="text" class="form-control" id="numeroPatrimonioExcluir" maxlength="20" readonly>
-            <input type="text" class="form-control" name="numeroPatrimonio_backup" id="numeroPatrimonioExcluir_backup" maxlength="20" hidden>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Descrição</span>
