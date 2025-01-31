@@ -11,23 +11,23 @@
 </head>
 
 <body>
-  <nav class="navbar bg-body-secondary border-bottom">
+  <nav class="navbar bg-body-secondary border-bottom sticky-top">
     <div class="container-fluid d-flex justify-content-start">
       <a class="navbar-brand" href="#">GestãoSA</a>
       <button class="btn btn-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalCadastrarPatrimonio">
         Cadastrar Patrimônio
       </button>
-      <form class="d-flex ms-auto">
+      <form class="d-flex ms-auto" method="POST">
         <div class="input-group mx-1">
-          <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="button"><i class="bi bi-search"></i></button>
+          <input class="form-control" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
         </div>
-        <button class="btn btn-outline-primary" type="button" onclick="location.reload(true)"><i class="bi bi-arrow-clockwise"></i></button>
+        <button class="btn   btn-outline-primary" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
       </form>
     </div>
   </nav>
 
   <div class="container-fluid">
+    
     <!-- tabela -->
     <div class="row justify-content-center">
       <div class="col-10">
@@ -48,7 +48,17 @@
             <?php
             include 'db_connection.php';
             $conn = open_connection();
+
+            $search = '';
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
+              $search = $_POST['search'];
+            }
+
             $sql = "SELECT * FROM patrimonio";
+            if ($search !== '') {
+              $sql .= " WHERE N_Patrimonio LIKE '%$search%'";
+            }
+
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
@@ -100,16 +110,6 @@
             ?>
           </tbody>
         </table>
-      </div>
-    </div>
-
-    <!-- Pagination -->
-    <div class="row justify-content-center">
-      <div class="col-10">
-        <nav aria-label="Page navigation"></nav>
-        <ul class="pagination justify-content-end">
-        </ul>
-        </nav>
       </div>
     </div>
 
