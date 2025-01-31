@@ -19,11 +19,12 @@
       </button>
       <form class="d-flex ms-auto" method="POST">
         <div class="input-group mx-1">
-          <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
+          <input class="form-control" type="search" name="search" placeholder="Busca" aria-label="busca">
+          <button class="btn btn-success" type="submit" title='Buscar'><i class="bi bi-search"></i></button>
         </div>
       </form>
       <form method="POST">
-        <button class="btn btn-outline-primary" name="reload" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
+        <button class="btn btn-primary" name="reload" type="submit" title='Recarregar tabela'><i class="bi bi-arrow-clockwise"></i></button>
       </form>
     </div>
   </nav>
@@ -55,7 +56,7 @@
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
               $search = $_POST['search'];
             }
-            
+
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reload'])) {
               $search = '';
             }
@@ -81,26 +82,26 @@
 
                 if ($row['Status'] === 'Tombado') {
                   echo "<td class='text-center'>
-                        <button class='btn btn-primary btn-sm'
+                        <button class='btn btn-primary btn-sm' title='Editar'
                           onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
                           <i class='bi bi-pencil-fill'></i>
                         </button>
-                        <button class='btn btn-danger btn-sm'
+                        <button class='btn btn-danger btn-sm' title='Excluir'
                           onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
                           <i class=\"bi bi-trash-fill\"></i>
                         </button>
-                        <button class='btn btn-warning btn-sm'
+                        <button class='btn btn-warning btn-sm' title='Descarte'
                           onclick=\"abrirModalDescarte('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Memorando']}')\">
                           <i class=\"bi bi-archive-fill\"></i>
                         </button>
                       </td>";
                 } else {
                   echo "<td class='text-center'>
-                        <button class='btn btn-primary btn-sm'
+                        <button class='btn btn-primary btn-sm' title='Editar'
                           onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
                           <i class='bi bi-pencil-fill'></i>
                         </button>
-                        <button class='btn btn-danger btn-sm'
+                        <button class='btn btn-danger btn-sm' title='Excluir'
                           onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
                           <i class=\"bi bi-trash-fill\"></i>
                         </button>
