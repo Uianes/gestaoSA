@@ -55,3 +55,16 @@ function abrirModalEditar(numPatrimonio, descricao, dataEntrada, localizacao, de
   let modalEditar = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
   modalEditar.show();
 }
+
+function abrirModalExcluir(numPatrimonio, descricao, dataEntrada, localizacao, descLocalizacao, status, memorando) {
+  document.getElementById('numeroPatrimonioExcluir').value = numPatrimonio;
+  document.getElementById('descricaoExcluir').value = descricao;
+  document.getElementById('dataEntradaExcluir').value = dataEntrada;
+  document.getElementById('localizacaoExcluir').value = localizacao;
+  document.getElementById('descricaoLocalizacaoExcluir').value = descLocalizacao;
+  document.getElementById('statusExcluir').value = status;
+  document.getElementById('memorandoExcluir').value = memorando;
+
+  let modalExcluir = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
+  modalExcluir.show();
+}

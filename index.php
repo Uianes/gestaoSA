@@ -88,7 +88,10 @@
                           onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
                           <i class='bi bi-pencil'></i>
                         </button>
-                        <button class='btn btn-danger btn-sm'><i class='bi bi-trash'></i></button>
+                        <button class='btn btn-danger btn-sm'
+                          onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                          <i class='bi bi-trash'></i>
+                        </button>
                       </td>";
                 echo "</tr>";
               }
