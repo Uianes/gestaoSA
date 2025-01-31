@@ -62,20 +62,34 @@
                 echo "<td>" . $row['Descricao_Localizacao'] . "</td>";
                 echo "<td>" . $row['Status'] . "</td>";
                 echo "<td>" . $row['Memorando'] . "</td>";
-                echo "<td class='text-center'>
+
+                if ($row['Status'] === 'Tombado') {
+                  echo "<td class='text-center'>
                         <button class='btn btn-primary btn-sm'
                           onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
-                          <i class='bi bi-pencil'></i>
+                          <i class='bi bi-pencil-fill'></i>
                         </button>
                         <button class='btn btn-danger btn-sm'
                           onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
-                          <i class='bi bi-trash'></i>
+                          <i class=\"bi bi-trash-fill\"></i>
                         </button>
                         <button class='btn btn-warning btn-sm'
                           onclick=\"abrirModalDescarte('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Memorando']}')\">
-                          <i class='bi bi-download'></i>
+                          <i class=\"bi bi-archive-fill\"></i>
                         </button>
                       </td>";
+                } else {
+                  echo "<td class='text-center'>
+                        <button class='btn btn-primary btn-sm'
+                          onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                          <i class='bi bi-pencil-fill'></i>
+                        </button>
+                        <button class='btn btn-danger btn-sm'
+                          onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                          <i class=\"bi bi-trash-fill\"></i>
+                        </button>
+                      </td>";
+                }
                 echo "</tr>";
               }
             } else {
@@ -110,12 +124,12 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-  integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-  crossorigin="anonymous"></script>
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-  integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-  crossorigin="anonymous"></script>
-  <script src="./scripts.js"></script>  
+    integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+    crossorigin="anonymous"></script>
+  <script src="./scripts.js"></script>
 </body>
 
 </html>

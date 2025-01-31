@@ -32,7 +32,7 @@
               <option value="EMEF São João">EMEF São João</option>
               <option value="EMEF Antônio Liberato">EMEF Antônio Liberato</option>
             </select>
-            <textarea class="form-control" name="localizacao" id="DescricaoLocalizacaoDescarte" maxlength="500" required></textarea>
+            <textarea class="form-control" name="descricaoLocalizacao" id="DescricaoLocalizacaoDescarte" maxlength="500" required></textarea>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Status</span>

@@ -15,6 +15,23 @@
   }
 
   try {
+    $checkSql = "SELECT Status FROM patrimonio WHERE N_Patrimonio = ?";
+    $result = mysqli_execute_query($conn, $checkSql, [$numeroPatrimonio]);
+    $status = mysqli_fetch_assoc($result)['Status'];
+    if ($status === 'Descarte') {
+      echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' já foi descartado.");</script>';
+      close_connection($conn);
+      header('Refresh: 0.5; URL=../index.php');
+      exit;
+    }
+  } catch (Exception $e) {
+    echo '<script>alert("Erro ao verificar status: ' . $e->getMessage() . '");</script>';
+    close_connection($conn);
+    header('Refresh: 0.5; URL=../index.php');
+    exit;
+  }
+
+  try {
     $sql = "UPDATE patrimonio
             SET Status = 'Descarte', Memorando = ?, Localizacao = ?, Descricao_Localizacao = ? WHERE N_Patrimonio = ?";
     mysqli_execute_query($conn, $sql, [$memorando, $localizacao, $descricaoLocalizacao, $numeroPatrimonio]);
@@ -24,5 +41,5 @@
   }
 
   close_connection($conn);
-  header('Location: ../index.php');
+  header('Refresh: 0.5; URL=../index.php');
 ?>
