@@ -19,9 +19,11 @@
       </button>
       <form class="d-flex ms-auto" method="POST">
         <div class="input-group mx-1">
-          <input class="form-control" type="search" id="search" name="search" placeholder="Search" aria-label="Search">
+          <input class="form-control" type="search" name="search" placeholder="Search" aria-label="Search">
         </div>
-        <button class="btn   btn-outline-primary" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
+      </form>
+      <form method="POST">
+        <button class="btn btn-outline-primary" name="reload" type="submit"><i class="bi bi-arrow-clockwise"></i></button>
       </form>
     </div>
   </nav>
@@ -52,6 +54,10 @@
             $search = '';
             if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['search'])) {
               $search = $_POST['search'];
+            }
+            
+            if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['reload'])) {
+              $search = '';
             }
 
             $sql = "SELECT * FROM patrimonio";
