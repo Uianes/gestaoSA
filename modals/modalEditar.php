@@ -36,11 +36,11 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Status</span>
-            <input type="text" class="form-control" name="status" id="statusEditar" readonly>
+            <input type="text" class="form-control" name="status" id="statusEditar" disabled>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Memorando</span>
-            <input id="memorandoEditar" type="text" class="form-control" name="memorando" maxlength="30" readonly>
+            <input id="memorandoEditar" type="text" class="form-control" name="memorando" maxlength="30" disabled>
           </div>
         </div>
         <div class="modal-footer">

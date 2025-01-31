@@ -13,24 +13,24 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Descrição</span>
-            <textarea class="form-control" id="descricaoExcluir" readonly></textarea>
+            <textarea class="form-control" id="descricaoExcluir" disabled></textarea>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Data Entrada</span>
-            <input type="date" class="form-control" id="dataEntradaExcluir" readonly>
+            <input type="date" class="form-control" id="dataEntradaExcluir" disabled>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Localização</span>
-            <input type="text" class="form-control" id="localizacaoExcluir" readonly>
-            <textarea class="form-control" id="descricaoLocalizacaoExcluir" maxlength="500" readonly></textarea>
+            <input type="text" class="form-control" id="localizacaoExcluir" disabled>
+            <textarea class="form-control" id="descricaoLocalizacaoExcluir" maxlength="500" disabled></textarea>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Status</span>
-            <input type="text" class="form-control" id="statusExcluir" readonly>
+            <input type="text" class="form-control" id="statusExcluir" disabled>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Memorando</span>
-            <input id="memorandoExcluir" type="text" class="form-control" maxlength="30" readonly>
+            <input id="memorandoExcluir" type="text" class="form-control" maxlength="30" disabled>
           </div>
         </div>
         <div class="modal-footer">
