@@ -1,4 +1,4 @@
-<div class="modal fade" id="ModalDescartePatrimonioStep2" tabindex="-1" aria-labelledby="modalDescarteLabel" aria-hidden="true">
+<div class="modal fade" id="ModalDescartePatrimonio2" tabindex="-1" aria-labelledby="modalDescarteLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-fullscreen-sm-down">
     <div class="modal-content">
       <div class="modal-header">

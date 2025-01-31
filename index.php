@@ -23,7 +23,7 @@
       <form class="d-flex">
         <div class="input-group mx-1">
           <input class="form-control" type="search" id="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success" type="button" onclick="searchTabela(document.getElementById('search').value)"><i class="bi bi-search"></i></button>
+          <button class="btn btn-outline-success" type="button"><i class="bi bi-search"></i></button>
         </div>
         <button class="btn btn-outline-primary" type="button" onclick="location.reload(true)"><i class="bi bi-arrow-clockwise"></i></button>
       </form>
