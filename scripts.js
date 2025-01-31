@@ -1,4 +1,3 @@
-// Função para limpar campos de entrada nos modais
 function limparCampos() {
     // Selecionar todos os elementos de entrada
     const inputs = document.querySelectorAll('input, select, textarea');
@@ -15,18 +14,15 @@ function limparCampos() {
     document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
     document.getElementById("contadorDescricaoLocalizacaoCadastrar").innerText = "0/500";
     document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
-    document.getElementById("contadorNumeroPatrimonioDescarte1").innerText = "0/20";
     document.getElementById("contadorMemorandoDescarte").innerText = "0/30";
 }
 
-// Função para atualizar o contador de caracteres de um campo
 function atualizarContador(input, contadorId) {
     const contador = document.getElementById(contadorId);
     const maxLength = input.maxLength;
     contador.innerText = `${input.value.length}/${maxLength}`;
 }
 
-// Função para habilitar ou desabilitar o campo 'memorando' com base no 'status'
 function toggleMemorando(selectId, memorandoId, contadorMemorandoID) {
     const status = document.getElementById(selectId);
     const memorando = document.getElementById(memorandoId);
@@ -67,4 +63,16 @@ function abrirModalExcluir(numPatrimonio, descricao, dataEntrada, localizacao, d
 
   let modalExcluir = new bootstrap.Modal(document.getElementById('ModalExcluirPatrimonio'));
   modalExcluir.show();
+}
+
+function abrirModalDescarte(numPatrimonio, descricao, dataEntrada, localizacao, descLocalizacao, memorando) {
+    document.getElementById('numeroPatrimonioDescarte').value = numPatrimonio;
+    document.getElementById('descricaoDescarte').value = descricao;
+    document.getElementById('dataEntradaDescarte').value = dataEntrada;
+    document.getElementById('localizacaoDescarte').value = localizacao;
+    document.getElementById('DescricaoLocalizacaoDescarte').value = descLocalizacao;
+    document.getElementById('memorandoDescarte').value = memorando;
+
+    let modalDescarte = new bootstrap.Modal(document.getElementById('ModalDescartePatrimonio'));
+    modalDescarte.show();
 }
