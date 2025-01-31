@@ -84,7 +84,10 @@
                 echo "<td>" . $row['Status'] . "</td>";
                 echo "<td>" . $row['Memorando'] . "</td>";
                 echo "<td class='text-center'>
-                        <button class='btn btn-primary btn-sm'><i class='bi bi-pencil'></i></button>
+                        <button class='btn btn-primary btn-sm'
+                          onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                          <i class='bi bi-pencil'></i>
+                        </button>
                         <button class='btn btn-danger btn-sm'><i class='bi bi-trash'></i></button>
                       </td>";
                 echo "</tr>";

@@ -42,3 +42,16 @@ function toggleMemorando(selectId, memorandoId, contadorMemorandoID) {
         atualizarContador(memorando, contadorMemorandoID);
     }
 }
+
+function abrirModalEditar(numPatrimonio, descricao, dataEntrada, localizacao, descLocalizacao, status, memorando) {
+  document.getElementById('numeroPatrimonioEditar').value = numPatrimonio;
+  document.getElementById('descricaoEditar').value = descricao;
+  document.getElementById('dataEntradaEditar').value = dataEntrada;
+  document.getElementById('localizacaoEditar').value = localizacao;
+  document.getElementById('DescricaoLocalizacaoEditar').value = descLocalizacao;
+  document.getElementById('statusEditar').value = status;
+  document.getElementById('memorandoEditar').value = memorando;
+
+  let modalEditar = new bootstrap.Modal(document.getElementById('ModalEditarPatrimonio'));
+  modalEditar.show();
+}
