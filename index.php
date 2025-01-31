@@ -19,7 +19,7 @@
       </button>
       <form class="d-flex ms-auto" method="POST">
         <div class="input-group mx-1">
-          <input class="form-control" type="search" name="search" placeholder="Busca" aria-label="busca">
+          <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio... " aria-label="busca">
           <button class="btn btn-success" type="submit" title='Buscar'><i class="bi bi-search"></i></button>
         </div>
       </form>
