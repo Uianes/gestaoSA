@@ -8,7 +8,7 @@
   $memorando = !empty($_POST['memorando']) ? $_POST['memorando'] : null;
 
   if (!$numeroPatrimonio || !$memorando || !$localizacao || !$descricaoLocalizacao) {
-    echo '<script>alert("Número de patrimônio e memorando são obrigatórios para descarte.");</script>';
+    echo '<script>alert("Número de patrimônio, localização, escrição da localização e memorando são obrigatórios para descarte.");</script>';
     close_connection($conn);
     header('Refresh: 0.5; URL=../index.php');
     exit;
