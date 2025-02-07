@@ -68,12 +68,12 @@
           <tbody class='table-group-divider'>
             <?php
             include 'db_connection.php';
-            
+
             if (isset($_POST['reload'])) {
               header("Location: index.php");
               exit;
             }
-            
+
             $conn = open_connection();
 
             $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
@@ -151,29 +151,29 @@
         </table>
         <nav>
           <?php
-          echo '<ul class="pagination justify-content-center mt-3">';
-          echo '<li class="page-item ' . (($page <= 1) ? 'disabled' : '') . '">';
-          echo '<a class="page-link" href="?page=1&search=' . $search . '" title="Primeira"><i class="bi bi-skip-backward-fill"></i></a>';
-          echo '</li>';
-          echo '<li class="page-item ' . (($page <= 1) ? 'disabled' : '') . '">';
-          echo '<a class="page-link" href="?page=' . ($page - 1) . '&search=' . $search . '" title="Voltar"><i class="bi bi-chevron-left"></i></a>';
-          echo '</li>';
+          echo '<ul class="pagination justify-content-center mt-3">
+                <li class="page-item ' . (($page <= 1) ? 'disabled' : '') . '">
+                <a class="page-link" href="?page=1&search=' . $search . '" title="Primeira"><i class="bi bi-skip-backward-fill"></i></a>
+                </li>
+                <li class="page-item ' . (($page <= 1) ? 'disabled' : '') . '">
+                <a class="page-link" href="?page=' . ($page - 1) . '&search=' . $search . '" title="Voltar"><i class="bi bi-chevron-left"></i></a>
+                </li>';
 
           $start_page = max(1, $page - 2);
           $end_page = min($total_pages, $page + 2);
           for ($i = $start_page; $i <= $end_page; $i++) {
-            echo '<li class="page-item ' . (($i == $page) ? 'active' : '') . '">';
-            echo '<a class="page-link" href="?page=' . $i . '&search=' . $search . '">' . $i . '</a>';
-            echo '</li>';
+            echo '<li class="page-item ' . (($i == $page) ? 'active' : '') . '">
+                  <a class="page-link" href="?page=' . $i . '&search=' . $search . '">' . $i . '</a>
+                  </li>';
           }
 
-          echo '<li class="page-item ' . (($page >= $total_pages) ? 'disabled' : '') . '">';
-          echo '<a class="page-link" href="?page=' . ($page + 1) . '&search=' . $search . '" title="Avançar"><i class="bi bi-chevron-right"></i></a>';
-          echo '</li>';
-          echo '<li class="page-item ' . (($page >= $total_pages) ? 'disabled' : '') . '">';
-          echo '<a class="page-link" href="?page=' . $total_pages . '&search=' . $search . '" title="Última"><i class="bi bi-skip-forward-fill"></i></a>';
-          echo '</li>';
-          echo '</ul>';
+          echo '<li class="page-item ' . (($page >= $total_pages) ? 'disabled' : '') . '">
+                <a class="page-link" href="?page=' . ($page + 1) . '&search=' . $search . '" title="Avançar"><i class="bi bi-chevron-right"></i></a>
+                </li>
+                <li class="page-item ' . (($page >= $total_pages) ? 'disabled' : '') . '">
+                <a class="page-link" href="?page=' . $total_pages . '&search=' . $search . '" title="Última"><i class="bi bi-skip-forward-fill"></i></a>
+                </li>
+                </ul>';
           ?>
         </nav>
       </div>
@@ -187,7 +187,7 @@
 
     <?php include './modals/modalDescarte.php'; ?>
 
-    <?php include './modals/modalGerarPdf.php';?>
+    <?php include './modals/modalGerarPdf.php'; ?>
 
   </div>
 
