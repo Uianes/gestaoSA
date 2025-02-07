@@ -153,25 +153,25 @@
           <?php
           echo '<ul class="pagination justify-content-center mt-3">
                 <li class="page-item ' . (($page <= 1) ? 'disabled' : '') . '">
-                <a class="page-link" href="?page=1&search=' . $search . '" title="Primeira"><i class="bi bi-skip-backward-fill"></i></a>
+                <a class="page-link" href="?page=1&search=' . urlencode($search) . '&local_filtro=' . urlencode($local_filtro) . '" title="Primeira"><i class="bi bi-skip-backward-fill"></i></a>
                 </li>
                 <li class="page-item ' . (($page <= 1) ? 'disabled' : '') . '">
-                <a class="page-link" href="?page=' . ($page - 1) . '&search=' . $search . '" title="Voltar"><i class="bi bi-chevron-left"></i></a>
+                <a class="page-link" href="?page=' . ($page - 1) . '&search=' . urlencode($search) . '&local_filtro=' . urlencode($local_filtro) . '" title="Voltar"><i class="bi bi-chevron-left"></i></a>
                 </li>';
 
           $start_page = max(1, $page - 2);
           $end_page = min($total_pages, $page + 2);
           for ($i = $start_page; $i <= $end_page; $i++) {
             echo '<li class="page-item ' . (($i == $page) ? 'active' : '') . '">
-                  <a class="page-link" href="?page=' . $i . '&search=' . $search . '">' . $i . '</a>
+                  <a class="page-link" href="?page=' . $i . '&search=' . urlencode($search) . '&local_filtro=' . urlencode($local_filtro) . '">' . $i . '</a>
                   </li>';
           }
 
           echo '<li class="page-item ' . (($page >= $total_pages) ? 'disabled' : '') . '">
-                <a class="page-link" href="?page=' . ($page + 1) . '&search=' . $search . '" title="Avançar"><i class="bi bi-chevron-right"></i></a>
+                <a class="page-link" href="?page=' . ($page + 1) . '&search=' . urlencode($search) . '&local_filtro=' . urlencode($local_filtro) . '" title="Avançar"><i class="bi bi-chevron-right"></i></a>
                 </li>
                 <li class="page-item ' . (($page >= $total_pages) ? 'disabled' : '') . '">
-                <a class="page-link" href="?page=' . $total_pages . '&search=' . $search . '" title="Última"><i class="bi bi-skip-forward-fill"></i></a>
+                <a class="page-link" href="?page=' . $total_pages . '&search=' . urlencode($search) . '&local_filtro=' . urlencode($local_filtro) . '" title="Última"><i class="bi bi-skip-forward-fill"></i></a>
                 </li>
                 </ul>';
           ?>
