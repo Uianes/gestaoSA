@@ -17,13 +17,28 @@
       <button class="btn btn-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalCadastrarPatrimonio">
         Cadastrar Patrimônio
       </button>
-      <button class="btn btn-secondary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalEscolas">
+      <button class="btn btn-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalGerarPDF">
         Gerar PDF
       </button>
+      <!-- Formulário unificado de busca -->
       <form class="d-flex ms-auto" method="GET">
         <div class="input-group mx-1">
-          <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio... " aria-label="busca" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
-          <button class="btn btn-success" type="submit" title='Buscar'><i class="bi bi-search"></i></button>
+          <!-- Dropdown para filtrar por locais -->
+          <select class="form-select" name="local_filtro">
+            <option value="">Todos os Locais</option>
+            <option value="EMEI Pequeno Paraíso" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEI Pequeno Paraíso') ? 'selected' : ''; ?>>EMEI Pequeno Paraíso</option>
+            <option value="EMEI Vaga-Lume" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEI Vaga-Lume') ? 'selected' : ''; ?>>EMEI Vaga-Lume</option>
+            <option value="EMEI Vovó Amália" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEI Vovó Amália') ? 'selected' : ''; ?>>EMEI Vovó Amália</option>
+            <option value="EMEF Sol Nascente" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF Sol Nascente') ? 'selected' : ''; ?>>EMEF Sol Nascente</option>
+            <option value="EMEF Rui Barbosa" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF Rui Barbosa') ? 'selected' : ''; ?>>EMEF Rui Barbosa</option>
+            <option value="EMEF Antônio João" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF Antônio João') ? 'selected' : ''; ?>>EMEF Antônio João</option>
+            <option value="EMEF São João" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF São João') ? 'selected' : ''; ?>>EMEF São João</option>
+            <option value="EMEF Antônio Liberato" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF Antônio Liberato') ? 'selected' : ''; ?>>EMEF Antônio Liberato</option>
+            <option value="SME" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'SME') ? 'selected' : ''; ?>>SME</option>
+          </select>
+          <!-- Campo de busca por patrimônio -->
+          <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio..." aria-label="busca" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+          <button class="btn btn-success" type="submit" title="Buscar"><i class="bi bi-search"></i></button>
         </div>
       </form>
       <form method="POST">
@@ -64,23 +79,25 @@
             $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
             $limit = 15;
             $search = isset($_GET['search']) ? $_GET['search'] : '';
+            $local_filtro = isset($_GET['local_filtro']) ? $_GET['local_filtro'] : '';
             $offset = ($page - 1) * $limit;
 
-            $sql_count = "SELECT COUNT(*) AS total FROM patrimonio";
+            $where_conditions = [];
             if ($search !== '') {
-              $sql_count .= " WHERE N_Patrimonio LIKE '%$search%'";
+              $where_conditions[] = "N_Patrimonio LIKE '%$search%'";
             }
+            if ($local_filtro !== '') {
+              $where_conditions[] = "FIND_IN_SET('$local_filtro', Localizacao)";
+            }
+            $where = count($where_conditions) ? " WHERE " . implode(" AND ", $where_conditions) : "";
+
+            $sql_count = "SELECT COUNT(*) AS total FROM patrimonio" . $where;
             $result_count = mysqli_query($conn, $sql_count);
             $row_count = mysqli_fetch_assoc($result_count);
             $total = $row_count['total'];
             $total_pages = ceil($total / $limit);
 
-            $sql = "SELECT * FROM patrimonio";
-            if ($search !== '') {
-              $sql .= " WHERE N_Patrimonio LIKE '%$search%'";
-            }
-            $sql .= " LIMIT $offset, $limit";
-
+            $sql = "SELECT * FROM patrimonio" . $where . " LIMIT $offset, $limit";
             $result = mysqli_query($conn, $sql);
 
             if (mysqli_num_rows($result) > 0) {
