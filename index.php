@@ -17,6 +17,9 @@
       <button class="btn btn-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalCadastrarPatrimonio">
         Cadastrar Patrimônio
       </button>
+      <button class="btn btn-secondary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalEscolas">
+        Gerar PDF
+      </button>
       <form class="d-flex ms-auto" method="GET">
         <div class="input-group mx-1">
           <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio... " aria-label="busca" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
@@ -166,6 +169,8 @@
     <?php include './modals/modalExcluir.php'; ?>
 
     <?php include './modals/modalDescarte.php'; ?>
+
+    <?php include './modals/modalGerarPdf.php';?>
 
   </div>
 

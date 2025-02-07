@@ -76,3 +76,22 @@ function abrirModalDescarte(numPatrimonio, descricao, dataEntrada, localizacao, 
     let modalDescarte = new bootstrap.Modal(document.getElementById('ModalDescartePatrimonio'));
     modalDescarte.show();
 }
+
+function toggleAllCheckboxes(mainCheckbox) {
+  const checkboxes = document.querySelectorAll('.checkSchool');
+  checkboxes.forEach(cb => cb.checked = mainCheckbox.checked);
+}
+
+function uncheckMainCheckbox() {
+  const mainCheckbox = document.getElementById('checkAll');
+  if (!this.checked) mainCheckbox.checked = false;
+}
+
+function validarCheck(){
+  const checkboxes = document.querySelectorAll('.checkSchool');
+  for(const c of checkboxes){
+    if(c.checked) return true;
+  }
+  alert('Selecione pelo menos uma Escola.');
+  return false;
+}
