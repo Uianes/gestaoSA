@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.1-5.fc41
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 22/11/2024 às 19:32
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.0.30
+-- Host: localhost
+-- Generation Time: Jan 31, 2025 at 01:38 AM
+-- Server version: 10.11.10-MariaDB
+-- PHP Version: 8.3.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `gestaosa`
+-- Database: `gestaosa`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `patrimonio`
+-- Table structure for table `patrimonio`
 --
 
 CREATE TABLE `patrimonio` (
@@ -35,14 +35,10 @@ CREATE TABLE `patrimonio` (
   `Descricao_Localizacao` varchar(500) NOT NULL,
   `Status` set('Tombado','Descarte') NOT NULL,
   `Memorando` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Índices para tabelas despejadas
---
-
---
--- Índices de tabela `patrimonio`
+-- Indexes for table `patrimonio`
 --
 ALTER TABLE `patrimonio`
   ADD PRIMARY KEY (`N_Patrimonio`);
