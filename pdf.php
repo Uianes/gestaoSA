@@ -11,4 +11,5 @@ $conn = open_connection();
 $schools = $_POST['locais'];
 $date = date('d/m/Y H:i:s');
 
+close_connection($conn);
 ?>
