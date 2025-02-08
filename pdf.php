@@ -53,7 +53,6 @@ try {
                     <strong>Local: ' . $local . '</strong>
                   </div>';
         $sql = "SELECT * FROM patrimonio WHERE FIND_IN_SET(?, Localizacao)";
-        // Utiliza a função auxiliar para executar a query com proteção contra SQL Injection
         $result = mysqli_execute_query($conn, $sql, [$local]);
         if (!$result) {
             throw new Exception("Erro ao obter resultado da consulta: " . mysqli_error($conn));
