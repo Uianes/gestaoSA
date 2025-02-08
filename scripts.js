@@ -101,10 +101,29 @@ function uncheckMainCheckbox() {
 }
 
 function validarCheck(){
-  const checkboxes = document.querySelectorAll('.checkSchool');
-  for(const c of checkboxes){
-    if(c.checked) return true;
-  }
-  alert('Selecione pelo menos uma Escola.');
-  return false;
+    const checkboxes = document.querySelectorAll('.checkSchool');
+    let valid = false;
+    for(const c of checkboxes){
+        if(c.checked) {
+            valid = true;
+            break;
+        }
+    }
+    if(valid){
+        const modalEl = document.getElementById('ModalGerarPDF');
+        let modalInstance = bootstrap.Modal.getInstance(modalEl);
+        if (!modalInstance) {
+            modalInstance = new bootstrap.Modal(modalEl);
+        }
+
+        // Após o modal fechar, limpar os campos
+        modalEl.addEventListener('hidden.bs.modal', function() {
+            limparCampos();
+        }, {once: true});
+
+        modalInstance.hide();
+        return true;
+    }
+    alert('Selecione pelo menos uma Escola.');
+    return false;
 }

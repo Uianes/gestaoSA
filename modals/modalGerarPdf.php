@@ -48,7 +48,7 @@
             <label class="form-check-label">EMEF Antônio Liberato</label>
           </div>
           <div class="mt-3">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onclick="limparCampos()">Gerar PDF</button>
+            <button type="submit" class="btn btn-primary"">Gerar PDF</button>
           </div>
         </form>
       </div>
