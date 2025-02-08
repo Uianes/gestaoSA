@@ -1,4 +1,8 @@
 <?php
+ini_set('memory_limit', '512M');
+set_time_limit(300);
+date_default_timezone_set('America/Sao_Paulo');
+
 include './db_connection.php';
 
 if (!isset($_POST['locais']) || empty($_POST['locais'])) {
@@ -7,8 +11,102 @@ if (!isset($_POST['locais']) || empty($_POST['locais'])) {
 }
 
 $conn = open_connection();
-$schools = $_POST['locais'];
-$date = date('d/m/Y H:i:s');
+$locals = $_POST['locais'];
+$dateHeader = date('d/m/Y H:i:s');
+$dateFile = date('d-m-Y_H:i:s');
+$title = "Relatorio_{$dateFile}.pdf";
 
-close_connection($conn);
-?>
+require_once './vendor/autoload.php';
+
+use Dompdf\Dompdf;
+
+try {
+    $html = '<html>
+      <head>
+        <meta charset="utf-8">
+        <title>' . $title . '</title>
+        <style>
+          @page { margin-top: 40px; }
+          #page_header {
+              position: fixed;
+              top: 0;
+              left: 0;
+              right: 0;
+              height: 30px;
+              text-align: center;
+              border-bottom: 1px solid #000;
+              font-size: 10px;
+              line-height: 30px;
+          }
+          body { font-family: Arial, sans-serif; font-size: 12px; margin-top: 40px; }
+          table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+          table, th, td { border: 1px solid #000; }
+          th, td { padding: 5px; }
+          .page-break { page-break-after: always; }
+        </style>
+      </head>
+      <body>
+        <div id="page_header"><strong>Data: ' . $dateHeader . '</strong></div>';
+
+    foreach ($locals as $local) {
+        $html .= '<div style="text-align:center; margin-bottom:10px;">
+                    <strong>Local: ' . $local . '</strong>
+                  </div>';
+        $sql = "SELECT * FROM patrimonio WHERE FIND_IN_SET(?, Localizacao)";
+        // Utiliza a função auxiliar para executar a query com proteção contra SQL Injection
+        $result = mysqli_execute_query($conn, $sql, [$local]);
+        if (!$result) {
+            throw new Exception("Erro ao obter resultado da consulta: " . mysqli_error($conn));
+        }
+
+        $html .= '<table>
+                    <thead>
+                      <tr>
+                        <th>Nº Patrimônio</th>
+                        <th>Descrição</th>
+                        <th>Data Entrada</th>
+                        <th>Localização</th>
+                        <th>Descrição Localização</th>
+                        <th>Status</th>
+                        <th>Memorando</th>
+                      </tr>
+                    </thead>
+                    <tbody>';
+
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $dataEntrada = date("d/m/Y", strtotime($row["Data_Entrada"]));
+                $html .= '<tr>
+                            <td>' . $row['N_Patrimonio'] . '</td>
+                            <td>' . $row['Descricao'] . '</td>
+                            <td>' . $dataEntrada . '</td>
+                            <td>' . $row['Localizacao'] . '</td>
+                            <td>' . $row['Descricao_Localizacao'] . '</td>
+                            <td>' . $row['Status'] . '</td>
+                            <td>' . $row['Memorando'] . '</td>
+                          </tr>';
+            }
+        } else {
+            $html .= '<tr>
+                        <td colspan="7" style="text-align:center;">Nenhum patrimônio encontrado</td>
+                      </tr>';
+        }
+
+        $html .= '</tbody></table>
+                  <div class="page-break"></div>';
+    }
+
+    $html .= '</body></html>';
+
+    close_connection($conn);
+
+    $dompdf = new Dompdf();
+    $dompdf->setPaper('A4', 'portrait');
+    $dompdf->loadHtml($html);
+    $dompdf->render();
+    $dompdf->stream($title, ["Attachment" => false]);
+} catch (Exception $e) {
+    close_connection($conn);
+    echo '<script>alert("Erro ao gerar relatório: ' . $e->getMessage() . '"); window.close();</script>';
+    exit;
+}
