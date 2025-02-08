@@ -1,20 +1,33 @@
 function limparCampos() {
-    // Selecionar todos os elementos de entrada
+    // Selecionar todos os elementos input, select e textarea
     const inputs = document.querySelectorAll('input, select, textarea');
+
     inputs.forEach(input => {
         // Ignorar botões de submit e campos específicos
         if (input.type === 'submit' || input.id === 'statusDescarte') {
             return;
         }
-        // Limpar o valor do campo
-        input.value = '';
+        if (input.type === 'checkbox') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
     });
 
-    // Resetar contadores de caracteres
-    document.getElementById("contadorNumeroPatrimonioCadastrar").innerText = "0/20";
-    document.getElementById("contadorDescricaoLocalizacaoCadastrar").innerText = "0/500";
-    document.getElementById("contadorMemorandoCadastrar").innerText = "0/30";
-    document.getElementById("contadorMemorandoDescarte").innerText = "0/30";
+    // Resetar contadores, se existirem na página
+    const contadores = {
+        "contadorNumeroPatrimonioCadastrar": "20",
+        "contadorDescricaoLocalizacaoCadastrar": "500",
+        "contadorMemorandoCadastrar": "30",
+        "contadorMemorandoDescarte": "30"
+    };
+
+    Object.keys(contadores).forEach(id => {
+        const contador = document.getElementById(id);
+        if (contador) {
+            contador.innerText = `0/${contadores[id]}`;
+        }
+    });
 }
 
 function atualizarContador(input, contadorId) {

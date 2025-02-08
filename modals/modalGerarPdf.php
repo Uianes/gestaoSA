@@ -3,7 +3,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="ModalEscolasLabel">Selecione as Escolas</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="limparCampos()"></button>
       </div>
       <div class="modal-body">
         <div class="form-check mb-2">
@@ -48,7 +48,7 @@
             <label class="form-check-label">EMEF Antônio Liberato</label>
           </div>
           <div class="mt-3">
-            <button type="submit" class="btn btn-primary">Gerar PDF</button>
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" onclick="limparCampos()">Gerar PDF</button>
           </div>
         </form>
       </div>
