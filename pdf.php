@@ -48,15 +48,19 @@ try {
       <body>
         <div id="page_header"><strong>Data: ' . $dateHeader . '</strong></div>';
 
+    $placeholders = rtrim(str_repeat('?,', count($locals)), ',');
+    $sql = "SELECT * FROM patrimonio WHERE Localizacao IN ($placeholders)";
+    $result = mysqli_execute_query($conn, $sql, $locals);
+
+    $dadosPorLocal = [];
+    while ($row = mysqli_fetch_assoc($result)) {
+        $dadosPorLocal[$row['Localizacao']][] = $row;
+    }
+
     foreach ($locals as $local) {
         $html .= '<div style="text-align:center; margin-bottom:10px;">
                     <strong>Local: ' . $local . '</strong>
                   </div>';
-        $sql = "SELECT * FROM patrimonio WHERE FIND_IN_SET(?, Localizacao)";
-        $result = mysqli_execute_query($conn, $sql, [$local]);
-        if (!$result) {
-            throw new Exception("Erro ao obter resultado da consulta: " . mysqli_error($conn));
-        }
 
         $html .= '<table>
                     <thead>
@@ -72,8 +76,8 @@ try {
                     </thead>
                     <tbody>';
 
-        if (mysqli_num_rows($result) > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
+        if (isset($dadosPorLocal[$local]) && count($dadosPorLocal[$local]) > 0) {
+            foreach ($dadosPorLocal[$local] as $row) {
                 $dataEntrada = date("d/m/Y", strtotime($row["Data_Entrada"]));
                 $html .= '<tr>
                             <td>' . $row['N_Patrimonio'] . '</td>

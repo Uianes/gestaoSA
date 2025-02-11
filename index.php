@@ -26,6 +26,7 @@
           <!-- Dropdown para filtrar por locais -->
           <select class="form-select" name="local_filtro">
             <option value="">Todos os Locais</option>
+            <option value="SME" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'SME') ? 'selected' : ''; ?>>SME</option>
             <option value="EMEI Pequeno Paraíso" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEI Pequeno Paraíso') ? 'selected' : ''; ?>>EMEI Pequeno Paraíso</option>
             <option value="EMEI Vaga-Lume" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEI Vaga-Lume') ? 'selected' : ''; ?>>EMEI Vaga-Lume</option>
             <option value="EMEI Vovó Amália" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEI Vovó Amália') ? 'selected' : ''; ?>>EMEI Vovó Amália</option>
@@ -34,7 +35,6 @@
             <option value="EMEF Antônio João" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF Antônio João') ? 'selected' : ''; ?>>EMEF Antônio João</option>
             <option value="EMEF São João" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF São João') ? 'selected' : ''; ?>>EMEF São João</option>
             <option value="EMEF Antônio Liberato" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'EMEF Antônio Liberato') ? 'selected' : ''; ?>>EMEF Antônio Liberato</option>
-            <option value="SME" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'SME') ? 'selected' : ''; ?>>SME</option>
           </select>
           <!-- Campo de busca por patrimônio -->
           <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
