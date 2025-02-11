@@ -12,8 +12,11 @@
 
 <body>
   <nav class="navbar bg-body-secondary border-bottom sticky-top">
-    <div class="container-fluid d-flex justify-content-start">
-      <a class="navbar-brand" href="#">GestãoSA</a>
+    <div class="container-fluid d-flex">
+      <a class="navbar-brand" href="#">
+        <img src="./assets/logoPrefeituraSA.png" alt="Logo Prefeitura" height="30" class="d-inline-block align-text-top">
+        GestãoSA
+      </a>
       <button class="btn btn-primary ms-3" type="button" data-bs-toggle="modal" data-bs-target="#ModalCadastrarPatrimonio">
         Cadastrar Patrimônio
       </button>
