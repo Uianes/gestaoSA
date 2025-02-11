@@ -37,7 +37,7 @@
             <option value="SME" <?php echo (isset($_GET['local_filtro']) && $_GET['local_filtro'] == 'SME') ? 'selected' : ''; ?>>SME</option>
           </select>
           <!-- Campo de busca por patrimônio -->
-          <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio..." aria-label="busca" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+          <input class="form-control" type="search" name="search" placeholder="Buscar patrimônio..." value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
           <button class="btn btn-success" type="submit" title="Buscar"><i class="bi bi-search"></i></button>
         </div>
       </form>

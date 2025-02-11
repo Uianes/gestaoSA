@@ -18,11 +18,11 @@
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Data Entrada</span>
-            <input type="date" class="form-control" name="dataEntrada" id="dataEntradaCadastrar" required>
+            <input type="date" class="form-control" name="dataEntrada" required>
           </div>
           <div class="input-group mb-3">
             <span class="input-group-text">Localização</span>
-            <select name="localizacao" id="localizacaoCadastrar" class="form-select" required>
+            <select name="localizacao" class="form-select" required>
               <option selected disabled value="">Selecione uma Opção</option>
               <option value="SME">SME</option>
               <option value="EMEI Pequeno Paraíso">EMEI Pequeno Paraíso</option>
