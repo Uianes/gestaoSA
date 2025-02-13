@@ -1,13 +1,15 @@
 <?php 
+session_start();
 include '../db_connection.php';
 $conn = open_connection();
 
 $idPatrimonioExcluir = !empty($_POST['idPatrimonioExcluir']) ? $_POST['idPatrimonioExcluir'] : NULL;
 
 if (!$idPatrimonioExcluir) {
-  echo '<script>alert("O campo Nº Patrimônio é obrigatório.");</script>';
+  $_SESSION['message'] = "O campo Nº Patrimônio é obrigatório.";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
@@ -16,20 +18,24 @@ $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$idPatrimonioExcluir]);
 $row = mysqli_fetch_assoc($resultCheck);
 
 if ($row['total'] == 0) {
-  echo '<script>alert("O patrimônio ' . $idPatrimonioExcluir . ' não foi encontrado!");</script>';
+  $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir não foi encontrado!";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
 try {
   $sql = "DELETE FROM patrimonio WHERE N_Patrimonio = ?";
   mysqli_execute_query($conn, $sql, [$idPatrimonioExcluir]);
-  echo '<script>alert("O patrimônio ' . $idPatrimonioExcluir . ' foi excluído com sucesso!");</script>';
+  $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir foi excluído com sucesso!";
+  $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
-  echo '<script>alert("Erro ao excluir patrimônio: ' . $e->getMessage() . '");</script>';
+  $_SESSION['message'] = "Erro ao excluir patrimônio: " . $e->getMessage();
+  $_SESSION['message_type'] = 'error';
 }
 
 close_connection($conn);
-header('Refresh: 0.5; URL=../index.php');
+header('Location: ../index.php');
+exit;
 ?>

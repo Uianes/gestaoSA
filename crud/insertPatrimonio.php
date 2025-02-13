@@ -1,4 +1,5 @@
 <?php
+session_start();
 include '../db_connection.php';
 $conn = open_connection();
 
@@ -11,9 +12,10 @@ $status = !empty($_POST['status']) ? $_POST['status'] : NULL;
 $memorando = !empty($_POST['memorando']) ? $_POST['memorando'] : NULL;
 
 if (!$numeroPatrimonio || !$descricao || !$dataEntrada || !$localizacao || !$descricaoLocalizacao || !$status) {
-  echo '<script>alert("Todos os campos são obrigatórios, exceto o memorando.");</script>';
+  $_SESSION['message'] = "Todos os campos são obrigatórios, exceto o memorando.";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
@@ -22,9 +24,10 @@ if ($status === 'Tombado') {
 }
 
 if ($status === 'Descarte' && !$memorando) {
-  echo '<script>alert("O memorando não pode ser nulo para descarte.");</script>';
+  $_SESSION['message'] = "O memorando não pode ser nulo para descarte.";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
@@ -33,9 +36,10 @@ $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$numeroPatrimonio]);
 $row = mysqli_fetch_assoc($resultCheck);
 
 if ($row['total'] > 0) {
-  echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' já foi cadastrado!");</script>';
+  $_SESSION['message'] = "O patrimônio $numeroPatrimonio já foi cadastrado!";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
@@ -51,11 +55,14 @@ try {
     $status,
     $memorando
   ]);
-  echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' foi cadastrado com sucesso!");</script>';
+  $_SESSION['message'] = "O patrimônio $numeroPatrimonio foi cadastrado com sucesso!";
+  $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
-  echo '<script>alert("Erro ao cadastrar patrimônio: ' . $e->getMessage() . '");</script>';
+  $_SESSION['message'] = "Erro ao cadastrar patrimônio: " . $e->getMessage();
+  $_SESSION['message_type'] = 'error';
 }
 
 close_connection($conn);
-header('Refresh: 0.5; URL=../index.php');
+header('Location: ../index.php');
+exit;
 ?>

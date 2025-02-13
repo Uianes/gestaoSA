@@ -1,3 +1,11 @@
+document.addEventListener('DOMContentLoaded', function () {
+  const toastElement = document.getElementById('toastMessage');
+  if (toastElement) {
+    const toast = new bootstrap.Toast(toastElement);
+    toast.show();
+  }
+});
+
 function limparCampos() {
     // Selecionar todos os elementos input, select e textarea
     const inputs = document.querySelectorAll('input, select, textarea');

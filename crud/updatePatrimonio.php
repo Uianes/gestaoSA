@@ -1,4 +1,5 @@
 <?php 
+session_start();
 include '../db_connection.php';
 $conn = open_connection();
 
@@ -9,9 +10,10 @@ $localizacao = !empty($_POST['localizacao']) ? $_POST['localizacao'] : NULL;
 $descricaoLocalizacao = !empty($_POST['DescricaoLocalizacaoEditar']) ? $_POST['DescricaoLocalizacaoEditar'] : NULL;
 
 if (!$numeroPatrimonio || !$descricao || !$dataEntrada || !$localizacao || !$descricaoLocalizacao) {
-  echo '<script>alert("Todos os campos são obrigatórios.");</script>';
+  $_SESSION['message'] = "Todos os campos são obrigatórios.";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
@@ -20,9 +22,10 @@ $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$numeroPatrimonio]);
 $row = mysqli_fetch_assoc($resultCheck);
 
 if ($row['total'] == 0) {
-  echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' não foi encontrado!");</script>';
+  $_SESSION['message'] = "O patrimônio $numeroPatrimonio não foi encontrado!";
+  $_SESSION['message_type'] = 'error';
   close_connection($conn);
-  header('Refresh: 0.5; URL=../index.php');
+  header('Location: ../index.php');
   exit;
 }
 
@@ -35,11 +38,14 @@ try {
     $descricaoLocalizacao,
     $numeroPatrimonio
   ]);
-  echo '<script>alert("O patrimônio ' . $numeroPatrimonio . ' foi atualizado com sucesso!");</script>';
+  $_SESSION['message'] = "O patrimônio $numeroPatrimonio foi atualizado com sucesso!";
+  $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
-  echo '<script>alert("Erro ao atualizar patrimônio: ' . $e->getMessage() . '");</script>';
+  $_SESSION['message'] = "Erro ao atualizar patrimônio: " . $e->getMessage();
+  $_SESSION['message_type'] = 'error';
 }
 
 close_connection($conn);
-header('Refresh: 0.5; URL=../index.php');
+header('Location: ../index.php');
+exit;
 ?>
