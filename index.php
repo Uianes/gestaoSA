@@ -156,6 +156,9 @@
                           onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
                           <i class=\"bi bi-trash-fill\"></i>
                         </button>
+                        <button class='btn btn-secondary btn-sm' title='Patrimônio já descartado' disabled>
+                          <i class=\"bi bi-archive-fill\"></i>
+                        </button>
                       </td>";
                 }
                 echo "</tr>";
