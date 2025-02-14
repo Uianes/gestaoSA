@@ -7,11 +7,9 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function limparCampos() {
-    // Selecionar todos os elementos input, select e textarea
     const inputs = document.querySelectorAll('input, select, textarea');
 
     inputs.forEach(input => {
-        // Ignorar botões de submit e campos específicos
         if (input.type === 'submit' || input.id === 'statusDescarte') {
             return;
         }
@@ -22,7 +20,6 @@ function limparCampos() {
         }
     });
 
-    // Resetar contadores, se existirem na página
     const contadores = {
         "contadorNumeroPatrimonioCadastrar": "20",
         "contadorDescricaoLocalizacaoCadastrar": "500",
@@ -55,7 +52,6 @@ function toggleMemorando(selectId, memorandoId, contadorMemorandoID) {
         memorando.disabled = true;
         memorando.required = false;
         memorando.value = '';
-        // Atualizar o contador de caracteres do memorando
         atualizarContador(memorando, contadorMemorandoID);
     }
 }
@@ -124,7 +120,6 @@ function validarCheck(){
             modalInstance = new bootstrap.Modal(modalEl);
         }
 
-        // Após o modal fechar, limpar os campos
         modalEl.addEventListener('hidden.bs.modal', function() {
             limparCampos();
         }, {once: true});
