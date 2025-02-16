@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../db_connection.php';
-$conn = open_connection();
 
 $numeroPatrimonio = !empty($_POST['numeroPatrimonio']) ? $_POST['numeroPatrimonio'] : null;
 $localizacao = !empty($_POST['localizacao']) ? $_POST['localizacao'] : null;
@@ -11,10 +10,11 @@ $memorando = !empty($_POST['memorando']) ? $_POST['memorando'] : null;
 if (!$numeroPatrimonio || !$memorando || !$localizacao || !$descricaoLocalizacao) {
   $_SESSION['message'] = "Número de patrimônio, localização, descrição da localização e memorando são obrigatórios para descarte.";
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
   header('Location: ../index.php');
   exit;
 }
+
+$conn = open_connection();
 
 try {
   $checkSql = "SELECT Status FROM patrimonio WHERE N_Patrimonio = ?";

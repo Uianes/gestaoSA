@@ -1,7 +1,6 @@
 <?php
 session_start();
 include '../db_connection.php';
-$conn = open_connection();
 
 $numeroPatrimonio = !empty($_POST['numeroPatrimonio']) ? $_POST['numeroPatrimonio'] : NULL;
 $descricao = !empty($_POST['descricao']) ? $_POST['descricao'] : NULL;
@@ -14,7 +13,6 @@ $memorando = !empty($_POST['memorando']) ? $_POST['memorando'] : NULL;
 if (!$numeroPatrimonio || !$descricao || !$dataEntrada || !$localizacao || !$descricaoLocalizacao || !$status) {
   $_SESSION['message'] = "Todos os campos são obrigatórios, exceto o memorando.";
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
   header('Location: ../index.php');
   exit;
 }
@@ -26,10 +24,11 @@ if ($status === 'Tombado') {
 if ($status === 'Descarte' && !$memorando) {
   $_SESSION['message'] = "O memorando não pode ser nulo para descarte.";
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
   header('Location: ../index.php');
   exit;
 }
+
+$conn = open_connection();
 
 $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
 $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$numeroPatrimonio]);

@@ -1,7 +1,6 @@
 <?php 
 session_start();
 include '../db_connection.php';
-$conn = open_connection();
 
 $numeroPatrimonio = !empty($_POST['numeroPatrimonio']) ? $_POST['numeroPatrimonio'] : NULL;
 $descricao = !empty($_POST['descricao']) ? $_POST['descricao'] : NULL;
@@ -12,10 +11,11 @@ $descricaoLocalizacao = !empty($_POST['DescricaoLocalizacaoEditar']) ? $_POST['D
 if (!$numeroPatrimonio || !$descricao || !$dataEntrada || !$localizacao || !$descricaoLocalizacao) {
   $_SESSION['message'] = "Todos os campos são obrigatórios.";
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
   header('Location: ../index.php');
   exit;
 }
+
+$conn = open_connection();
 
 $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
 $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$numeroPatrimonio]);

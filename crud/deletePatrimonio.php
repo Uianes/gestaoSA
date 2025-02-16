@@ -1,17 +1,17 @@
 <?php 
 session_start();
 include '../db_connection.php';
-$conn = open_connection();
 
 $idPatrimonioExcluir = !empty($_POST['idPatrimonioExcluir']) ? $_POST['idPatrimonioExcluir'] : NULL;
 
 if (!$idPatrimonioExcluir) {
   $_SESSION['message'] = "O campo Nº Patrimônio é obrigatório.";
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
   header('Location: ../index.php');
   exit;
 }
+
+$conn = open_connection();
 
 $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
 $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$idPatrimonioExcluir]);
