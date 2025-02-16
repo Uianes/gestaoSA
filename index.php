@@ -88,86 +88,97 @@
             <?php
             include 'db_connection.php';
 
-            if (isset($_POST['reload'])) {
-              header("Location: index.php");
-              exit;
-            }
+            try {
+                $conn = open_connection();
 
-            $conn = open_connection();
-
-            $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
-            $limit = 15;
-            $search = isset($_GET['search']) ? $_GET['search'] : '';
-            $local_filtro = isset($_GET['local_filtro']) ? $_GET['local_filtro'] : '';
-            $offset = ($page - 1) * $limit;
-
-            $where_conditions = [];
-            if ($search !== '') {
-              $where_conditions[] = "N_Patrimonio LIKE '%$search%'";
-            }
-            if ($local_filtro !== '') {
-              $where_conditions[] = "FIND_IN_SET('$local_filtro', Localizacao)";
-            }
-            $where = count($where_conditions) ? " WHERE " . implode(" AND ", $where_conditions) : "";
-
-            $sql_count = "SELECT COUNT(*) AS total FROM patrimonio" . $where;
-            $result_count = mysqli_query($conn, $sql_count);
-            $row_count = mysqli_fetch_assoc($result_count);
-            $total = $row_count['total'];
-            $total_pages = ceil($total / $limit);
-
-            $sql = "SELECT * FROM patrimonio" . $where . " LIMIT $offset, $limit";
-            $result = mysqli_query($conn, $sql);
-
-            if (mysqli_num_rows($result) > 0) {
-              while ($row = mysqli_fetch_assoc($result)) {
-                $dataEntrada = date('d/m/Y', strtotime($row['Data_Entrada']));
-                echo "<tr>";
-                echo "<td>" . $row['N_Patrimonio'] . "</td>";
-                echo "<td>" . $row['Descricao'] . "</td>";
-                echo "<td>" . $dataEntrada . "</td>";
-                echo "<td>" . $row['Localizacao'] . "</td>";
-                echo "<td>" . $row['Descricao_Localizacao'] . "</td>";
-                echo "<td>" . $row['Status'] . "</td>";
-                echo "<td>" . $row['Memorando'] . "</td>";
-
-                if ($row['Status'] === 'Tombado') {
-                  echo "<td class='text-center'>
-                        <button class='btn btn-primary btn-sm' title='Editar'
-                          onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
-                          <i class='bi bi-pencil-fill'></i>
-                        </button>
-                        <button class='btn btn-danger btn-sm' title='Excluir'
-                          onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
-                          <i class=\"bi bi-trash-fill\"></i>
-                        </button>
-                        <button class='btn btn-warning btn-sm' title='Descarte'
-                          onclick=\"abrirModalDescarte('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Memorando']}')\">
-                          <i class=\"bi bi-archive-fill\"></i>
-                        </button>
-                      </td>";
-                } else {
-                  echo "<td class='text-center'>
-                        <button class='btn btn-primary btn-sm' title='Editar'
-                          onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
-                          <i class='bi bi-pencil-fill'></i>
-                        </button>
-                        <button class='btn btn-danger btn-sm' title='Excluir'
-                          onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
-                          <i class=\"bi bi-trash-fill\"></i>
-                        </button>
-                        <button class='btn btn-secondary btn-sm' title='Patrimônio já descartado' disabled>
-                          <i class=\"bi bi-archive-fill\"></i>
-                        </button>
-                      </td>";
+                if (isset($_POST['reload'])) {
+                    header("Location: index.php");
+                    exit;
                 }
-                echo "</tr>";
-              }
-            } else {
-              echo "<tr><td colspan='8' class='text-center'>Nenhum patrimônio encontrado</td></tr>";
-            }
 
-            close_connection($conn);
+                $page = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+                $limit = 15;
+                $search = isset($_GET['search']) ? $_GET['search'] : '';
+                $local_filtro = isset($_GET['local_filtro']) ? $_GET['local_filtro'] : '';
+                $offset = ($page - 1) * $limit;
+
+                $where_conditions = [];
+                if ($search !== '') {
+                    $where_conditions[] = "N_Patrimonio LIKE '%$search%'";
+                }
+                if ($local_filtro !== '') {
+                    $where_conditions[] = "FIND_IN_SET('$local_filtro', Localizacao)";
+                }
+                $where = count($where_conditions) ? " WHERE " . implode(" AND ", $where_conditions) : "";
+
+                $sql_count = "SELECT COUNT(*) AS total FROM patrimonio" . $where;
+                $result_count = mysqli_query($conn, $sql_count);
+                if (!$result_count) {
+                    throw new Exception(mysqli_error($conn));
+                }
+                $row_count = mysqli_fetch_assoc($result_count);
+                $total = $row_count['total'];
+                $total_pages = ceil($total / $limit);
+
+                $sql = "SELECT * FROM patrimonio" . $where . " LIMIT $offset, $limit";
+                $result = mysqli_query($conn, $sql);
+                if (!$result) {
+                    throw new Exception(mysqli_error($conn));
+                }
+
+                if (mysqli_num_rows($result) > 0) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $dataEntrada = date('d/m/Y', strtotime($row['Data_Entrada']));
+                        echo "<tr>";
+                        echo "<td>" . $row['N_Patrimonio'] . "</td>";
+                        echo "<td>" . $row['Descricao'] . "</td>";
+                        echo "<td>" . $dataEntrada . "</td>";
+                        echo "<td>" . $row['Localizacao'] . "</td>";
+                        echo "<td>" . $row['Descricao_Localizacao'] . "</td>";
+                        echo "<td>" . $row['Status'] . "</td>";
+                        echo "<td>" . $row['Memorando'] . "</td>";
+
+                        if ($row['Status'] === 'Tombado') {
+                            echo "<td class='text-center'>
+                                  <button class='btn btn-primary btn-sm' title='Editar'
+                                    onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                                    <i class='bi bi-pencil-fill'></i>
+                                  </button>
+                                  <button class='btn btn-danger btn-sm' title='Excluir'
+                                    onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                                    <i class='bi bi-trash-fill'></i>
+                                  </button>
+                                  <button class='btn btn-warning btn-sm' title='Descarte'
+                                    onclick=\"abrirModalDescarte('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Memorando']}')\">
+                                    <i class='bi bi-archive-fill'></i>
+                                  </button>
+                                </td>";
+                        } else {
+                            echo "<td class='text-center'>
+                                  <button class='btn btn-primary btn-sm' title='Editar'
+                                    onclick=\"abrirModalEditar('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                                    <i class='bi bi-pencil-fill'></i>
+                                  </button>
+                                  <button class='btn btn-danger btn-sm' title='Excluir'
+                                    onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                                    <i class='bi bi-trash-fill'></i>
+                                  </button>
+                                  <button class='btn btn-secondary btn-sm' title='Patrimônio já descartado' disabled>
+                                    <i class='bi bi-archive-fill'></i>
+                                  </button>
+                                </td>";
+                        }
+                        echo "</tr>";
+                    }
+                } else {
+                    echo "<tr><td colspan='8' class='text-center'>Nenhum patrimônio encontrado</td></tr>";
+                }
+
+                close_connection($conn);
+            } catch (Exception $e) {
+                if (isset($conn)) {close_connection($conn);}
+                echo "<tr><td colspan='8' class='text-center text-danger'>Erro ao exibir registros: " . $e->getMessage() . "</td></tr>";
+            }
             ?>
           </tbody>
         </table>
