@@ -11,16 +11,22 @@ if (!$idPatrimonioExcluir) {
   exit;
 }
 
-$conn = open_connection();
-
-$sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
-$resultCheck = mysqli_execute_query($conn, $sqlCheck, [$idPatrimonioExcluir]);
-$row = mysqli_fetch_assoc($resultCheck);
-
-if ($row['total'] == 0) {
-  $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir não foi encontrado!";
+try {
+  $conn = open_connection();
+  $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
+  $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$idPatrimonioExcluir]);
+  $row = mysqli_fetch_assoc($resultCheck);
+  if ($row['total'] == 0) {
+    $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir não foi encontrado!";
+    $_SESSION['message_type'] = 'error';
+    close_connection($conn);
+    header('Location: ../index.php');
+    exit;
+  }
+} catch (Exception $e) {
+  $_SESSION['message'] = "Erro ao verificar patrimônio: " . $e->getMessage();
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
+  if (isset($conn)) {close_connection($conn);}
   header('Location: ../index.php');
   exit;
 }
@@ -35,7 +41,6 @@ try {
   $_SESSION['message_type'] = 'error';
 }
 
-close_connection($conn);
+if (isset($conn)) {close_connection($conn);}
 header('Location: ../index.php');
-exit;
 ?>

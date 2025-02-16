@@ -14,9 +14,9 @@ if (!$numeroPatrimonio || !$memorando || !$localizacao || !$descricaoLocalizacao
   exit;
 }
 
-$conn = open_connection();
 
 try {
+  $conn = open_connection();
   $checkSql = "SELECT Status FROM patrimonio WHERE N_Patrimonio = ?";
   $result = mysqli_execute_query($conn, $checkSql, [$numeroPatrimonio]);
   $status = mysqli_fetch_assoc($result)['Status'];
@@ -30,7 +30,7 @@ try {
 } catch (Exception $e) {
   $_SESSION['message'] = "Erro ao verificar status: " . $e->getMessage();
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
+  if (isset($conn)) {close_connection($conn);}
   header('Location: ../index.php');
   exit;
 }
@@ -46,7 +46,6 @@ try {
   $_SESSION['message_type'] = 'error';
 }
 
-close_connection($conn);
+if (isset($conn)) {close_connection($conn);}
 header('Location: ../index.php');
-exit;
 ?>

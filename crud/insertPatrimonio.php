@@ -28,16 +28,22 @@ if ($status === 'Descarte' && !$memorando) {
   exit;
 }
 
-$conn = open_connection();
-
-$sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
-$resultCheck = mysqli_execute_query($conn, $sqlCheck, [$numeroPatrimonio]);
-$row = mysqli_fetch_assoc($resultCheck);
-
-if ($row['total'] > 0) {
-  $_SESSION['message'] = "O patrimônio $numeroPatrimonio já foi cadastrado!";
+try {
+  $conn = open_connection();
+  $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
+  $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$numeroPatrimonio]);
+  $row = mysqli_fetch_assoc($resultCheck);
+  if ($row['total'] > 0) {
+    $_SESSION['message'] = "O patrimônio $numeroPatrimonio já foi cadastrado!";
+    $_SESSION['message_type'] = 'error';
+    close_connection($conn);
+    header('Location: ../index.php');
+    exit;
+  }
+} catch (Exception $e) {
+  $_SESSION['message'] = "Erro ao verificar patrimônio: " . $e->getMessage();
   $_SESSION['message_type'] = 'error';
-  close_connection($conn);
+  if (isset($conn)) {close_connection($conn);}
   header('Location: ../index.php');
   exit;
 }
@@ -61,7 +67,6 @@ try {
   $_SESSION['message_type'] = 'error';
 }
 
-close_connection($conn);
+if (isset($conn)) {close_connection($conn);}
 header('Location: ../index.php');
-exit;
 ?>
