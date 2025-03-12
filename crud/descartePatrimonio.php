@@ -14,6 +14,12 @@ if (!$numeroPatrimonio || !$memorando || !$localizacao || !$descricaoLocalizacao
   exit;
 }
 
+if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+  $_SESSION['message'] = "Você não tem permissão para descartar neste local.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
 
 try {
   $conn = open_connection();

@@ -15,6 +15,13 @@ if (!$numeroPatrimonio || !$descricao || !$dataEntrada || !$localizacao || !$des
   exit;
 }
 
+if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+  $_SESSION['message'] = "Você não tem permissão para atualizar este patrimônio.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
 try {
   $conn = open_connection();
   $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";

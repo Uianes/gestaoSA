@@ -2,6 +2,13 @@
 session_start();
 include '../db_connection.php';
 
+if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+  $_SESSION['message'] = "Você não tem permissão para cadastrar neste local.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
 $numeroPatrimonio = !empty($_POST['numeroPatrimonio']) ? $_POST['numeroPatrimonio'] : NULL;
 $descricao = !empty($_POST['descricao']) ? $_POST['descricao'] : NULL;
 $dataEntrada = !empty($_POST['dataEntrada']) ? $_POST['dataEntrada'] : NULL;

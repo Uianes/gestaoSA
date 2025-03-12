@@ -13,6 +13,27 @@ if (!$idPatrimonioExcluir) {
 
 try {
   $conn = open_connection();
+
+  $sqlLocal = "SELECT Localizacao FROM patrimonio WHERE N_Patrimonio = ?";
+  $resultadoLocal = mysqli_execute_query($conn, $sqlLocal, [$idPatrimonioExcluir]);
+  $rowLocal = mysqli_fetch_assoc($resultadoLocal);
+  
+  if (!$rowLocal) {
+    $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir não foi encontrado!";
+    $_SESSION['message_type'] = 'error';
+    close_connection($conn);
+    header('Location: ../index.php');
+    exit;
+  }
+
+  if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $rowLocal['Localizacao']) {
+    $_SESSION['message'] = "Você não tem permissão para excluir este patrimônio.";
+    $_SESSION['message_type'] = 'error';
+    close_connection($conn);
+    header('Location: ../index.php');
+    exit;
+  }
+
   $sqlCheck = "SELECT COUNT(*) as total FROM patrimonio WHERE N_Patrimonio = ?";
   $resultCheck = mysqli_execute_query($conn, $sqlCheck, [$idPatrimonioExcluir]);
   $row = mysqli_fetch_assoc($resultCheck);
