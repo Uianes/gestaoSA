@@ -7,12 +7,13 @@
       </div>
       <form action="./crud/insertPatrimonio.php" method="POST">
         <div class="modal-body">
-          <div class="input-group mb-3">
+          <div class="input-group">
             <span class="input-group-text">Nº Patrimônio</span>
-            <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioCadastrar" oninput="atualizarContador(this, 'contadorNumeroPatrimonioCadastrar')" maxlength="20" required>
-            <span class="input-group-text" id="contadorNumeroPatrimonioCadastrar">0/20</span>
+            <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioCadastrar" oninput="atualizarContador(this, 'contadorNumeroPatrimonioCadastrar')" maxlength="44" required>
+            <span class="input-group-text" id="contadorNumeroPatrimonioCadastrar">0/44</span>
           </div>
-          <div class="input-group mb-3">
+          <small class="form-text text-muted">Caso não tenha sido patrimoniado, deve ser o número da NFe.</small>
+          <div class="input-group my-3">
             <span class="input-group-text">Descrição</span>
             <textarea class="form-control" name="descricao" id="descricaoCadastrar" required></textarea>
           </div>

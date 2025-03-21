@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `patrimonio` (
-  `N_Patrimonio` varchar(20) NOT NULL,
+  `N_Patrimonio` varchar(44) NOT NULL,
   `Descricao` text NOT NULL,
   `Data_Entrada` date NOT NULL,
   `Localizacao` set('EMEI Pequeno Paraíso','EMEI Vaga-Lume','EMEI Vovó Amália','EMEF Sol Nascente','EMEF Rui Barbosa','EMEF Antônio João','EMEF São João','EMEF Antônio Liberato','SME') NOT NULL,

@@ -21,7 +21,7 @@ function limparCampos() {
     });
 
     const contadores = {
-        "contadorNumeroPatrimonioCadastrar": "20",
+        "contadorNumeroPatrimonioCadastrar": "44",
         "contadorDescricaoLocalizacaoCadastrar": "500",
         "contadorMemorandoCadastrar": "30",
         "contadorMemorandoDescarte": "30"
