@@ -67,7 +67,7 @@ try {
     $status,
     $memorando
   ]);
-  $_SESSION['message'] = "O patrimônio $numeroPatrimonio foi cadastrado com sucesso!";
+  $_SESSION['message'] = "O patrimônio '$numeroPatrimonio' foi cadastrado com sucesso!";
   $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
   $_SESSION['message'] = "Erro ao cadastrar patrimônio: " . $e->getMessage();

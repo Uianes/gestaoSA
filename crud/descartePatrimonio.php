@@ -45,7 +45,7 @@ try {
   $sql = "UPDATE patrimonio
           SET Status = 'Descarte', Memorando = ?, Localizacao = ?, Descricao_Localizacao = ? WHERE N_Patrimonio = ?";
   mysqli_execute_query($conn, $sql, [$memorando, $localizacao, $descricaoLocalizacao, $numeroPatrimonio]);
-  $_SESSION['message'] = "O patrimônio $numeroPatrimonio foi descartado com sucesso!";
+  $_SESSION['message'] = "O patrimônio '$numeroPatrimonio' foi descartado com sucesso!";
   $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
   $_SESSION['message'] = "Erro ao descartar patrimônio: " . $e->getMessage();

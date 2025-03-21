@@ -55,7 +55,7 @@ try {
 try {
   $sql = "DELETE FROM patrimonio WHERE N_Patrimonio = ?";
   mysqli_execute_query($conn, $sql, [$idPatrimonioExcluir]);
-  $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir foi excluído com sucesso!";
+  $_SESSION['message'] = "O patrimônio '$idPatrimonioExcluir' foi excluído com sucesso!";
   $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
   $_SESSION['message'] = "Erro ao excluir patrimônio: " . $e->getMessage();

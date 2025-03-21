@@ -12,7 +12,7 @@
             <input type="text" class="form-control" name="numeroPatrimonio" id="numeroPatrimonioCadastrar" oninput="atualizarContador(this, 'contadorNumeroPatrimonioCadastrar')" maxlength="44" required>
             <span class="input-group-text" id="contadorNumeroPatrimonioCadastrar">0/44</span>
           </div>
-          <small class="form-text text-muted">Caso não tenha sido patrimoniado, deve ser o número da NFe.</small>
+          <small class="form-text text-muted">Caso não tenha sido gerado um número de patrimônio, utilize o número da NF-e.</small>
           <div class="input-group my-3">
             <span class="input-group-text">Descrição</span>
             <textarea class="form-control" name="descricao" id="descricaoCadastrar" required></textarea>

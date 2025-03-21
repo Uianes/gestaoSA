@@ -51,7 +51,7 @@ try {
     $descricaoLocalizacao,
     $numeroPatrimonio
   ]);
-  $_SESSION['message'] = "O patrimônio $numeroPatrimonio foi atualizado com sucesso!";
+  $_SESSION['message'] = "O patrimônio '$numeroPatrimonio' foi atualizado com sucesso!";
   $_SESSION['message_type'] = 'success';
 } catch (Exception $e) {
   $_SESSION['message'] = "Erro ao atualizar patrimônio: " . $e->getMessage();
