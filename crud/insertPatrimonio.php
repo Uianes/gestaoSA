@@ -2,7 +2,14 @@
 session_start();
 include '../db_connection.php';
 
-if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+if (!isset($_SESSION['user_local'])) {
+  $_SESSION['message'] = "Sessão inválida.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
+if ($_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
   $_SESSION['message'] = "Você não tem permissão para cadastrar neste local.";
   $_SESSION['message_type'] = 'error';
   header('Location: ../index.php');

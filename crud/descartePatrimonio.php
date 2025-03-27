@@ -2,6 +2,20 @@
 session_start();
 include '../db_connection.php';
 
+if (!isset($_SESSION['user_local'])) {
+  $_SESSION['message'] = "Sessão inválida.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
+if ($_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+  $_SESSION['message'] = "Você não tem permissão para descartar este patrimonio.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
 $numeroPatrimonio = !empty($_POST['numeroPatrimonio']) ? $_POST['numeroPatrimonio'] : null;
 $localizacao = !empty($_POST['localizacao']) ? $_POST['localizacao'] : null;
 $descricaoLocalizacao = !empty($_POST['descricaoLocalizacao']) ? $_POST['descricaoLocalizacao'] : null;
@@ -14,12 +28,6 @@ if (!$numeroPatrimonio || !$memorando || !$localizacao || !$descricaoLocalizacao
   exit;
 }
 
-if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
-  $_SESSION['message'] = "Você não tem permissão para descartar neste local.";
-  $_SESSION['message_type'] = 'error';
-  header('Location: ../index.php');
-  exit;
-}
 
 try {
   $conn = open_connection();

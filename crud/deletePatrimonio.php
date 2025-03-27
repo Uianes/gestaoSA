@@ -2,6 +2,20 @@
 session_start();
 include '../db_connection.php';
 
+if (!isset($_SESSION['user_local'])) {
+  $_SESSION['message'] = "Sessão inválida.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
+if ($_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+  $_SESSION['message'] = "Você não tem permissão para excluir este patrimonio.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
 $idPatrimonioExcluir = !empty($_POST['idPatrimonioExcluir']) ? $_POST['idPatrimonioExcluir'] : NULL;
 
 if (!$idPatrimonioExcluir) {
@@ -20,14 +34,6 @@ try {
   
   if (!$rowLocal) {
     $_SESSION['message'] = "O patrimônio $idPatrimonioExcluir não foi encontrado!";
-    $_SESSION['message_type'] = 'error';
-    close_connection($conn);
-    header('Location: ../index.php');
-    exit;
-  }
-
-  if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $rowLocal['Localizacao']) {
-    $_SESSION['message'] = "Você não tem permissão para excluir este patrimônio.";
     $_SESSION['message_type'] = 'error';
     close_connection($conn);
     header('Location: ../index.php');

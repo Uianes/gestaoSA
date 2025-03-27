@@ -2,6 +2,20 @@
 session_start();
 include '../db_connection.php';
 
+if (!isset($_SESSION['user_local'])) {
+  $_SESSION['message'] = "Sessão inválida.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
+if ($_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
+  $_SESSION['message'] = "Você não tem permissão para editar este patrimonio.";
+  $_SESSION['message_type'] = 'error';
+  header('Location: ../index.php');
+  exit;
+}
+
 $numeroPatrimonio = !empty($_POST['numeroPatrimonio']) ? $_POST['numeroPatrimonio'] : NULL;
 $descricao = !empty($_POST['descricao']) ? $_POST['descricao'] : NULL;
 $dataEntrada = !empty($_POST['dataEntrada']) ? $_POST['dataEntrada'] : NULL;
@@ -10,13 +24,6 @@ $descricaoLocalizacao = !empty($_POST['DescricaoLocalizacaoEditar']) ? $_POST['D
 
 if (!$numeroPatrimonio || !$descricao || !$dataEntrada || !$localizacao || !$descricaoLocalizacao) {
   $_SESSION['message'] = "Todos os campos são obrigatórios.";
-  $_SESSION['message_type'] = 'error';
-  header('Location: ../index.php');
-  exit;
-}
-
-if (isset($_SESSION['user_local']) && $_SESSION['user_local'] !== 'SME' && $_SESSION['user_local'] !== $localizacao) {
-  $_SESSION['message'] = "Você não tem permissão para atualizar este patrimônio.";
   $_SESSION['message_type'] = 'error';
   header('Location: ../index.php');
   exit;
