@@ -39,9 +39,17 @@ try {
               line-height: 30px;
           }
           body { font-family: Arial, sans-serif; font-size: 12px; margin-top: 40px; }
-          table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+          table { 
+            width: 100%; 
+            border-collapse: collapse; 
+            margin-bottom: 20px; 
+            table-layout: fixed; /* added line */
+          }
           table, th, td { border: 1px solid #000; }
-          th, td { padding: 5px; }
+          th, td { 
+            padding: 5px; 
+            word-wrap: break-word; /* added line */
+          }
           .page-break { page-break-after: always; }
         </style>
       </head>
