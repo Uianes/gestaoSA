@@ -127,6 +127,6 @@ function validarCheck(){
         modalInstance.hide();
         return true;
     }
-    alert('Selecione pelo menos uma Escola.');
+    alert('Selecione pelo menos um local.');
     return false;
 }
