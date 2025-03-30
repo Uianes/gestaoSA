@@ -159,11 +159,26 @@
                                       <i class='bi bi-pencil-fill'></i>
                                     </button>
                                     <button class='btn btn-danger btn-sm' title='Excluir'
-                                      onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                                      onclick=\"abrirModalExcluir(
+                                        '{$row['N_Patrimonio']}',
+                                        '$descricaoSemEnter',
+                                        '{$row['Data_Entrada']}',
+                                        '{$row['Localizacao']}',
+                                        '$descricaoLocalSemEnter',
+                                        '{$row['Status']}',
+                                        '{$row['Memorando']}'
+                                      )\">
                                       <i class='bi bi-trash-fill'></i>
                                     </button>
                                     <button class='btn btn-warning btn-sm' title='Descarte'
-                                      onclick=\"abrirModalDescarte('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Memorando']}')\">
+                                      onclick=\"abrirModalDescarte(
+                                        '{$row['N_Patrimonio']}',
+                                        '$descricaoSemEnter',
+                                        '{$row['Data_Entrada']}',
+                                        '{$row['Localizacao']}',
+                                        '$descricaoLocalSemEnter',
+                                        '{$row['Memorando']}'
+                                      )\">
                                       <i class='bi bi-archive-fill'></i>
                                     </button>
                                   </td>";
@@ -182,7 +197,15 @@
                                       <i class='bi bi-pencil-fill'></i>
                                     </button>
                                     <button class='btn btn-danger btn-sm' title='Excluir'
-                                      onclick=\"abrirModalExcluir('{$row['N_Patrimonio']}', '{$row['Descricao']}', '{$row['Data_Entrada']}', '{$row['Localizacao']}', '{$row['Descricao_Localizacao']}', '{$row['Status']}', '{$row['Memorando']}')\">
+                                      onclick=\"abrirModalExcluir(
+                                        '{$row['N_Patrimonio']}',
+                                        '$descricaoSemEnter',
+                                        '{$row['Data_Entrada']}',
+                                        '{$row['Localizacao']}',
+                                        '$descricaoLocalSemEnter',
+                                        '{$row['Status']}',
+                                        '{$row['Memorando']}'
+                                      )\">
                                       <i class='bi bi-trash-fill'></i>
                                     </button>
                                     <button class='btn btn-secondary btn-sm' title='Patrimônio já descartado' disabled>
